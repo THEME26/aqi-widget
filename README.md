@@ -60,6 +60,25 @@ Around the current location the app samples grid points on a circle at 10, 25 or
 
 Both can be displayed side by side for comparison. Each line is labelled with its own basis, and a missing key shows a placeholder instead of reusing the other source's value.
 
+### Getting a WAQI token
+
+The token is free and issued directly by the World Air Quality Index Project. The procedure is the same everywhere — only the language of the form changes, so mainland China is not a special case:
+
+1. Open the request form: [English](https://aqicn.org/data-platform/token/) · [简体中文](https://aqicn.org/data-platform/token/cn/) · [繁體中文](https://aqicn.org/data-platform/token/hk/). Other languages are linked from the same page.
+2. Tick the box confirming you accept the Terms of Service.
+3. Enter an email address and a name, then submit.
+4. The token arrives by email, normally within a few minutes. If nothing shows up, check the spam folder before requesting again — repeated requests create new tokens rather than resending the old one.
+5. Paste it into **Settings → WAQI token** in the app. It is stored locally and excluded from cloud backup.
+
+Terms that matter before you use it:
+
+- Free for non-commercial use. The data may not be sold, bundled into a paid app, or redistributed as a cached archive.
+- Attribution to the World Air Quality Index Project is mandatory. It is listed under [Attribution](#attribution) below, and the app labels every WAQI-derived line as `WAQI`.
+- The default quota is 1,000 requests per second, far above what a single phone needs.
+- Aqicn.org has no separate registration path for any region. The `/cn/` and `/hk/` links above are language versions served from the same host, not a different application process.
+
+If you skip this step entirely the app still works — Open-Meteo is the default source and needs no key.
+
 ### Languages
 
 Chinese, English, Japanese, Korean, French, Spanish and German.
