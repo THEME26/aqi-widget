@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AQI 바</string>
+    <string name="widget_main_label">AQI 카드 4×2</string>
+    <string name="widget_compact_label">AQI 컴팩트 2×1</string>
+    <string name="widget_mini_tall_label">AQI 숫자 1×2</string>
+    <string name="widget_mini_square_label">AQI 숫자 1×1</string>
+    <string name="channel_name">AQI 상시 알림</string>
+    <string name="channel_desc">상태 표시줄에 상시 표시되는 조용한 대기질 알림</string>
+
+    <string name="dash">– –</string>
+    <string name="getting">불러오는 중</string>
+    <string name="fresh_ok">실시간 추정값</string>
+    <string name="fresh_stale">데이터 오래됨</string>
+    <string name="ago_min">%d분 전</string>
+    <string name="ago_hour">%d시간 전</string>
+    <string name="ago_day">%d일 전</string>
+    <string name="fresh_failed">업데이트 불가</string>
+    <string name="fresh_no_location">위치 꺼짐</string>
+    <string name="fresh_no_permission">위치 권한 필요</string>
+    <string name="fresh_no_token">기본 소스에 WAQI 토큰이 필요합니다. 토큰을 입력하거나 OM 로컬 2024로 되돌리세요</string>
+
+    <string name="status_no_data">데이터 없음</string>
+    <string name="status_no_data_hint">이번에 가져오지 못했습니다. 이유는 아래에 표시됩니다</string>
+    <string name="sync_getting">가져오는 중…</string>
+    <string name="sync_switched">%1$s(으)로 전환했습니다. 다시 가져오는 중…</string>
+    <string name="sync_switched_source">기본 소스를 %1$s(으)로 변경했습니다. 다시 가져오는 중…</string>
+
+    <string name="notif_title">%1$d %2$s</string>
+    <string name="notif_text">%1$s · %2$s</string>
+    <string name="notif_placeholder">대기질 준비 중</string>
+    <string name="notif_public_text">아래로 당겨 확인</string>
+    <string name="notif_line_action">%1$s · %2$s · 의학적 조언 아님</string>
+    <string name="notif_line_where">%1$s · 주요 오염물질 %2$s · %3$s</string>
+    <string name="notif_line_src">%1$s · %2$s · 공식 발표 AQI 아님</string>
+    <string name="notif_line_dual">비교 %1$s %2$d</string>
+    <string name="notif_line_dual_none">비교 %1$s: %2$s</string>
+    <string name="mask_unknown_short">데이터 없음</string>
+    <string name="notif_big_hint">실시간 추정값 · US EPA 2024 기준 · 24h/8h/1h 평균 농도로 로컬 계산</string>
+    <string name="notif_big_hint_waqi_recalc">WAQI 재계산: 관측소 2012 부지수에서 등가 농도를 역산해 EPA 2024로 재계산. 추정값 ±2 AQI</string>
+    <string name="notif_big_hint_cn">중국 기준: 24h/8h 평균으로 로컬 계산, OM 단일 소스</string>
+
+    <string name="widget_time">업데이트 %1$s</string>
+    <string name="switch_area">주변 지역 표시</string>
+    <string name="switch_area_desc">Open-Meteo는 주변 8방위의 모델 격자를 하나씩(중심 포함 9칸) 가져오며 칸의 위치가 곧 방위입니다. WAQI는 가장 가까운 실측 측정소 9곳을 가져오며 중심이 가장 가깝고 시계 방향으로 멀어지며 반경 제한은 없습니다.</string>
+    <string name="widget_area">주변</string>
+    <string name="widget_no_station">관측소 미상</string>
+
+    <string name="mask_tier_go">외출 가능</string>
+    <string name="mask_tier_mask">마스크 필요</string>
+    <string name="mask_tier_stay">외출 자제</string>
+    <string name="mask_tier_go_advice">평소대로 야외 활동해도 됩니다</string>
+    <string name="mask_tier_mask_advice">얼굴에 밀착되는 N95 / KN95를 착용하고 야외 활동 시간을 줄이세요</string>
+    <string name="mask_tier_stay_advice">가능한 실내에 머물고 야외 활동을 피하세요</string>
+    <string name="mask_disclaimer">3단계는 AQI 구간(0–100 / 101–200 / ≥201)만으로 정해집니다. 의학적 조언이 아니며 특정 오염물질을 겨냥한 것도 아닙니다. PM2.5가 주원인이면 밀착되는 N95 / KN95를 권장합니다. 민감군, 어린이, 노인, 심장·폐 질환자는 공식 지침과 본인 상태를 우선하세요.</string>
+
+    <string name="dual_secondary">비교 · %1$s: %2$d %3$s %4$s (추정값 ±2 AQI)</string>
+    <string name="dual_cn_single">중국 기준 모드는 OM 단일 소스라 비교가 없습니다</string>
+    <string name="dual_hint">두 소스는 서로 검증할 수 없습니다. OM은 CAMS 모델 격자와 24h/8h/1h 평균, WAQI 재계산은 관측소 공개 부지수에서 등가 농도를 역산해 EPA 2024로 재계산한 추정값입니다. 단계가 다를 수 있으며 상태 표시줄은 기본 소스만 따릅니다.</string>
+    <string name="secondary_no_token">WAQI 토큰 필요 (aqicn.org/data-platform/token 에서 무료 발급)</string>
+    <string name="secondary_unavailable">사용 불가</string>
+
+    <string name="attribution">US AQI: Open-Meteo / CAMS, EPA 2024 기준, 로컬 평균 계산. CN AQI: Open-Meteo / CAMS, HJ 633-2012, 로컬 평균 계산</string>
+    <string name="attribution_us">출처: Open-Meteo / CAMS · US EPA 2024 기준 · 24h/8h/1h 평균 로컬 계산</string>
+    <string name="attribution_cn">출처: Open-Meteo / CAMS · HJ 633-2012 · 24h/8h 평균 로컬 계산</string>
+    <string name="disclaimer">실시간 추정값이며 공식 발표 AQI가 아닙니다. 농도는 기준표가 정한 시간 창(US EPA 2024: PM2.5/PM10 24h, O₃/CO 8h, NO₂/SO₂ 1h)으로 먼저 평균한 뒤 적용합니다. 순간 최고값을 24h 기준에 넣으면 크게 높게 나옵니다. Open-Meteo는 CAMS 모델 격자이므로 지상 관측소나 aqicn / AirNow 값과 소스·평균 창·관측 시각 차이로 일치하지 않으며 서로 검증할 수 없습니다. aqicn은 여전히 EPA 2012 구 기준(122 µg/m³ → 185, 2024는 198)을 씁니다.</string>
+
+    <string name="widget_diag">이 앱의 위젯 %1$d개를 인식했습니다</string>
+    <string name="widget_diag_zero">위젯을 찾지 못했습니다. 최신 버전을 설치하거나 런처를 다시 시작하세요</string>
+    <string name="widget_add_hint">위젯이 안 보이면 홈 화면 빈 곳을 길게 눌러 위젯을 선택하세요. 일부 ROM은 하위 메뉴에 숨겨 둡니다. 아래 버튼으로도 추가할 수 있습니다.</string>
+    <string name="toast_pin_ok">런처에 추가 요청을 보냈습니다. 대화상자에서 확인하세요</string>
+    <string name="toast_pin_unsupported">이 런처는 바로 추가를 지원하지 않습니다. 홈 화면을 길게 누르세요</string>
+    <string name="toast_pin_failed">추가하지 못했습니다. 직접 추가해 주세요</string>
+
+    <string name="standard_desc_us">미국: 기본 소스는 OM 로컬 2024입니다. Open-Meteo 원시 농도를 US EPA 2024 기준(PM2.5 9.0 / 35.4 / 55.4 / 125.4 / 225.4 / 325.4 / 500.4)으로 계산하며, 농도를 먼저 24h/8h/1h로 평균합니다. 토큰 불필요. aqicn 등 대부분 온라인 변환기는 아직 2012 구표를 써서 같은 농도에서 더 낮게 나옵니다.</string>
+    <string name="standard_desc_cn">중국 기준: 같은 Open-Meteo 농도를 HJ 633-2012로 계산하고 24h/8h로 먼저 평균합니다. 토큰 불필요, OM 단일 소스, 비교 없음. 모델 격자 데이터라 지상 관측소와 다를 수 있습니다.</string>
+
+    <string name="source_diff_hint">aqicn이나 공식 사이트와 숫자가 다른 이유: 이 앱은 Open-Meteo의 CAMS 모델 격자를, aqicn과 AirNow는 지상 관측소를 읽습니다. 소스, 공간 대표성, 관측 시각이 달라 일치하지 않습니다. aqicn은 여전히 EPA 2012 구 기준이라 더 낮게 나옵니다. 기본 소스를 바꾸거나 WAQI 재계산을 켜서 비교할 수 있지만 두 줄은 서로 검증값이 아닙니다.</string>
+
+    <string name="explain_toggle_more">설명과 산출 근거</string>
+    <string name="explain_toggle_less">설명 접기</string>
+
+
+
+    <string name="token_label">WAQI 토큰 (재계산 소스에 필요)</string>
+    <string name="token_hint">토큰 붙여넣기</string>
+    <string name="btn_refresh_now">지금 새로고침</string>
+
+    <string name="coord_hint">위도,경도  예: 39.9042,116.4074</string>
+    <string name="btn_save_coord">좌표 저장 후 새로고침</string>
+    <string name="toast_coord_saved">좌표를 저장했습니다. 새로고침 중…</string>
+
+    <string name="notif_policy_alert_only">마스크가 필요할 때만 (AQI ≥ 101)</string>
+    <string name="notif_policy_always">항상 상시 표시, 숫자 포함</string>
+    <string name="notif_policy_never">알림 끄기</string>
+
+    <string name="hint_notif_denied">알림 권한이 거부되었습니다. 새로고침은 계속 동작하지만 상태 표시줄과 잠금 화면에는 보이지 않습니다.</string>
+    <string name="hint_lock_dep">잠금 화면 표시 여부는 최종적으로 시스템 알림 채널 설정을 따릅니다.</string>
+
+    <string name="toast_saved">저장했습니다. 새로고침 중…</string>
+    <string name="toast_token_empty">토큰은 비울 수 없습니다</string>
+    <string name="toast_settings_unavailable">이 시스템에는 해당 설정 화면이 없습니다</string>
+
+    <!-- ══════════ v0.4.0 App 三屏 ══════════ -->
+    <string name="tab_today">오늘</string>
+    <string name="tab_detail">상세</string>
+    <string name="tab_settings">설정</string>
+    <string name="label_site">측정소</string>
+    <string name="grid_title">주변 %1$d km · %2$d 격자</string>
+    <string name="today_diff_high">주변이 %1$d 더 높음 · 도시 전체가 더 나쁨</string>
+    <string name="today_diff_low">주변이 %1$d 더 낮음 · 도시 전체가 더 좋음</string>
+    <string name="today_diff_same">주변과 측정소가 거의 같음</string>
+    <string name="today_no_area">주변 영역이 꺼져 있어 카드가 가장 가까운 측정소만 표시합니다. \'설정 → 데이터\'에서 켤 수 있습니다.</string>
+    <string name="poll_title">오염물질 부지수</string>
+    <string name="poll_sub">주요 %1$s</string>
+    <string name="poll_empty">부지수 없음</string>
+    <string name="detail_sub">%1$s · %2$s</string>
+    <string name="detail_cell">%1$d번째 칸 · %2$d%% 채움</string>
+    <string name="detail_tiers_title">6단계 의미</string>
+    <string name="detail_calc_title">산출 방식</string>
+    <string name="detail_calc_body">주요 오염물질 %1$s, %2$s 기준으로 계산하면 %3$d.</string>
+    <string name="detail_calc_area">주변 값은 반경 %1$d km 원주 위 %2$d개 지점의 중앙값(%3$d, 범위 %4$d–%5$d)이며 행정구역 평균이 아닙니다.</string>
+    <string name="detail_calc_no_area">주변 값이 없어 카드와 링은 가장 가까운 측정소만 반영합니다.</string>
+    <string name="detail_notice">참고용 값이며 공식 발표 AQI가 아닙니다. 모델 격자와 지상 측정소 값은 서로 검증할 수 없습니다.</string>
+    <string name="legend_site">측정소 %1$d</string>
+    <string name="legend_area">주변 %1$d</string>
+    <string name="tier_range">%1$d–%2$d</string>
+    <string name="group_data">데이터</string>
+    <string name="group_alert">알림</string>
+    <string name="group_location">위치</string>
+    <string name="group_widget">위젯</string>
+    <string name="group_perm">권한</string>
+    <string name="group_about">정보</string>
+    <string name="row_source">데이터 소스</string>
+    <string name="row_source_desc">기본값은 토큰 불필요</string>
+    <string name="row_standard">표시 기준</string>
+    <string name="row_radius">주변 반경</string>
+    <string name="row_radius_desc">10 km는 한 구, 25 km는 시가지, 50 km는 도시 전체에 가깝습니다. 모델 해상도는 약 45 km로 반경보다 큽니다.</string>
+    <string name="row_radius_rank_note">WAQI에서는 반경을 쓰지 않습니다(가장 가까운 9곳).</string>
+    <string name="row_interval">새로 고침 간격</string>
+    <string name="row_policy">알림 시점</string>
+    <string name="row_policy_desc">좋음·보통일 때는 조용히</string>
+    <string name="row_lock">잠금 화면에 전체 정보</string>
+    <string name="row_lock_desc">기본값은 숫자만</string>
+    <string name="row_coord">수동 좌표</string>
+    <string name="row_coord_desc">위치 권한이 거부되거나 위치를 못 얻을 때 대체</string>
+    <string name="perm_location">위치</string>
+    <string name="perm_notif">알림</string>
+    <string name="perm_battery">배터리 최적화 제외</string>
+    <string name="perm_battery_desc">백그라운드 새로 고침 유지</string>
+    <string name="perm_granted">허용됨</string>
+    <string name="perm_denied">미허용 · 눌러서 허용</string>
+    <string name="action_save">저장</string>
+    <string name="source_seg_om">Open-Meteo</string>
+    <string name="source_seg_waqi">WAQI</string>
+    <string name="standard_seg_us">미국 2024</string>
+    <string name="standard_seg_cn">중국</string>
+    <string name="radius_seg_10">10 km</string>
+    <string name="radius_seg_25">25 km</string>
+    <string name="interval_seg_30">30분</string>
+    <string name="interval_seg_60">60분</string>
+    <string name="interval_seg_120">120분</string>
+    <string name="policy_seg_alert">경고만</string>
+    <string name="policy_seg_always">항상</string>
+    <string name="policy_seg_never">끔</string>
+    <string name="about_version">AQI 상주 v%1$s (versionCode %2$d)</string>
+
+    <string name="station_dist">약 %1$.0f km</string>
+    <string name="detail_level_line">%1$s · %2$s</string>
+    <string name="detail_cell_empty">데이터가 없어 칸을 특정할 수 없습니다</string>
+    <string name="row_dual">두 소스 비교</string>
+    <string name="row_dual_desc">\'상세\'에서 다른 소스의 값과 산출 근거를 표시</string>
+
+    <string name="standard_short_us">미국 EPA 2024 기준 · 24h/8h/1h 평균으로 로컬 계산, 토큰 불필요</string>
+    <string name="standard_short_cn">중국 HJ 633-2012 · 24h/8h 평균 로컬 계산(단일 소스)</string>
+    <string name="today_no_area_data">주변 값을 아직 받지 못했습니다(다음 새로 고침에 들어올 수 있음). 가장 가까운 측정소만 표시</string>
+    <string name="foot_detail_link">근거와 6단계 보기 ›</string>
+
+    <string name="std_full_us">미국 AQI · EPA 2024 (로컬 계산)</string>
+    <string name="std_full_cn">중국 AQI · HJ 633-2012</string>
+
+    <!-- ══════════ v0.4.1 全语种文案（等级名 / 短标签 / 诊断行）══════════ -->
+    <string name="lv_good">좋음</string>
+    <string name="lv_moderate">보통</string>
+    <string name="lv_usg">민감군에 나쁨</string>
+    <string name="lv_unhealthy">나쁨</string>
+    <string name="lv_very_unhealthy">매우 나쁨</string>
+    <string name="lv_hazardous">위험</string>
+    <string name="lv_cn_good">좋음</string>
+    <string name="lv_cn_moderate">보통</string>
+    <string name="lv_cn_usg">경도 오염</string>
+    <string name="lv_cn_unhealthy">중도 오염</string>
+    <string name="lv_cn_very_unhealthy">심한 오염</string>
+    <string name="lv_cn_hazardous">심각한 오염</string>
+    <string name="std_short_us">미국 2024</string>
+    <string name="std_short_cn">중국</string>
+    <string name="src_short_om">Open-Meteo 로컬</string>
+    <string name="src_short_waqi">WAQI 역산</string>
+    <string name="station_model_grid">Open-Meteo 모델 격자</string>
+    <string name="diag_line">산출 기준: %1$s · %2$s %3$s → AQI %4$d</string>
+    <string name="diag_window_hours">%1$d시간 평균</string>
+    <string name="diag_window_instant">1시간 순간값</string>
+    <string name="diag_official">Open-Meteo 공식 %1$d</string>
+    <string name="diag_fallback">%1$d개 항목 이력 결측으로 순간값 대체</string>
+    <string name="diag_waqi">역산 기준: PM2.5 2012 부지수 %1$d → 등가 농도 %2$s µg/m³ → 미국 2024로 재계산 %3$d(실측 농도 아님, 오차 약 ±2). 나머지 5개 항목은 측정소 부지수 그대로 사용. 측정소 보고 AQI %4$d</string>
+    <string name="diag_waqi_high">측정소 보고 AQI가 반환된 부지수 최댓값보다 높아 미표시 오염물질이 있을 수 있습니다</string>
+    <string name="diag_waqi_tail"> · 평균 구간 미검증</string>
+
+    <!-- ══════════ v0.4.1 状态条与错误文案 ══════════ -->
+    <string name="sync_ok">업데이트됨 · %1$s · %2$s · %3$s</string>
+    <string name="sync_no_perm">위치 권한이 없습니다. 아래 \'위치 권한 켜기\'를 누르거나 수동 좌표를 입력하세요(위치를 완전히 우회할 수 있습니다)</string>
+    <string name="sync_no_loc">시스템에 저장된 위치가 없습니다. 위치를 켜고 지도나 날씨 앱을 한 번 열어 위치를 기록하게 하거나, 수동 좌표를 입력하세요</string>
+    <string name="sync_no_token">주 소스가 \'WAQI 역산 2024\'인데 토큰이 없습니다. aqicn.org/data-platform/token 에서 무료로 발급해 입력하거나, 주 소스를 \'Open-Meteo 로컬 2024\'로 되돌리세요(토큰 불필요)</string>
+    <string name="sync_manual_bad">수동 좌표 형식이 잘못되었습니다. \'위도,경도\'로 입력하세요. 예: 39.9042,116.4074 (위도 -90~90, 경도 -180~180)</string>
+    <string name="sync_up_to_date">이미 최신입니다(%1$s 업데이트, 새로 고침 간격 미도달)</string>
+    <string name="err_source">데이터 소스 오류: %1$s</string>
+    <string name="err_http">엔드포인트가 %1$s을(를) 반환했습니다(네트워크 차단 또는 서비스 일시 불가)</string>
+    <string name="err_no_aqi">이 좌표 근처에 유효한 AQI 값이 없습니다. 다른 좌표를 쓰거나 잠시 후 다시 시도하세요</string>
+    <string name="err_recalc">WAQI 역산 실패: %1$s. 주 소스를 Open-Meteo 로컬 2024로 되돌릴 수 있습니다</string>
+    <string name="err_timeout">요청 시간 초과: %1$s에 접속할 수 있는지 확인하세요</string>
+    <string name="err_dns">DNS 조회 실패: %1$s에 접속할 수 있는지 확인하세요</string>
+    <string name="err_io">네트워크 오류: %1$s %2$s</string>
+    <string name="err_other">가져오기 실패: %1$s %2$s</string>
+    <string name="err_waqi_key">WAQI가 Invalid key를 반환했습니다. 토큰이 유효하지 않거나 만료되었습니다. aqicn.org/data-platform/token 에서 확인 후 다시 붙여넣거나, 주 소스를 Open-Meteo 로컬 2024로 되돌리세요</string>
+    <string name="secondary_failed">가져오기 실패: %1$s</string>
+    <string name="station_unknown">측정소 미상</string>
+    <string name="station_model_grid_short">모델 격자</string>
+    <!-- v0.4.2 区域口径与圆周采样 -->
+    <string name="radius_seg_50">50 km</string>
+    <string name="widget_area_worst">최악</string>
+    <string name="row_area_worst">최악 지점 사용</string>
+    <string name="row_area_worst_desc">9개 지점 중 최댓값을 영역 값으로 씁니다(보수적). 기본값은 중앙값입니다.</string>
+    <string name="grid_mode_med">중앙값</string>
+    <string name="grid_mode_worst">최악 지점</string>
+    <string name="area_min">최저</string>
+    <string name="area_median">중앙</string>
+    <string name="area_max">최고</string>
+    <string name="detail_calc_area_worst">주변 값은 반경 %1$d km 원주 위 %2$d개 지점의 최댓값(%3$d, 범위 %4$d–%5$d)입니다. 중앙값은 이보다 낮습니다.</string>
+    <string name="detail_calc_res">모델 해상도는 약 45 km(CAMS 전구)라 칸 간 차이는 모델장 분포에서 오며 도로 단위 실측이 아닙니다.</string>
+
+    <!-- v0.4.4 点位详情 -->
+    <string-array name="bearings">
+        <item>북</item>
+        <item>북동</item>
+        <item>동</item>
+        <item>남동</item>
+        <item>남</item>
+        <item>서남</item>
+        <item>서</item>
+        <item>북서</item>
+    </string-array>
+    <string name="dlg_center">중심(현재 위치)</string>
+    <string name="dlg_title">%1$s · %2$d km</string>
+    <string name="dlg_coord">좌표 %1$s, %2$s</string>
+    <string name="dlg_source">데이터 CAMS 모델 격자, 약 45km</string>
+    <string name="dlg_time">데이터 시각 %1$s</string>
+    <string name="dlg_note">측정소가 아닙니다. Open-Meteo는 모델 격자만 제공하며 측정소 이름이나 ID가 없습니다. 실측이 필요하면 기본 소스를 WAQI로 바꾸고 토큰을 입력하세요.</string>
+    <string name="dlg_same_cell">중심과 값이 같습니다. 같은 모델 격자(약 45km)에 있을 가능성이 큽니다. 9개 지점이 두세 가지 값만 가지는 것은 흔한 일이며, 갱신이 멈춘 것이 아닙니다.</string>
+    <string name="dlg_missing">이 지점의 데이터가 없습니다</string>
+    <string name="dlg_close">확인</string>
+    <string name="grid_hint">%1$s 갱신 · 칸을 눌러 상세 보기</string>
+    <string name="grid_hint_none">칸을 눌러 상세 보기</string>
+    <string name="grid_hint_rank">중심이 가장 가까움 · 시계 방향으로 멀어짐 · 눌러서 이름 보기</string>
+    <string name="grid_note_station_failed">주변 측정소를 가져오지 못했습니다(%1$s). 대신 모델 격자로 표시합니다</string>
+    <string name="grid_note_via_search">측정소 목록 API를 쓸 수 없어 도시 이름으로 주변 측정소를 검색했습니다</string>
+    <string name="grid_title_station">가장 가까운 측정소 %1$d곳</string>
+    <string name="row_area_source">주변 데이터 소스</string>
+    <string name="row_area_source_desc">기본값은 기본 소스를 따릅니다. Open-Meteo는 약 45 km 모델 격자로 측정소 이름이 없습니다. WAQI는 실제 측정소로 이름과 거리가 있지만 새로고침마다 요청이 8회 더 발생합니다.</string>
+    <string name="area_src_follow">기본 소스 따르기</string>
+    <string name="dlg_title_station">%1$s · %2$.1f km</string>
+    <string name="dlg_title_rank">%1$s · %2$.1f km · 가까운 순 %3$d번째</string>
+    <string name="dlg_source_station">WAQI 지상 측정소, 2024 구간으로 재계산</string>
+    <string name="dlg_note_station">실제 측정소이지만 표시값은 측정소가 보고한 값이 아닙니다. 공개된 2012 구간 지수에서 PM2.5 등가 농도를 역산한 뒤 미국 EPA 2024 구간으로 다시 계산합니다. 구간이 달라 aqicn 화면 값과 몇 포인트 차이가 납니다.</string>
+    <string name="dlg_note_rank">격자는 거리순입니다. 중심이 가장 가까운 측정소이고, 나머지는 위에서부터 시계 방향으로 2번째~9번째로 가까운 곳입니다. 칸의 위치는 거리를 뜻하며 방위가 아닙니다.</string>
+    <string name="dlg_same_station">중심 측정소와 같은 값입니다. 인접 측정소는 같은 오염 과정에 있는 경우가 많고 1 미만의 차이는 반올림으로 사라집니다.</string>
+    <string name="detail_calc_ring_station">주변은 %1$d km 내 측정소 %2$d곳, 중앙값 %3$d(범위 %4$d–%5$d). 각 측정소는 2024 구간으로 재계산했습니다.</string>
+    <string name="detail_calc_ring_station_worst">주변은 %1$d km 내 측정소 %2$d곳, 최악값 %3$d(범위 %4$d–%5$d). 중앙값은 더 낮으며 각 측정소는 2024 구간으로 재계산했습니다.</string>
+    <string name="detail_calc_res_station">측정소는 지상에서 실측하며 위치(도로변·공원·옥상)의 영향을 크게 받습니다. 인접 측정소가 20 이상 차이 나는 것은 흔하며 둘 중 하나가 틀렸다는 뜻은 아닙니다.</string>
+<string name="toast_area_need_token">WAQI 측정소를 쓰려면 토큰이 필요합니다. 선택을 변경하지 않았습니다</string>
+    <!-- v0.4.9 상시 표시 -->
+
+    <!-- v0.5.0 시스템 상시 표시(Live Updates) -->
+    <string name="row_live">시스템 상시 표시</string>
+    <string name="live_state_unknown">확인 중…</string>
+    <string name="live_state_unsupported">이 Android 버전에서는 지원되지 않습니다(16 이상 필요)</string>
+    <string name="live_state_denied">이 앱의 실시간 알림이 허용되지 않았습니다. 눌러서 켜기</string>
+    <string name="live_state_pending">요청했지만 이 기기에서는 채택되지 않았습니다 — 지도와 배달만 허용하는 ROM도 있습니다</string>
+    <string name="live_state_ok">시스템이 채택함 · 잠금 화면에 안 보이면 여기를 눌러 실시간 업데이트를 켜세요</string>
+    <string name="live_state_off">꺼짐. 일반 상시 알림으로 돌아갑니다</string>
+    <string name="live_state_no_notif">현재 상시 알림이 없습니다 — 경고 시에만 모드에서는 좋음·보통일 때 알림이 표시되지 않습니다</string>
+</resources>

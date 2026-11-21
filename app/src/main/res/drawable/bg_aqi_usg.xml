@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 息屏屏保底部的等级色条（AqiLevel.bgRes / 无数据时用 neutral）。
+     v0.4.0 重建：这三行原本是 App 设置页的等级色渐变，重写三屏时整组删掉，
+     但屏保仍在用 bgRes —— 保留成纯色药丸，语义（等级色）不变。 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <solid android:color="@color/aqi_usg" />
+    <corners android:radius="99dp" />
+</shape>

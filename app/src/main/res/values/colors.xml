@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ===== 等级色：EPA / AirNow 官方 RGB，明暗两套保持一致 ===== -->
+    <color name="aqi_good">#00E400</color>
+    <color name="aqi_moderate">#FFFF00</color>
+    <color name="aqi_usg">#FF7E00</color>
+    <color name="aqi_unhealthy">#FF0000</color>
+    <color name="aqi_very_unhealthy">#8F3F97</color>
+    <color name="aqi_hazardous">#7E0023</color>
+
+    <!-- ===== 浅色模式（默认 values）：等级色在浅底上对比度不足，另给加深版 ink ===== -->
+    <color name="aqi_good_ink">#15803D</color>
+    <color name="aqi_moderate_ink">#A16207</color>
+    <color name="aqi_usg_ink">#C2410C</color>
+    <color name="aqi_unhealthy_ink">#B91C1C</color>
+    <color name="aqi_very_unhealthy_ink">#6D28D9</color>
+    <color name="aqi_hazardous_ink">#881337</color>
+
+    <!-- 纯色底最小款（1×1 / 1×2）上的文字色，按 WCAG 对比度单独选 -->
+
+    <!-- ===== 语义色：浅色模式 ===== -->
+    <color name="bg_app">#F4F6FA</color>
+    <color name="bg_card">#FFFFFF</color>
+    <color name="card_stroke">#DDE3ED</color>
+    <!-- v0.2.0 小部件玻璃卡：91% 白 + 顶部高光 + 10% 发丝描边（v0.1.9 的 97% 太实，像贴纸） -->
+    <color name="glass_base">#E8FFFFFF</color>
+    <color name="glass_sheen_top">#29FFFFFF</color>
+    <color name="glass_sheen_bottom">#00FFFFFF</color>
+    <color name="glass_hair">#1A000000</color>
+    <color name="text_primary">#101725</color>
+    <color name="text_secondary">#4A5768</color>
+    <color name="text_dim">#78859A</color>
+    <color name="accent">#2563EB</color>
+    <color name="divider">#E3E8F0</color>
+    <color name="chip_soft">#14101825</color>
+    <color name="ic_launcher_background">#0F172A</color>
+    <!-- ===== v0.4.0 App 三屏：内层块 / 分段控件滑块 ===== -->
+    <color name="surface_2">#F7F9FC</color>
+    <color name="seg_thumb">#FFFFFF</color>
+</resources>

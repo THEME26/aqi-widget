@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 最小款没有文字位：数据陈旧时右下角显示这个灰点，不破坏「颜色=等级」的直读语义 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval">
+    <solid android:color="@color/text_secondary" />
+    <size android:width="4dp" android:height="4dp" />
+</shape>

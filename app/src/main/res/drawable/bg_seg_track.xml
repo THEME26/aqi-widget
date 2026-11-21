@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 分段控件底槽：11dp 圆角、比卡片深一档，滑块浮在上面才有层次 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <solid android:color="@color/surface_2" />
+    <corners android:radius="11dp" />
+</shape>

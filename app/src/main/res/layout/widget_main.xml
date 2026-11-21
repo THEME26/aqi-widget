@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- v0.3.0 · 4×2 主卡
+
+     结构：一块玻璃 + 上层一条纵向渐变（区域档色 → 本站档色）+ 左侧三行信息 + 右侧六格环。
+
+     渐变不是背景 drawable，而是一个 ImageView：它在运行时被 setImageViewBitmap
+     塞进一张 2×256 的竖条，由 fitXY 横向拉满。这样「区域色 → 本站色」可以随数据变化，
+     而 drawable 做不到（RemoteViews 只能换资源，不能改 shape 的颜色）。
+
+     clipToOutline 让渐变的直角被父容器的圆角 outline 裁掉 —— 否则四角会露出色块。
+     退化情况（个别 ROM 忽略该属性）下溢出量只有 1~2px，且渐变 alpha 仅 8~13%，不可见。
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_card_glass"
+    android:clipToOutline="true">
+
+    <ImageView
+        android:id="@+id/aqi_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@null"
+        android:scaleType="fitXY" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="20dp"
+        android:paddingTop="14dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="13dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <!-- 区域胶囊（v0.4.3）：只放一个按档上色的数字，不再带「周边 / 最差」标签。
+                 标签在 2×1 里会跟主数字抢宽度，把三位数挤成两位；而且标签是「口径」，
+                 颜色本身已经说明了档位，多一个字只是多余。 -->
+            <LinearLayout
+                android:id="@+id/aqi_area_row"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_chip"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="8dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="2dp">
+
+                <TextView
+                    android:id="@+id/aqi_area_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:text="@string/dash"
+                    android:textColor="@color/text_primary"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- 动作词：桌面上扫一眼要的是结论，不是分类名 -->
+            <TextView
+                android:id="@+id/aqi_level"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:includeFontPadding="false"
+                android:letterSpacing="-0.03"
+                android:maxLines="1"
+                android:text="@string/getting"
+                android:textColor="@color/aqi_usg_ink"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/aqi_meta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:text="@string/dash"
+                android:textColor="@color/text_secondary"
+                android:textSize="10sp" />
+
+            <!-- 数据陈旧时的唯一提示：不改变数字与颜色，只加一行小字 -->
+            <TextView
+                android:id="@+id/aqi_stale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:textColor="@color/aqi_usg_ink"
+                android:textSize="9sp"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <!-- 78dp = 环 66dp + 四周各 6dp 光晕。环心即框心，数字才能真的居中 -->
+        <FrameLayout
+            android:layout_width="78dp"
+            android:layout_height="78dp"
+            android:layout_marginStart="8dp">
+
+            <ViewFlipper
+                android:id="@+id/aqi_pulse"
+                android:layout_width="78dp"
+                android:layout_height="78dp"
+                android:layout_gravity="center"
+                android:autoStart="true"
+                android:flipInterval="2000"
+                android:inAnimation="@anim/pulse_in"
+                android:outAnimation="@anim/pulse_out">
+
+                <ImageView
+                    android:id="@+id/aqi_pulse_1"
+                    android:layout_width="78dp"
+                    android:layout_height="78dp"
+                    android:alpha="1.00"
+                    android:contentDescription="@null"
+                    android:scaleType="fitCenter" />
+
+                <ImageView
+                    android:id="@+id/aqi_pulse_2"
+                    android:layout_width="78dp"
+                    android:layout_height="78dp"
+                    android:alpha="0.55"
+                    android:contentDescription="@null"
+                    android:scaleType="fitCenter" />
+
+                <ImageView
+                    android:id="@+id/aqi_pulse_3"
+                    android:layout_width="78dp"
+                    android:layout_height="78dp"
+                    android:alpha="0.76"
+                    android:contentDescription="@null"
+                    android:scaleType="fitCenter" />
+            </ViewFlipper>
+
+            <ImageView
+                android:id="@+id/aqi_gauge"
+                android:layout_width="66dp"
+                android:layout_height="66dp"
+                android:layout_gravity="center"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                android:id="@+id/aqi_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:includeFontPadding="false"
+                android:letterSpacing="-0.04"
+                android:maxLines="1"
+                android:text="@string/dash"
+                android:textColor="@color/text_primary"
+                android:textSize="21sp"
+                android:textStyle="bold" />
+        </FrameLayout>
+    </LinearLayout>
+</FrameLayout>

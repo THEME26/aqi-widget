@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AQI Bar</string>
+
+    <string name="widget_main_label">AQI card 4×2</string>
+    <string name="widget_compact_label">AQI compact 2×1</string>
+    <string name="widget_mini_tall_label">AQI number 1×2</string>
+    <string name="widget_mini_square_label">AQI number 1×1</string>
+
+    <string name="channel_name">AQI status</string>
+    <string name="channel_desc">Silent, non-vibrating air quality reminder in the status bar</string>
+
+    <string name="dash">– –</string>
+    <string name="getting">Loading</string>
+
+    <string name="fresh_ok">Live estimate</string>
+    <string name="fresh_stale">Outdated</string>
+    <string name="ago_min">%d min ago</string>
+    <string name="ago_hour">%d h ago</string>
+    <string name="ago_day">%d d ago</string>
+    <string name="fresh_failed">Cannot update</string>
+    <string name="fresh_no_location">Location off</string>
+    <string name="fresh_no_permission">Location permission needed</string>
+    <string name="fresh_no_token">Primary source needs a WAQI token. Add one, or switch back to OM local 2024</string>
+
+    <string name="status_no_data">No data</string>
+    <string name="status_no_data_hint">Nothing was fetched this time. See the reason below</string>
+    <string name="sync_getting">Fetching…</string>
+    <string name="sync_switched">Switched to %1$s, refetching…</string>
+    <string name="sync_switched_source">Primary source set to %1$s, refetching…</string>
+
+    <string name="notif_title">%1$d %2$s</string>
+    <string name="notif_text">%1$s · %2$s</string>
+    <string name="notif_placeholder">Preparing air quality</string>
+    <string name="notif_public_text">Pull down for air quality</string>
+    <string name="notif_line_action">%1$s · %2$s · Not medical advice</string>
+    <string name="notif_line_where">%1$s · %2$s dominant · %3$s</string>
+    <string name="notif_line_src">%1$s · %2$s · Not an official AQI</string>
+    <string name="notif_line_dual">Compare %1$s %2$d</string>
+    <string name="notif_line_dual_none">Compare %1$s: %2$s</string>
+    <string name="mask_unknown_short">No data</string>
+    <string name="notif_big_hint">Live estimate · US EPA 2024 breakpoints · computed locally from 24h/8h/1h averaged concentrations</string>
+    <string name="notif_big_hint_waqi_recalc">WAQI recalculation: station 2012 sub-index → equivalent concentration → EPA 2024. Derived, ±2 AQI</string>
+    <string name="notif_big_hint_cn">CN standard: local computation from 24h/8h averages, single OM source</string>
+
+    <string name="widget_time">Updated %1$s</string>
+    <string name="switch_area">Show surrounding area</string>
+    <string name="switch_area_desc">Open-Meteo mode samples one model cell in each of the 8 directions around you (9 cells, centre included) — a cell\'s position is its compass direction. WAQI mode takes the 9 nearest monitoring stations: nearest in the centre, then clockwise by distance, with no radius limit.</string>
+    <string name="widget_area">Area</string>
+    <string name="widget_no_station">Unknown station</string>
+
+    <string name="mask_tier_go">Go out</string>
+    <string name="mask_tier_mask">Wear a mask</string>
+    <string name="mask_tier_stay">Stay indoors</string>
+    <string name="mask_tier_go_advice">Normal outdoor activity is fine</string>
+    <string name="mask_tier_mask_advice">Wear a fitted N95 / KN95 and shorten time outdoors</string>
+    <string name="mask_tier_stay_advice">Stay indoors and avoid outdoor activity</string>
+    <string name="mask_disclaimer">The three levels map only to AQI ranges (0–100 / 101–200 / ≥201). This is not medical advice. If PM2.5 dominates, a fitted N95 / KN95 is recommended. Sensitive groups, children, the elderly and people with heart or lung disease should follow official guidance and their own symptoms.</string>
+
+    <string name="dual_secondary">Compare · %1$s: %2$d %3$s %4$s (derived, ±2 AQI)</string>
+    <string name="dual_cn_single">CN mode uses a single OM source, no comparison</string>
+    <string name="dual_hint">The two sources are not interchangeable. OM is a CAMS model grid with local 24h/8h/1h averaging; WAQI derives an equivalent concentration from published station sub-indices and recomputes with EPA 2024 (derived, ±2 AQI). Levels may disagree; the status bar follows the primary source only.</string>
+    <string name="secondary_no_token">WAQI token required (free at aqicn.org/data-platform/token)</string>
+    <string name="secondary_unavailable">Unavailable</string>
+
+    <string name="attribution">US AQI: Open-Meteo / CAMS by default, EPA 2024 breakpoints, local averaging. Optional WAQI recalculation. CN AQI: Open-Meteo / CAMS, HJ 633-2012, local averaging</string>
+    <string name="attribution_us">Source: Open-Meteo / CAMS · US EPA 2024 breakpoints · local 24h/8h/1h averaging</string>
+    <string name="attribution_cn">Source: Open-Meteo / CAMS · HJ 633-2012 · local 24h/8h averaging</string>
+    <string name="disclaimer">Live estimate, not an official published AQI. Concentrations are averaged over the windows the breakpoint table requires (US EPA 2024: PM2.5/PM10 24h, O₃/CO 8h, NO₂/SO₂ 1h) before lookup. Feeding an instantaneous peak into 24h breakpoints inflates the result badly. Open-Meteo is a CAMS model grid, so values differ from ground monitors and from aqicn / AirNow by source, averaging window and observation time; they cannot validate each other. aqicn still uses EPA 2012 breakpoints (122 µg/m³ → 185 instead of 198).</string>
+
+    <string name="widget_diag">%1$d widgets from this app are registered</string>
+    <string name="widget_diag_zero">No widgets found. Install the latest build, or restart the launcher</string>
+    <string name="widget_add_hint">Cannot find the widget? Most phones require a long press on the home screen, then Widgets. Some ROMs hide third-party widgets in a submenu. You can also use the buttons below.</string>
+    <string name="toast_pin_ok">Request sent to the launcher, confirm the dialog</string>
+    <string name="toast_pin_unsupported">This launcher cannot add widgets directly. Long press the home screen and pick Widgets</string>
+    <string name="toast_pin_failed">Could not add. Long press the home screen and add it manually</string>
+
+    <string name="standard_desc_us">US: primary source is OM local 2024 — raw Open-Meteo concentrations computed with US EPA 2024 breakpoints (PM2.5 9.0 / 35.4 / 55.4 / 125.4 / 225.4 / 325.4 / 500.4). Concentrations are averaged over 24h/8h/1h first. No token needed. Most online converters, including aqicn, still use the 2012 table and read lower for the same concentration.</string>
+    <string name="standard_desc_cn">CN: the same Open-Meteo concentrations computed with HJ 633-2012, averaged over 24h/8h first. No token, single source, no comparison. Model grid data may differ from ground monitors.</string>
+
+    <string name="source_diff_hint">Why is this different from aqicn or the official site? This app reads Open-Meteo CAMS model grid data, while aqicn and AirNow read ground monitors. Source, spatial coverage and observation time all differ, so the numbers never match. aqicn also still uses EPA 2012 breakpoints, which read lower. You can switch the primary source or enable the WAQI recalculation for comparison, but the two rows are not validation of each other.</string>
+
+    <string name="explain_toggle_more">Details</string>
+    <string name="explain_toggle_less">Hide details</string>
+
+
+
+    <string name="token_label">WAQI token (needed for the recalculation source)</string>
+    <string name="token_hint">Paste your token</string>
+    <string name="btn_refresh_now">Refresh now</string>
+
+    <string name="coord_hint">lat,lon  e.g. 39.9042,116.4074</string>
+    <string name="btn_save_coord">Save coordinates and refresh</string>
+    <string name="toast_coord_saved">Coordinates saved, refreshing…</string>
+
+    <string name="notif_policy_alert_only">Only when a mask is needed (AQI ≥ 101)</string>
+    <string name="notif_policy_always">Always show, with the number</string>
+    <string name="notif_policy_never">No notification</string>
+
+    <string name="hint_notif_denied">Notification permission denied: refreshing still runs, but nothing appears in the status bar or lock screen.</string>
+    <string name="hint_lock_dep">Lock screen visibility is ultimately controlled by the system notification channel and can be overridden anytime.</string>
+
+    <string name="toast_saved">Saved, refreshing…</string>
+    <string name="toast_token_empty">Token cannot be empty</string>
+    <string name="toast_settings_unavailable">This settings page is not available on this system</string>
+
+    <!-- ══════════ v0.4.0 App 三屏 ══════════ -->
+    <string name="tab_today">Today</string>
+    <string name="tab_detail">Details</string>
+    <string name="tab_settings">Settings</string>
+    <string name="label_site">Site</string>
+    <string name="grid_title">%1$d km around you · %2$d grid points</string>
+    <string name="today_diff_high">Area is %1$d higher · the city runs worse than your spot</string>
+    <string name="today_diff_low">Area is %1$d lower · the city runs better than your spot</string>
+    <string name="today_diff_same">Area and site are about the same</string>
+    <string name="today_no_area">Area layer is off, so the card shows the nearest station only. Enable it in Settings → Data.</string>
+    <string name="poll_title">Pollutant sub-indices</string>
+    <string name="poll_sub">Dominant %1$s</string>
+    <string name="poll_empty">No sub-indices</string>
+    <string name="detail_sub">%1$s · %2$s</string>
+    <string name="detail_cell">Cell %1$d · %2$d%% filled</string>
+    <string name="detail_tiers_title">Six tiers</string>
+    <string name="detail_calc_title">How it is calculated</string>
+    <string name="detail_calc_body">Dominant pollutant %1$s, computed with %2$s breakpoints → %3$d.</string>
+    <string name="detail_calc_area">Area = median of %2$d model points on a circle of radius %1$d km (%3$d, range %4$d–%5$d), not an administrative average.</string>
+    <string name="detail_calc_no_area">No area value; the card and ring reflect the nearest station only.</string>
+    <string name="detail_notice">Reference value, not an official published AQI. Model grids and ground stations are not comparable and cannot validate each other.</string>
+    <string name="legend_site">Site %1$d</string>
+    <string name="legend_area">Area %1$d</string>
+    <string name="tier_range">%1$d–%2$d</string>
+    <string name="group_data">Data</string>
+    <string name="group_alert">Alerts</string>
+    <string name="group_location">Location</string>
+    <string name="group_widget">Widgets</string>
+    <string name="group_perm">Permissions</string>
+    <string name="group_about">About</string>
+    <string name="row_source">Source</string>
+    <string name="row_source_desc">No token needed by default</string>
+    <string name="row_standard">Standard</string>
+    <string name="row_radius">Area radius</string>
+    <string name="row_radius_desc">10 km is a district, 25 km the built-up area, 50 km roughly the whole city. Model resolution is about 45 km, coarser than the radius itself.</string>
+    <string name="row_radius_rank_note">WAQI mode ignores the radius: it takes the 9 nearest stations.</string>
+    <string name="row_interval">Refresh interval</string>
+    <string name="row_policy">When to notify</string>
+    <string name="row_policy_desc">Quiet when good or moderate</string>
+    <string name="row_lock">Full info on lock screen</string>
+    <string name="row_lock_desc">Numeric value only by default</string>
+    <string name="row_coord">Manual coordinates</string>
+    <string name="row_coord_desc">Fallback when location is denied or unavailable</string>
+    <string name="perm_location">Location</string>
+    <string name="perm_notif">Notifications</string>
+    <string name="perm_battery">Ignore battery optimization</string>
+    <string name="perm_battery_desc">Keeps background refresh alive</string>
+    <string name="perm_granted">Granted</string>
+    <string name="perm_denied">Not granted · tap to enable</string>
+    <string name="action_save">Save</string>
+    <string name="source_seg_om">Open-Meteo</string>
+    <string name="source_seg_waqi">WAQI</string>
+    <string name="standard_seg_us">US 2024</string>
+    <string name="standard_seg_cn">CN</string>
+    <string name="radius_seg_10">10 km</string>
+    <string name="radius_seg_25">25 km</string>
+    <string name="interval_seg_30">30 min</string>
+    <string name="interval_seg_60">60 min</string>
+    <string name="interval_seg_120">120 min</string>
+    <string name="policy_seg_alert">Alert only</string>
+    <string name="policy_seg_always">Always</string>
+    <string name="policy_seg_never">Off</string>
+    <string name="about_version">AQI Widget v%1$s (versionCode %2$d)</string>
+
+    <string name="station_dist">About %1$.0f km</string>
+    <string name="detail_level_line">%1$s · %2$s</string>
+    <string name="detail_cell_empty">No data, cannot place it in a cell</string>
+    <string name="row_dual">Two-source comparison</string>
+    <string name="row_dual_desc">Show the other source\'s value and basis on the Details page</string>
+
+    <string name="standard_short_us">US EPA 2024 breakpoints · local 24h/8h/1h averages, no token needed</string>
+    <string name="standard_short_cn">China HJ 633-2012 · local 24h/8h averages, single source</string>
+    <string name="today_no_area_data">No area value yet (one refresh may be all it needs); showing the nearest station only</string>
+    <string name="foot_detail_link">See the basis and the six tiers ›</string>
+
+    <string name="std_full_us">US AQI · EPA 2024 (computed locally)</string>
+    <string name="std_full_cn">CN AQI · HJ 633-2012</string>
+
+    <!-- ══════════ v0.4.1 全语种文案（等级名 / 短标签 / 诊断行）══════════ -->
+    <string name="lv_good">Good</string>
+    <string name="lv_moderate">Moderate</string>
+    <string name="lv_usg">Unhealthy for Sensitive Groups</string>
+    <string name="lv_unhealthy">Unhealthy</string>
+    <string name="lv_very_unhealthy">Very Unhealthy</string>
+    <string name="lv_hazardous">Hazardous</string>
+    <string name="lv_cn_good">Good</string>
+    <string name="lv_cn_moderate">Moderate</string>
+    <string name="lv_cn_usg">Light Pollution</string>
+    <string name="lv_cn_unhealthy">Moderate Pollution</string>
+    <string name="lv_cn_very_unhealthy">Heavy Pollution</string>
+    <string name="lv_cn_hazardous">Severe Pollution</string>
+    <string name="std_short_us">US 2024</string>
+    <string name="std_short_cn">CN</string>
+    <string name="src_short_om">Open-Meteo local</string>
+    <string name="src_short_waqi">WAQI recalculated</string>
+    <string name="station_model_grid">Open-Meteo model grid</string>
+    <string name="diag_line">Basis: %1$s · %2$s %3$s → AQI %4$d</string>
+    <string name="diag_window_hours">%1$d h average</string>
+    <string name="diag_window_instant">1 h instantaneous</string>
+    <string name="diag_official">Open-Meteo official %1$d</string>
+    <string name="diag_fallback">%1$d values lacked history and fell back to instantaneous</string>
+    <string name="diag_waqi">Recalculated: PM2.5 2012 index %1$d → equivalent concentration %2$s µg/m³ → recomputed with US 2024 → %3$d (derived, not measured, about ±2); the other five keep the station indices; station-reported AQI %4$d</string>
+    <string name="diag_waqi_high">Station AQI is above the highest returned sub-index, so unlisted pollutants may exist and this line may read low</string>
+    <string name="diag_waqi_tail"> · averaging window not verified</string>
+
+    <!-- ══════════ v0.4.1 状态条与错误文案 ══════════ -->
+    <string name="sync_ok">Updated · %1$s · %2$s · %3$s</string>
+    <string name="sync_no_perm">Location permission not granted: tap “Enable location” below, or enter manual coordinates (bypasses location entirely)</string>
+    <string name="sync_no_loc">No cached location yet: turn on system location and open a map or weather app once so the system records it, or enter manual coordinates</string>
+    <string name="sync_no_token">The primary source is set to “WAQI recalculated 2024” but no token is filled in: get one free at aqicn.org/data-platform/token, or switch the primary source back to “Open-Meteo local 2024” (no token needed)</string>
+    <string name="sync_manual_bad">Manual coordinates are malformed: use “latitude,longitude”, e.g. 39.9042,116.4074 (latitude -90~90, longitude -180~180)</string>
+    <string name="sync_up_to_date">Already up to date (updated %1$s, refresh interval not reached)</string>
+    <string name="err_source">Data source error: %1$s</string>
+    <string name="err_http">The endpoint returned %1$s (network blocked or service unavailable)</string>
+    <string name="err_no_aqi">No valid AQI reading near this coordinate: try another point or wait a bit</string>
+    <string name="err_recalc">WAQI recalculation failed: %1$s. You can switch the primary source back to Open-Meteo local 2024</string>
+    <string name="err_timeout">Request timed out: check whether %1$s is reachable</string>
+    <string name="err_dns">DNS lookup failed: check whether %1$s is reachable</string>
+    <string name="err_io">Network error: %1$s %2$s</string>
+    <string name="err_other">Failed: %1$s %2$s</string>
+    <string name="err_waqi_key">WAQI returned Invalid key: the token is invalid or expired. Check it at aqicn.org/data-platform/token and paste it again, or switch the primary source back to Open-Meteo local 2024</string>
+    <string name="secondary_failed">Failed: %1$s</string>
+    <string name="station_unknown">Station unknown</string>
+    <string name="station_model_grid_short">Model grid</string>
+    <!-- v0.4.2 区域口径与圆周采样 -->
+    <string name="radius_seg_50">50 km</string>
+    <string name="widget_area_worst">Worst</string>
+    <string name="row_area_worst">Use worst point</string>
+    <string name="row_area_worst_desc">Takes the highest of the 9 points instead of the median, erring on the side of caution. Off by default.</string>
+    <string name="grid_mode_med">Median</string>
+    <string name="grid_mode_worst">Worst point</string>
+    <string name="area_min">Low</string>
+    <string name="area_median">Median</string>
+    <string name="area_max">High</string>
+    <string name="detail_calc_area_worst">Area = worst of %2$d model points on a circle of radius %1$d km (%3$d, range %4$d–%5$d); the median is lower.</string>
+    <string name="detail_calc_res">Model resolution is about 45 km (CAMS global), so differences between cells come from the model field, not street-level measurements.</string>
+
+    <!-- v0.4.4 点位详情 -->
+    <string-array name="bearings">
+        <item>North</item>
+        <item>Northeast</item>
+        <item>East</item>
+        <item>Southeast</item>
+        <item>South</item>
+        <item>Southwest</item>
+        <item>West</item>
+        <item>Northwest</item>
+    </string-array>
+    <string name="dlg_center">Center (you)</string>
+    <string name="dlg_title">%1$s · %2$d km</string>
+    <string name="dlg_coord">Coordinates %1$s, %2$s</string>
+    <string name="dlg_source">Data: CAMS model grid cell, about 45 km</string>
+    <string name="dlg_time">Data time %1$s</string>
+    <string name="dlg_note">This is not a monitoring station: Open-Meteo only provides model grid cells, with no station name or ID. For measured station data, switch the primary source to WAQI and add a token.</string>
+    <string name="dlg_same_cell">Same value as the center - most likely the same model cell (about 45 km). The 9 points often hold only two or three distinct values; that is not stale data.</string>
+    <string name="dlg_missing">No data returned for this point</string>
+    <string name="dlg_close">Got it</string>
+    <string name="grid_hint">Updated %1$s · tap a cell for details</string>
+    <string name="grid_hint_none">Tap a cell for details</string>
+    <string name="grid_hint_rank">Closest in the centre · clockwise = farther · tap for the name</string>
+    <string name="grid_note_station_failed">Couldn\'t load nearby stations (%1$s); showing model grid cells instead</string>
+    <string name="grid_note_via_search">Station list API unavailable; nearby stations were found by city name instead</string>
+    <string name="grid_title_station">%1$d nearest stations</string>
+    <string name="row_area_source">Area data source</string>
+    <string name="row_area_source_desc">Follows the primary source by default. Open-Meteo gives model grid cells of about 45 km with no station names; WAQI gives real monitoring stations with names and distances, at the cost of 8 extra requests per refresh.</string>
+    <string name="area_src_follow">Follow primary</string>
+    <string name="dlg_title_station">%1$s · %2$.1f km</string>
+    <string name="dlg_title_rank">%1$s · %2$.1f km · %3$d closest</string>
+    <string name="dlg_source_station">WAQI ground station, recalculated with the 2024 breakpoints</string>
+    <string name="dlg_note_station">This is a real monitoring station, but the number is not the station\'s own reported value: the app inverts the published 2012 sub-index to an equivalent PM2.5 concentration and recalculates it with the US EPA 2024 breakpoints. It will differ by a few points from what aqicn shows, because the scales differ.</string>
+    <string name="dlg_note_rank">The grid is ordered by distance: the centre is the nearest station, then clockwise from the top are the 2nd to 9th nearest. A cell\'s position means distance, not direction.</string>
+    <string name="dlg_same_station">Same value as the centre station: neighbouring stations often sit in the same pollution episode, and differences under 1 get rounded away.</string>
+    <string name="detail_calc_ring_station">Area = %2$d monitoring stations within %1$d km, median %3$d (range %4$d–%5$d); each station is recalculated with the 2024 breakpoints.</string>
+    <string name="detail_calc_ring_station_worst">Area = %2$d monitoring stations within %1$d km, worst %3$d (range %4$d–%5$d); the median is lower; each station is recalculated with the 2024 breakpoints.</string>
+    <string name="detail_calc_res_station">Stations measure at ground level and are strongly affected by siting (kerbside, park, rooftop); a 20-point gap between neighbours is normal and does not mean one is wrong.</string>
+<string name="toast_area_need_token">WAQI stations need a token first — selection unchanged</string>
+    <!-- v0.4.9 always-on display -->
+
+    <!-- v0.5.0 system always-on display (Live Updates) -->
+    <string name="row_live">System always-on display</string>
+    <string name="live_state_unknown">Checking…</string>
+    <string name="live_state_unsupported">Not supported on this Android version (needs 16+)</string>
+    <string name="live_state_denied">The system does not allow live updates for this app. Tap to enable</string>
+    <string name="live_state_pending">Requested, but not promoted on this device — some ROMs only allow maps and delivery</string>
+    <string name="live_state_ok">Promoted by the system · if the lock screen shows nothing, tap here to turn on “Live Updates”</string>
+    <string name="live_state_off">Off; the notification stays a normal ongoing one</string>
+    <string name="live_state_no_notif">No ongoing notification right now (with “alerts only”, good or moderate air shows no notification)</string>
+</resources>

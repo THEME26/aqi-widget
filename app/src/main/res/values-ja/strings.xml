@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AQI バー</string>
+    <string name="widget_main_label">AQI カード 4×2</string>
+    <string name="widget_compact_label">AQI コンパクト 2×1</string>
+    <string name="widget_mini_tall_label">AQI 数値 1×2</string>
+    <string name="widget_mini_square_label">AQI 数値 1×1</string>
+    <string name="channel_name">AQI 常駐通知</string>
+    <string name="channel_desc">ステータスバーに常駐する静かな空気質通知</string>
+
+    <string name="dash">– –</string>
+    <string name="getting">取得中</string>
+    <string name="fresh_ok">リアルタイム推定値</string>
+    <string name="fresh_stale">データが古い</string>
+    <string name="ago_min">%d分前</string>
+    <string name="ago_hour">%d時間前</string>
+    <string name="ago_day">%d日前</string>
+    <string name="fresh_failed">更新できません</string>
+    <string name="fresh_no_location">位置情報がオフ</string>
+    <string name="fresh_no_permission">位置情報の権限が必要</string>
+    <string name="fresh_no_token">メインソースには WAQI トークンが必要です。入力するか OM ローカル 2024 に戻してください</string>
+
+    <string name="status_no_data">データなし</string>
+    <string name="status_no_data_hint">今回は取得できませんでした。理由は下に表示されます</string>
+    <string name="sync_getting">取得中…</string>
+    <string name="sync_switched">%1$s に切り替えました。再取得中…</string>
+    <string name="sync_switched_source">メインソースを %1$s に変更しました。再取得中…</string>
+
+    <string name="notif_title">%1$d %2$s</string>
+    <string name="notif_text">%1$s · %2$s</string>
+    <string name="notif_placeholder">空気質を準備中</string>
+    <string name="notif_public_text">下にスワイプして確認</string>
+    <string name="notif_line_action">%1$s · %2$s · 医療的助言ではありません</string>
+    <string name="notif_line_where">%1$s · 主な汚染物質 %2$s · %3$s</string>
+    <string name="notif_line_src">%1$s · %2$s · 公式発表値ではありません</string>
+    <string name="notif_line_dual">比較 %1$s %2$d</string>
+    <string name="notif_line_dual_none">比較 %1$s: %2$s</string>
+    <string name="mask_unknown_short">データなし</string>
+    <string name="notif_big_hint">リアルタイム推定値 · US EPA 2024 基準 · 24h/8h/1h 平均濃度からローカル計算</string>
+    <string name="notif_big_hint_waqi_recalc">WAQI 再計算：観測所の 2012 副指数から等価濃度を逆算し EPA 2024 で再計算。推定値 ±2 AQI</string>
+    <string name="notif_big_hint_cn">中国標準：24h/8h 平均からローカル計算、OM 単一ソース</string>
+
+    <string name="widget_time">更新 %1$s</string>
+    <string name="switch_area">周辺エリアを表示</string>
+    <string name="switch_area_desc">Open-Meteo は周囲8方位のモデル格子を1点ずつ（中心を含め9マス）取得し、マスの位置がそのまま方位になります。WAQI は最も近い実測局9局を取得し、中心が最短・時計回りに遠くなる順で、半径の制限はありません。</string>
+    <string name="widget_area">周辺</string>
+    <string name="widget_no_station">観測所不明</string>
+
+    <string name="mask_tier_go">外出OK</string>
+    <string name="mask_tier_mask">マスク推奨</string>
+    <string name="mask_tier_stay">外出を控える</string>
+    <string name="mask_tier_go_advice">通常の屋外活動で問題ありません</string>
+    <string name="mask_tier_mask_advice">顔に密着した N95 / KN95 を着用し、屋外での長時間活動を減らしてください</string>
+    <string name="mask_tier_stay_advice">できるだけ屋内にとどまり、屋外活動を避けてください</string>
+    <string name="mask_disclaimer">3 段階は AQI の範囲（0–100 / 101–200 / ≥201）のみで決まります。医療的助言ではなく、特定の汚染物質を対象にしたものでもありません。PM2.5 が主因の場合は密着した N95 / KN95 を推奨します。敏感な方、子ども、高齢者、心疾患・呼吸器疾患のある方は公式の指針とご自身の体調を優先してください。</string>
+
+    <string name="dual_secondary">比較 · %1$s: %2$d %3$s %4$s（推定値 ±2 AQI）</string>
+    <string name="dual_cn_single">中国標準モードは OM 単一ソースのため比較はありません</string>
+    <string name="dual_hint">2 つのソースは相互検証できません。OM は CAMS モデル格子と 24h/8h/1h 平均、WAQI 再計算は観測所の公表副指数から等価濃度を逆算して EPA 2024 で再計算した推定値です。段階が食い違うことがあり、ステータスバーはメインソースのみに従います。</string>
+    <string name="secondary_no_token">WAQI トークンが必要です（aqicn.org/data-platform/token で無料取得）</string>
+    <string name="secondary_unavailable">利用できません</string>
+
+    <string name="attribution">US AQI：Open-Meteo / CAMS、EPA 2024 基準、ローカル平均計算。CN AQI：Open-Meteo / CAMS、HJ 633-2012、ローカル平均計算</string>
+    <string name="attribution_us">出典：Open-Meteo / CAMS · US EPA 2024 基準 · 24h/8h/1h 平均をローカル計算</string>
+    <string name="attribution_cn">出典：Open-Meteo / CAMS · HJ 633-2012 · 24h/8h 平均をローカル計算</string>
+    <string name="disclaimer">リアルタイム推定値であり、公式発表の AQI ではありません。濃度は基準表が定める時間窓（US EPA 2024：PM2.5/PM10 24h、O₃/CO 8h、NO₂/SO₂ 1h）で平均してから適用します。瞬時ピークを 24h 基準に当てはめると大きく高く出ます。Open-Meteo は CAMS モデル格子のため、地上観測所や aqicn / AirNow の値とはデータ源・平均窓・観測時刻の違いで一致せず、相互検証はできません。aqicn は今も EPA 2012 旧基準（122 µg/m³ → 185、2024 では 198）です。</string>
+
+    <string name="widget_diag">このアプリのウィジェットを %1$d 個検出しました</string>
+    <string name="widget_diag_zero">ウィジェットが見つかりません。最新版を入れるか、ランチャーを再起動してください</string>
+    <string name="widget_add_hint">見つからない場合は、ホーム画面の空白を長押しして「ウィジェット」を選びます。一部の ROM では二次メニューに隠れています。下のボタンからも追加できます。</string>
+    <string name="toast_pin_ok">ランチャーに追加リクエストを送りました。ダイアログで確認してください</string>
+    <string name="toast_pin_unsupported">このランチャーは直接追加に対応していません。ホーム画面を長押ししてください</string>
+    <string name="toast_pin_failed">追加できませんでした。手動で追加してください</string>
+
+    <string name="standard_desc_us">米国：メインソースは OM ローカル 2024。Open-Meteo の生濃度を US EPA 2024 基準（PM2.5 9.0 / 35.4 / 55.4 / 125.4 / 225.4 / 325.4 / 500.4）で計算します。濃度は先に 24h/8h/1h で平均します。トークン不要。aqicn など多くの換算器は今も 2012 旧表のため、同じ濃度では低く出ます。</string>
+    <string name="standard_desc_cn">中国標準：同じ Open-Meteo 濃度を HJ 633-2012 で計算し、先に 24h/8h で平均します。トークン不要、OM 単一ソースで比較なし。モデル格子データのため地上観測所とは異なる場合があります。</string>
+
+    <string name="source_diff_hint">aqicn や公式サイトと数値が違う理由：本アプリは Open-Meteo の CAMS モデル格子を、aqicn や AirNow は地上観測所を読んでいます。データ源・空間代表性・観測時刻が異なるため一致しません。さらに aqicn は今も EPA 2012 旧基準を使うため低く出ます。メインソースを切り替えるか WAQI 再計算を有効にすれば比較できますが、2 行は相互検証にはなりません。</string>
+
+    <string name="explain_toggle_more">詳細と算出根拠</string>
+    <string name="explain_toggle_less">詳細を閉じる</string>
+
+
+
+    <string name="token_label">WAQI トークン（再計算ソースに必要）</string>
+    <string name="token_hint">トークンを貼り付け</string>
+    <string name="btn_refresh_now">今すぐ更新</string>
+
+    <string name="coord_hint">緯度,経度  例 39.9042,116.4074</string>
+    <string name="btn_save_coord">座標を保存して更新</string>
+    <string name="toast_coord_saved">座標を保存しました。更新中…</string>
+
+    <string name="notif_policy_alert_only">マスクが必要なときだけ（AQI ≥ 101）</string>
+    <string name="notif_policy_always">常に常駐して数値を表示</string>
+    <string name="notif_policy_never">通知しない</string>
+
+    <string name="hint_notif_denied">通知権限が拒否されています。更新は動作しますが、ステータスバーとロック画面には表示されません。</string>
+    <string name="hint_lock_dep">ロック画面の表示は最終的にシステムの通知チャンネル設定に従います。</string>
+
+    <string name="toast_saved">保存しました。更新中…</string>
+    <string name="toast_token_empty">トークンは空にできません</string>
+    <string name="toast_settings_unavailable">このシステムには該当する設定画面がありません</string>
+
+    <!-- ══════════ v0.4.0 App 三屏 ══════════ -->
+    <string name="tab_today">今日</string>
+    <string name="tab_detail">詳細</string>
+    <string name="tab_settings">設定</string>
+    <string name="label_site">観測地点</string>
+    <string name="grid_title">周囲 %1$d km · %2$d グリッド</string>
+    <string name="today_diff_high">周辺は %1$d 高い · 街全体のほうが悪い</string>
+    <string name="today_diff_low">周辺は %1$d 低い · 街全体のほうが良い</string>
+    <string name="today_diff_same">周辺と観測地点はほぼ同じ</string>
+    <string name="today_no_area">周辺区域がオフのため、カードは最寄り地点のみ表示しています。「設定 → データ」で有効にできます。</string>
+    <string name="poll_title">汚染物質の副指数</string>
+    <string name="poll_sub">主因 %1$s</string>
+    <string name="poll_empty">副指数なし</string>
+    <string name="detail_sub">%1$s · %2$s</string>
+    <string name="detail_cell">第 %1$d 格 · 塗り %2$d%%</string>
+    <string name="detail_tiers_title">6 段階の意味</string>
+    <string name="detail_calc_title">算出方法</string>
+    <string name="detail_calc_body">主因は %1$s。%2$s の区分で計算すると %3$d。</string>
+    <string name="detail_calc_area">周辺は半径 %1$d km の円周上の %2$d 点の中央値（%3$d、範囲 %4$d–%5$d）で、行政区平均ではありません。</string>
+    <string name="detail_calc_no_area">周辺値なし。カードとリングは最寄り地点のみを反映します。</string>
+    <string name="detail_notice">参考値であり、公式発表の AQI ではありません。モデル格子と地上観測所の値は一致せず、相互検証はできません。</string>
+    <string name="legend_site">観測地点 %1$d</string>
+    <string name="legend_area">周辺 %1$d</string>
+    <string name="tier_range">%1$d–%2$d</string>
+    <string name="group_data">データ</string>
+    <string name="group_alert">通知</string>
+    <string name="group_location">位置情報</string>
+    <string name="group_widget">ウィジェット</string>
+    <string name="group_perm">権限</string>
+    <string name="group_about">このアプリについて</string>
+    <string name="row_source">データソース</string>
+    <string name="row_source_desc">既定ではトークン不要</string>
+    <string name="row_standard">表示基準</string>
+    <string name="row_radius">周辺の半径</string>
+    <string name="row_radius_desc">10 km は一区、25 km は市街地、50 km でほぼ市全体。モデル解像度は約45 kmで半径より粗い値です。</string>
+    <string name="row_radius_rank_note">WAQI では半径を使いません（最も近い9局を取得します）。</string>
+    <string name="row_interval">更新間隔</string>
+    <string name="row_policy">通知のタイミング</string>
+    <string name="row_policy_desc">良い・普通のときは通知しない</string>
+    <string name="row_lock">ロック画面に詳細を表示</string>
+    <string name="row_lock_desc">既定では数値のみ</string>
+    <string name="row_coord">手動の座標</string>
+    <string name="row_coord_desc">位置情報が拒否・取得不可のときの代替</string>
+    <string name="perm_location">位置情報</string>
+    <string name="perm_notif">通知</string>
+    <string name="perm_battery">電池最適化を除外</string>
+    <string name="perm_battery_desc">バックグラウンド更新を止めない</string>
+    <string name="perm_granted">許可済み</string>
+    <string name="perm_denied">未許可 · タップして許可</string>
+    <string name="action_save">保存</string>
+    <string name="source_seg_om">Open-Meteo</string>
+    <string name="source_seg_waqi">WAQI</string>
+    <string name="standard_seg_us">米国 2024</string>
+    <string name="standard_seg_cn">中国</string>
+    <string name="radius_seg_10">10 km</string>
+    <string name="radius_seg_25">25 km</string>
+    <string name="interval_seg_30">30 分</string>
+    <string name="interval_seg_60">60 分</string>
+    <string name="interval_seg_120">120 分</string>
+    <string name="policy_seg_alert">警告のみ</string>
+    <string name="policy_seg_always">常に</string>
+    <string name="policy_seg_never">オフ</string>
+    <string name="about_version">AQI 常駐 v%1$s（versionCode %2$d）</string>
+
+    <string name="station_dist">約 %1$.0f km</string>
+    <string name="detail_level_line">%1$s・%2$s</string>
+    <string name="detail_cell_empty">データがないため格を特定できません</string>
+    <string name="row_dual">2 ソース比較</string>
+    <string name="row_dual_desc">「詳細」で別ソースの値と算出根拠を表示</string>
+
+    <string name="standard_short_us">米国 EPA 2024 区分 · 24h/8h/1h 平均からローカル計算、トークン不要</string>
+    <string name="standard_short_cn">中国 HJ 633-2012 · 24h/8h 平均をローカル計算（単一ソース）</string>
+    <string name="today_no_area_data">周辺値がまだ取得できていません（次の更新で入る可能性があります）。最寄り地点のみ表示中</string>
+    <string name="foot_detail_link">根拠と 6 段階を見る ›</string>
+
+    <string name="std_full_us">米国 AQI · EPA 2024（ローカル計算）</string>
+    <string name="std_full_cn">中国 AQI · HJ 633-2012</string>
+
+    <!-- ══════════ v0.4.1 全语种文案（等级名 / 短标签 / 诊断行）══════════ -->
+    <string name="lv_good">良い</string>
+    <string name="lv_moderate">普通</string>
+    <string name="lv_usg">敏感な人は不健康</string>
+    <string name="lv_unhealthy">不健康</string>
+    <string name="lv_very_unhealthy">非常に不健康</string>
+    <string name="lv_hazardous">危険</string>
+    <string name="lv_cn_good">良い</string>
+    <string name="lv_cn_moderate">普通</string>
+    <string name="lv_cn_usg">軽度汚染</string>
+    <string name="lv_cn_unhealthy">中度汚染</string>
+    <string name="lv_cn_very_unhealthy">重度汚染</string>
+    <string name="lv_cn_hazardous">深刻な汚染</string>
+    <string name="std_short_us">米国 2024</string>
+    <string name="std_short_cn">中国</string>
+    <string name="src_short_om">Open-Meteo ローカル</string>
+    <string name="src_short_waqi">WAQI 逆算</string>
+    <string name="station_model_grid">Open-Meteo モデル格子</string>
+    <string name="diag_line">算出根拠：%1$s・%2$s %3$s → AQI %4$d</string>
+    <string name="diag_window_hours">%1$d 時間平均</string>
+    <string name="diag_window_instant">1 時間の瞬間値</string>
+    <string name="diag_official">Open-Meteo 公式 %1$d</string>
+    <string name="diag_fallback">%1$d 項目が履歴欠測のため瞬間値で代替</string>
+    <string name="diag_waqi">逆算根拠：PM2.5 の 2012 副指数 %1$d → 等価濃度 %2$s µg/m³ → 米国 2024 で再計算 %3$d（実測濃度ではなく誤差約 ±2）。残り 5 項目は観測所の副指数をそのまま使用。観測所の報告 AQI %4$d</string>
+    <string name="diag_waqi_high">観測所の報告 AQI が返却された副指数の最大値より高く、未掲載の汚染物質がある可能性があります</string>
+    <string name="diag_waqi_tail">・平均時間は未検証</string>
+
+    <!-- ══════════ v0.4.1 状态条与错误文案 ══════════ -->
+    <string name="sync_ok">更新しました · %1$s · %2$s · %3$s</string>
+    <string name="sync_no_perm">位置情報の権限がありません。下の「位置情報を許可」を押すか、手動の座標を入力してください（位置情報を完全に回避できます）</string>
+    <string name="sync_no_loc">システムに位置情報のキャッシュがありません。位置情報をオンにして地図か天気アプリを一度開くか、手動の座標を入力してください</string>
+    <string name="sync_no_token">メインソースが「WAQI 逆算 2024」ですがトークンが未入力です。aqicn.org/data-platform/token で無料取得して入力するか、メインソースを「Open-Meteo ローカル 2024」に戻してください（トークン不要）</string>
+    <string name="sync_manual_bad">手動座標の形式が正しくありません。「緯度,経度」で入力してください。例 39.9042,116.4074（緯度 -90~90、経度 -180~180）</string>
+    <string name="sync_up_to_date">すでに最新です（%1$s 更新、更新間隔に達していません）</string>
+    <string name="err_source">データソースの異常：%1$s</string>
+    <string name="err_http">エンドポイントが %1$s を返しました（通信が遮断されているか、サービスが一時的に利用できません）</string>
+    <string name="err_no_aqi">この座標付近に有効な AQI の値がありません。座標を変えるか、しばらく待ってください</string>
+    <string name="err_recalc">WAQI の逆算に失敗しました：%1$s。メインソースを Open-Meteo ローカル 2024 に戻せます</string>
+    <string name="err_timeout">タイムアウト：%1$s に到達できるか確認してください</string>
+    <string name="err_dns">DNS 解決に失敗：%1$s に到達できるか確認してください</string>
+    <string name="err_io">通信エラー：%1$s %2$s</string>
+    <string name="err_other">取得に失敗：%1$s %2$s</string>
+    <string name="err_waqi_key">WAQI が Invalid key を返しました。トークンが無効か期限切れです。aqicn.org/data-platform/token で確認して貼り直すか、メインソースを Open-Meteo ローカル 2024 に戻してください</string>
+    <string name="secondary_failed">取得に失敗：%1$s</string>
+    <string name="station_unknown">観測地点不明</string>
+    <string name="station_model_grid_short">モデル格子</string>
+    <!-- v0.4.2 区域口径与圆周采样 -->
+    <string name="radius_seg_50">50 km</string>
+    <string name="widget_area_worst">最悪</string>
+    <string name="row_area_worst">最も悪い地点を使う</string>
+    <string name="row_area_worst_desc">9点の最大値を区域値にします（安全側）。既定は中央値です。</string>
+    <string name="grid_mode_med">中央値</string>
+    <string name="grid_mode_worst">最悪地点</string>
+    <string name="area_min">最低</string>
+    <string name="area_median">中央</string>
+    <string name="area_max">最高</string>
+    <string name="detail_calc_area_worst">周辺は半径 %1$d km の円周上の %2$d 点の最大値（%3$d、範囲 %4$d–%5$d）。中央値はこれより低くなります。</string>
+    <string name="detail_calc_res">モデル解像度は約45 km（CAMS 全球）で、マス間の差はモデル場の分布によるもので、街路レベルの実測ではありません。</string>
+
+    <!-- v0.4.4 点位详情 -->
+    <string-array name="bearings">
+        <item>北</item>
+        <item>北東</item>
+        <item>東</item>
+        <item>南東</item>
+        <item>南</item>
+        <item>南西</item>
+        <item>西</item>
+        <item>北西</item>
+    </string-array>
+    <string name="dlg_center">中心（現在地）</string>
+    <string name="dlg_title">%1$s · %2$d km</string>
+    <string name="dlg_coord">座標 %1$s, %2$s</string>
+    <string name="dlg_source">データ: CAMS モデル格子（約 45 km）</string>
+    <string name="dlg_time">データ時刻 %1$s</string>
+    <string name="dlg_note">これは監視局ではありません。Open-Meteo はモデル格子のみを提供し、局名や局 ID はありません。実測局の値が必要なら、主ソースを WAQI に切り替えてトークンを入力してください。</string>
+    <string name="dlg_same_cell">中心と同じ値です。同じモデル格子（約 45 km）に含まれている可能性が高いです。9 点が 2〜3 種類の値しか持たないことはよくあり、更新が止まっているわけではありません。</string>
+    <string name="dlg_missing">この点のデータはありません</string>
+    <string name="dlg_close">閉じる</string>
+    <string name="grid_hint">%1$s 更新 · マスをタップで詳細</string>
+    <string name="grid_hint_none">マスをタップで詳細</string>
+    <string name="grid_hint_rank">中心が最短 · 時計回りに遠ざかる · タップで局名</string>
+    <string name="grid_note_station_failed">周辺の観測局を取得できませんでした（%1$s）。モデル格子で表示しています</string>
+    <string name="grid_note_via_search">観測局リストの API が使えないため、都市名で周辺の局を検索しました</string>
+    <string name="grid_title_station">最寄り %1$d 局</string>
+    <string name="row_area_source">周辺のデータソース</string>
+    <string name="row_area_source_desc">既定では主ソースに従います。Open-Meteo は約 45 km のモデル格子で局名なし。WAQI は実在の監視局で局名と距離がありますが、更新ごとに 8 回多くリクエストします。</string>
+    <string name="area_src_follow">主ソースに従う</string>
+    <string name="dlg_title_station">%1$s · %2$.1f km</string>
+    <string name="dlg_title_rank">%1$s · %2$.1f km · 近い順 %3$d 番目</string>
+    <string name="dlg_source_station">WAQI の地上監視局、2024 の区分で再計算</string>
+    <string name="dlg_note_station">実在の監視局ですが、表示値は局の自己申告値ではありません。公開されている 2012 区分の指数から PM2.5 相当濃度を逆算し、米国 EPA 2024 の区分で再計算しています。aqicn の画面の値とは区分が違うため数ポイントずれます。</string>
+    <string name="dlg_note_rank">グリッドは距離順です。中心が最も近い局、残りは上から時計回りに2番目〜9番目に近い局です。マスの位置は距離を表し、方位ではありません。</string>
+    <string name="dlg_same_station">中心の局と同じ値です。隣接する局は同じ汚染過程にあることが多く、1 未満の差は四捨五入で消えます。</string>
+    <string name="detail_calc_ring_station">周辺は %1$d km 以内の監視局 %2$d 局、中央値 %3$d（範囲 %4$d〜%5$d）。各局は 2024 の区分で再計算しています。</string>
+    <string name="detail_calc_ring_station_worst">周辺は %1$d km 以内の監視局 %2$d 局、最悪値 %3$d（範囲 %4$d〜%5$d）。中央値はより低く、各局は 2024 の区分で再計算しています。</string>
+    <string name="detail_calc_res_station">局は地上で実測しており、設置場所（道路沿い・公園・屋上）の影響を強く受けます。隣接局で 20 以上違うのは普通のことで、どちらかが誤りというわけではありません。</string>
+<string name="toast_area_need_token">WAQI 局を使うにはトークンが必要です。選択は変更していません</string>
+    <!-- v0.4.9 常時表示 -->
+
+    <!-- v0.5.0 システム常時表示（Live Updates） -->
+    <string name="row_live">システム常時表示</string>
+    <string name="live_state_unknown">確認中…</string>
+    <string name="live_state_unsupported">この Android バージョンでは未対応（16 以上が必要）</string>
+    <string name="live_state_denied">このアプリのリアルタイム通知が許可されていません。タップして有効化</string>
+    <string name="live_state_pending">要求しましたが、この端末では採用されませんでした — 地図や配達のみ許可する ROM もあります</string>
+    <string name="live_state_ok">システムに採用済み · ロック画面に出ないときは、ここをタップして「リアルタイム更新」をオンに</string>
+    <string name="live_state_off">オフ。通常の常駐通知に戻ります</string>
+    <string name="live_state_no_notif">現在、常駐通知はありません（「警報時のみ」では優/良のとき表示されません）</string>
+</resources>

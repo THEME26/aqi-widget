@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ===== 等级色：与浅色模式完全一致（EPA 官方色不随主题变） ===== -->
+    <color name="aqi_good">#00E400</color>
+    <color name="aqi_moderate">#FFFF00</color>
+    <color name="aqi_usg">#FF7E00</color>
+    <color name="aqi_unhealthy">#FF0000</color>
+    <color name="aqi_very_unhealthy">#8F3F97</color>
+    <color name="aqi_hazardous">#7E0023</color>
+
+    <!-- 深色底上直接用官方亮色即可（对比度足够），ink 版保留为同值以免代码分支出错 -->
+    <color name="aqi_good_ink">#34D399</color>
+    <color name="aqi_moderate_ink">#FBBF24</color>
+    <color name="aqi_usg_ink">#FB923C</color>
+    <color name="aqi_unhealthy_ink">#F87171</color>
+    <color name="aqi_very_unhealthy_ink">#A78BFA</color>
+    <color name="aqi_hazardous_ink">#FB7185</color>
+
+
+    <!-- ===== 语义色：深色模式 ===== -->
+    <color name="bg_app">#0B0F16</color>
+    <color name="bg_card">#151C28</color>
+    <color name="card_stroke">#2A3A52</color>
+    <!-- v0.2.0 小部件玻璃卡：72% 深底 + 顶部高光 + 15% 发丝描边（91% 在深壁纸上看不出通透） -->
+    <color name="glass_base">#B8121823</color>
+    <color name="glass_sheen_top">#1FFFFFFF</color>
+    <color name="glass_sheen_bottom">#00FFFFFF</color>
+    <color name="glass_hair">#26FFFFFF</color>
+    <color name="text_primary">#E8EDF5</color>
+    <color name="text_secondary">#9AA6BA</color>
+    <color name="text_dim">#6B7688</color>
+    <color name="accent">#60A5FA</color>
+    <color name="divider">#222B3A</color>
+    <color name="chip_soft">#1FFFFFFF</color>
+    <color name="ic_launcher_background">#0F172A</color>
+    <!-- ===== v0.4.0 App 三屏 ===== -->
+    <color name="surface_2">#1B222E</color>
+    <color name="seg_thumb">#232C3A</color>
+</resources>

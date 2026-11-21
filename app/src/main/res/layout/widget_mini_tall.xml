@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- v0.3.0 · 1×2 竖条
+
+     竖向空间最长，渐变的两端（区域色 → 本站色）最容易被看出来。
+     原来的「纯色块 + 口罩脸」被替换：动作词本身就是结论，且比图标更明确。
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_card_glass_sm"
+    android:clipToOutline="true">
+
+    <ImageView
+        android:id="@+id/aqi_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@null"
+        android:scaleType="fitXY" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingStart="12dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="14dp">
+
+        <!-- 区域胶囊（v0.4.3）：只有数字，颜色即档位。1×2 只有 74dp 宽，
+             「周边」两个字加空隙就要 20dp，主数字反而被压窄。 -->
+        <LinearLayout
+            android:id="@+id/aqi_area_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_chip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="5dp"
+            android:paddingTop="1dp"
+            android:paddingEnd="5dp"
+            android:paddingBottom="1dp">
+
+            <TextView
+                android:id="@+id/aqi_area_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:text="@string/dash"
+                android:textColor="@color/text_primary"
+                android:textSize="9sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/aqi_value"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:letterSpacing="-0.05"
+            android:maxLines="1"
+            android:text="@string/dash"
+            android:textColor="@color/text_primary"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/aqi_level"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:text="@string/getting"
+            android:textColor="@color/aqi_usg_ink"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/aqi_bar"
+            android:layout_width="58dp"
+            android:layout_height="4dp"
+            android:layout_marginTop="11dp"
+            android:contentDescription="@null"
+            android:scaleType="fitXY" />
+
+        <TextView
+            android:id="@+id/aqi_stale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:includeFontPadding="false"
+            android:textColor="@color/aqi_usg_ink"
+            android:textSize="8sp"
+            android:visibility="gone" />
+    </LinearLayout>
+</FrameLayout>

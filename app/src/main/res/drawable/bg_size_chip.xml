@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 小部件尺寸缩略图里的「屏幕块」：圆角矩形，不是椭圆。
+     v0.4.0 第一版误用了 bg_icon_button（oval），四个尺寸预览看起来像四个鸡蛋。 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <solid android:color="@color/text_dim" />
+    <corners android:radius="3dp" />
+</shape>

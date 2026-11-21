@@ -1,0 +1,73 @@
+{
+ "status": "ok",
+ "data": {
+  "aqi": 85,
+  "idx": 1437,
+  "attributions": [
+   {
+    "url": "https://sthj.sh.gov.cn/",
+    "name": "Shanghai Environment Monitoring Center(上海市环境监测中心)"
+   },
+   {
+    "url": "http://106.37.208.233:20035/emcpublish/",
+    "name": "China National Urban air quality real-time publishing platform (全国城市空气质量实时发布平台)"
+   },
+   {
+    "url": "https://china.usembassy-china.org.cn/embassy-consulates/shanghai/air-quality-monitor-stateair/",
+    "name": "U.S. Consulate Shanghai Air Quality Monitor"
+   },
+   {
+    "url": "https://waqi.info/",
+    "name": "World Air Quality Index Project"
+   }
+  ],
+  "city": {
+   "geo": [
+    31.2047372,
+    121.4489017
+   ],
+   "name": "Shanghai (上海)",
+   "url": "https://aqicn.org/city/shanghai",
+   "location": ""
+  },
+  "dominentpol": "pm25",
+  "iaqi": {
+   "co": {
+    "v": 6.4
+   },
+   "h": {
+    "v": 53.5
+   },
+   "no2": {
+    "v": 10.1
+   },
+   "o3": {
+    "v": 45.5
+   },
+   "p": {
+    "v": 1018
+   },
+   "pm10": {
+    "v": 38
+   },
+   "pm25": {
+    "v": 85
+   },
+   "so2": {
+    "v": 4.6
+   },
+   "t": {
+    "v": 19.5
+   },
+   "w": {
+    "v": 1.5
+   }
+  },
+  "time": {
+   "s": "2026-11-16 13:00:00",
+   "tz": "+08:00",
+   "v": 1794834000,
+   "iso": "2026-11-16T13:00:00+08:00"
+  }
+ }
+}

@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AQI 常驻</string>
+
+    <string name="widget_main_label">AQI 主卡 4×2</string>
+    <string name="widget_compact_label">AQI 紧凑卡 2×1</string>
+    <string name="widget_mini_tall_label">AQI 数字 1×2</string>
+    <string name="widget_mini_square_label">AQI 数字 1×1</string>
+
+    <string name="channel_name">AQI 常驻提醒</string>
+    <string name="channel_desc">状态栏常驻的空气质量提醒，无声、不震动</string>
+
+    <string name="dash">– –</string>
+    <string name="getting">获取中</string>
+
+    <string name="fresh_ok">实时参考值</string>
+    <string name="fresh_stale">数据陈旧</string>
+    <string name="ago_min">%d 分钟前</string>
+    <string name="ago_hour">%d 小时前</string>
+    <string name="ago_day">%d 天前</string>
+    <string name="fresh_failed">暂时无法更新</string>
+    <string name="fresh_no_location">需开启定位</string>
+    <string name="fresh_no_permission">需要定位权限</string>
+    <string name="fresh_no_token">主源需 WAQI 令牌：请填入令牌，或把主源切回 Open-Meteo 本地 2024</string>
+
+    <string name="status_no_data">暂无数据</string>
+    <string name="status_no_data_hint">本次未获取到数据，原因见下方</string>
+    <string name="sync_getting">正在获取，请稍候…</string>
+    <string name="sync_switched">已切换到 %1$s，正在重新获取…</string>
+    <string name="sync_switched_source">主源已切到 %1$s，正在重新获取…</string>
+
+    <!-- v0.1.7：折叠态必须让人一眼看到数值。标题只放「数值 + 等级」，标准名下沉到展开区 -->
+    <string name="notif_title">%1$d %2$s</string>
+    <!-- 正文只留「动作 + 时间」，不用 ● ⊘ 等可能缺字形的符号 -->
+    <string name="notif_text">%1$s · %2$s</string>
+    <string name="notif_placeholder">空气质量准备中</string>
+    <string name="notif_public_text">下拉查看空气质量</string>
+    <string name="notif_line_action">%1$s · %2$s · 非医疗建议</string>
+    <string name="notif_line_where">%1$s · %2$s 主导 · %3$s</string>
+    <string name="notif_line_src">%1$s · %2$s · 非官方发布 AQI</string>
+    <string name="notif_line_dual">对照 %1$s %2$d</string>
+    <string name="notif_line_dual_none">对照 %1$s：%2$s</string>
+    <string name="mask_unknown_short">暂无数据</string>
+    <string name="notif_big_hint">实时参考值 · 美标 2024 断点 · 24 小时 / 8 小时 / 1 小时平均浓度本地计算，非官方发布 AQI</string>
+    <string name="notif_big_hint_waqi_recalc">WAQI 反算 2024：站点 2012 分指数 → 逆推等效浓度 → 按美标 2024 重算；不是实测浓度，误差约 ±2，平均窗口未实测</string>
+    <string name="notif_big_hint_cn">国标为 24 小时 / 8 小时平均浓度本地计算，非官方发布 AQI；国标模式下为单一数据源</string>
+
+    <string name="widget_time">更新 %1$s</string>
+    <string name="switch_area">显示周边区域</string>
+    <string name="switch_area_desc">Open-Meteo 模式取你周围 8 个方位各一个格点（含中心共 9 格），格子位置就是地理方位；WAQI 模式取最近的 9 个真实监测站，中心最近、顺时针由近到远，不限半径。</string>
+    <string name="widget_area">周边</string>
+    <string name="widget_no_station">站点未知</string>
+
+    <!-- 三档决策：○ / ● / ⊘，只作用于状态栏 smallIcon 与文字结论，不动 6 档色彩体系 -->
+    <string name="mask_tier_go">可出门</string>
+    <string name="mask_tier_mask">需口罩</string>
+    <string name="mask_tier_stay">不应出门</string>
+    <string name="mask_tier_go_advice">可正常户外活动</string>
+    <string name="mask_tier_mask_advice">建议戴贴合面部的 N95 / KN95，减少长时间户外</string>
+    <string name="mask_tier_stay_advice">尽量留在室内，避免户外活动</string>
+    <string name="mask_disclaimer">三档只按 AQI 数值分级（0–100 / 101–200 / ≥201），不是医疗建议，也不针对具体污染物。● 档若由 PM2.5 主导，建议戴贴合面部的 N95 / KN95；敏感人群、儿童、老年人及心肺疾病患者请以官方指引与自身感受为准。</string>
+
+    <string name="dual_secondary">对照 · %1$s：%2$d %3$s %4$s（非实测浓度，±2 AQI）</string>
+    <string name="dual_cn_single">国标模式为单源 OM，不提供两源对照</string>
+    <string name="dual_hint">两源口径不同，不能互相校验：OM 是 CAMS 模型网格 + 24h/8h/1h 平均浓度本地算；WAQI 反算是地面站点已发布分指数逆推等效浓度后按 EPA 2024 重算（非实测浓度、±2 AQI、平均窗口未实测）。档位可能不一致，状态栏只跟随主源。</string>
+    <string name="secondary_no_token">需填 WAQI 令牌（aqicn.org/data-platform/token 免费申请）</string>
+    <string name="secondary_unavailable">暂不可用</string>
+
+    <string name="attribution">美标 AQI：默认 Open-Meteo / CAMS 模型数据，按美标 2024 断点、24 小时 / 8 小时 / 1 小时平均浓度本地计算；可选 WAQI 反算 2024：站点分指数逆推等效浓度后重算（非实测浓度）。国标 AQI：Open-Meteo / CAMS 数据，按 HJ 633-2012、24 小时 / 8 小时平均浓度本地计算</string>
+    <string name="attribution_us">数据来源：Open-Meteo / CAMS · 美标 2024 断点 · 24 小时 / 8 小时 / 1 小时平均浓度本地计算</string>
+    <string name="attribution_cn">数据来源：Open-Meteo / CAMS · 国标 HJ 633-2012 · 24 小时 / 8 小时平均浓度本地计算</string>
+    <string name="disclaimer">实时参考值，非官方发布 AQI。浓度按断点表规定的时间窗口平均后再计算：美标 2024 为 PM2.5、PM10 取 24 小时，O₃、CO 取 8 小时，NO₂、SO₂ 取 1 小时；国标 HJ 633-2012 为颗粒物与气态污染物取 24 小时，O₃ 取 8 小时。若用瞬时峰值直接代入 24 小时断点会严重虚高（实测瞬时 347.4 µg/m³ 会算成 413，24 小时平均 205.3 µg/m³ 应为 280）。Open-Meteo 提供的是 CAMS 模型网格数据，与地面监测站点实测、以及 aqicn / AirNow 官方发布值都会因数据源、平均窗口和观测时刻不同而存在差异，不能直接互相校验。aqicn 至今仍用美标 2012 旧断点（122 µg/m³ → 185，2024 应为 198）；本 App 的 WAQI 反算源是把它已发布的分指数逆推等效浓度后按 2024 重算，属推算值而非实测浓度。</string>
+
+    <!-- 设置页 -->
+    <string name="widget_diag">系统已识别本 App 的 %1$d 个小部件</string>
+    <string name="widget_diag_zero">未识别到小部件：请确认装的是最新版，或重启桌面/手机后重试</string>
+    <string name="widget_add_hint">找不到小部件？多数手机要「长按桌面空白处 → 小部件」才能看到列表，部分国产 ROM 把第三方小部件收在二级菜单里。可直接点下面按钮让系统弹出添加确认框。</string>
+    <string name="toast_pin_ok">已向桌面发起添加请求，请按弹窗确认</string>
+    <string name="toast_pin_unsupported">当前桌面不支持一键添加，请长按桌面空白处 → 小部件</string>
+    <string name="toast_pin_failed">添加失败，请长按桌面空白处手动添加</string>
+
+    <string name="standard_desc_us">美标：把 Open-Meteo 原始浓度按美标 2024 断点本地计算（PM2.5 断点 9.0 / 35.4 / 55.4 / 125.4 / 225.4 / 325.4 / 500.4）。浓度先按 24 小时 / 8 小时 / 1 小时窗口平均再代入断点，与官方口径一致，不需要令牌。注意 WAQI / aqicn 等多数在线换算器仍是 2012 旧表，同一浓度数值会偏低。</string>
+    <string name="standard_desc_cn">国标：同一批 Open-Meteo 原始浓度按 HJ 633-2012 本地计算，浓度先按 24 小时 / 8 小时窗口平均再代入断点。不需要令牌，固定单一数据源，不做两源对照。属模型网格数据，与地面站点实测及官方发布值可能有差异。</string>
+
+    <string name="source_diff_hint">为什么和 aqicn / 官网数字不同？本 App 默认主源读 Open-Meteo 的 CAMS 模型网格数据，而 aqicn / AirNow 读地面监测站点实测：两者数据源、空间代表性、观测时刻都不同，数值本来就不会一致。此外 aqicn 至今用美标 2012 旧断点，同一浓度算出来比 2024 新表偏低。可在下方切换主源或开启「WAQI 反算 2024」对照，但两行口径不同、不能互相当校验值。</string>
+
+    <!-- v0.1.7 长说明默认收起 -->
+    <string name="explain_toggle_more">说明与口径</string>
+    <string name="explain_toggle_less">收起说明</string>
+
+
+    <!-- 保留旧 id 名，文案已改为反映 v0.1.6 语义；UI 不再绑定 2012 旧链路 -->
+
+    <string name="token_label">WAQI 令牌（反算源 / 主源切到 WAQI 时需要；免费申请：aqicn.org/data-platform/token）</string>
+    <string name="token_hint">粘贴你的令牌</string>
+    <string name="btn_refresh_now">立即刷新</string>
+
+    <string name="coord_hint">纬度,经度  例如 39.9042,116.4074</string>
+    <string name="btn_save_coord">保存坐标并刷新</string>
+    <string name="toast_coord_saved">坐标已保存，正在刷新…</string>
+
+    <!-- v0.1.8 通知时机：ROM 会抢占 smallIcon，所以用「通知是否存在」表达该不该戴口罩 -->
+    <string name="notif_policy_alert_only">仅在需要口罩时（AQI ≥ 101）</string>
+    <string name="notif_policy_always">始终常驻，显示数值</string>
+    <string name="notif_policy_never">关闭通知</string>
+
+    <string name="hint_notif_denied">通知权限被拒绝：刷新服务仍在运行，但状态栏与锁屏看不到提醒。</string>
+    <string name="hint_lock_dep">锁屏可见性最终由系统通知渠道设置决定，用户可随时在系统里覆盖。</string>
+
+    <string name="toast_saved">已保存，正在刷新…</string>
+    <string name="toast_token_empty">令牌不能为空</string>
+    <string name="toast_settings_unavailable">当前系统未提供该设置页</string>
+
+    <!-- ══════════ v0.4.0 App 三屏 ══════════ -->
+    <string name="tab_today">今日</string>
+    <string name="tab_detail">详情</string>
+    <string name="tab_settings">设置</string>
+    <string name="label_site">本站</string>
+    <string name="grid_title">你周围 %1$d 公里 · %2$d 个格点</string>
+    <string name="today_diff_high">区域比本站高 %1$d · 城区整体偏差，你在相对好的一侧</string>
+    <string name="today_diff_low">区域比本站低 %1$d · 城区整体偏差，你在相对差的一侧</string>
+    <string name="today_diff_same">区域与本站基本一致</string>
+    <string name="today_no_area">未开启周边区域，卡片只显示最近站点。可在「设置 → 数据」里打开。</string>
+    <string name="poll_title">污染物分指数</string>
+    <string name="poll_sub">主导 %1$s</string>
+    <string name="poll_empty">暂无分指数</string>
+    <string name="detail_sub">%1$s · %2$s</string>
+    <string name="detail_cell">第 %1$d 格 · 格内 %2$d%%</string>
+    <string name="detail_tiers_title">六档含义</string>
+    <string name="detail_calc_title">计算口径</string>
+    <string name="detail_calc_body">主导污染物 %1$s，按 %2$s 断点计算得 %3$d。</string>
+    <string name="detail_calc_area">周边为半径 %1$d 公里圆周上的 %2$d 个模式点，中位数 %3$d（区间 %4$d–%5$d），不是行政区均值。</string>
+    <string name="detail_calc_no_area">未取到区域值，卡片与环只反映最近站点。</string>
+    <string name="detail_notice">实时参考值，非官方发布 AQI。模型网格与地面站点实测、官方发布值本就不会相等，不能互相校验。</string>
+    <string name="legend_site">本站 %1$d</string>
+    <string name="legend_area">区域 %1$d</string>
+    <string name="tier_range">%1$d–%2$d</string>
+    <string name="group_data">数据</string>
+    <string name="group_alert">提醒</string>
+    <string name="group_location">位置</string>
+    <string name="group_widget">桌面小部件</string>
+    <string name="group_perm">权限</string>
+    <string name="group_about">关于</string>
+    <string name="row_source">数据源</string>
+    <string name="row_source_desc">默认不需要令牌</string>
+    <string name="row_standard">显示标准</string>
+    <string name="row_radius">周边半径</string>
+    <string name="row_radius_desc">10 公里是一个区，25 公里覆盖主城区，50 公里接近全城。模式分辨率约 45 公里，比半径还粗。</string>
+    <string name="row_radius_rank_note">WAQI 模式不限半径：直接取最近的 9 个站点。</string>
+    <string name="row_interval">刷新间隔</string>
+    <string name="row_policy">通知时机</string>
+    <string name="row_policy_desc">优 / 良不打扰，变差才出现</string>
+    <string name="row_lock">锁屏显示完整信息</string>
+    <string name="row_lock_desc">默认只显示数值</string>
+    <string name="row_coord">手动坐标</string>
+    <string name="row_coord_desc">定位被拒或拿不到位置时的兜底</string>
+    <string name="perm_location">定位</string>
+    <string name="perm_notif">通知</string>
+    <string name="perm_battery">忽略电池优化</string>
+    <string name="perm_battery_desc">后台刷新不被打断</string>
+    <string name="perm_granted">已授权</string>
+    <string name="perm_denied">未授权 · 点此开启</string>
+    <string name="action_save">保存</string>
+    <string name="source_seg_om">Open-Meteo</string>
+    <string name="source_seg_waqi">WAQI</string>
+    <string name="standard_seg_us">美标 2024</string>
+    <string name="standard_seg_cn">国标</string>
+    <string name="radius_seg_10">10 公里</string>
+    <string name="radius_seg_25">25 公里</string>
+    <string name="interval_seg_30">30 分</string>
+    <string name="interval_seg_60">60 分</string>
+    <string name="interval_seg_120">120 分</string>
+    <string name="policy_seg_alert">仅警示</string>
+    <string name="policy_seg_always">始终</string>
+    <string name="policy_seg_never">关闭</string>
+    <string name="about_version">AQI 常驻 v%1$s（版本号 %2$d）</string>
+
+    <string name="station_dist">约 %1$.0f 公里</string>
+    <string name="detail_level_line">%1$s · %2$s</string>
+    <string name="detail_cell_empty">暂无数据，无法定位到格子</string>
+    <string name="row_dual">两源对照</string>
+    <string name="row_dual_desc">在「详情」里显示另一源的数值与口径</string>
+
+    <string name="standard_short_us">美标 2024 断点 · 本站按 24 小时 / 8 小时 / 1 小时平均浓度计算，不需要令牌</string>
+    <string name="standard_short_cn">国标 HJ 633-2012 · 24 小时 / 8 小时平均浓度本地计算，单一数据源</string>
+    <string name="today_no_area_data">未取到区域值（可能只差一次刷新），当前只显示最近站点</string>
+    <string name="foot_detail_link">查看依据与六档含义 ›</string>
+
+    <string name="std_full_us">美标 AQI 2024（本地计算）</string>
+    <string name="std_full_cn">国标 AQI（HJ 633-2012）</string>
+
+    <!-- 尺寸标签与单位：只用于 `4×2` / `AQI` 这类不翻译的符号 -->
+    <string name="size_4x2" translatable="false">4×2</string>
+    <string name="size_2x1" translatable="false">2×1</string>
+    <string name="size_1x2" translatable="false">1×2</string>
+    <string name="size_1x1" translatable="false">1×1</string>
+    <string name="unit_aqi" translatable="false">AQI</string>
+
+    <!-- ══════════ v0.4.1 全语种文案（等级名 / 短标签 / 诊断行）══════════ -->
+    <string name="lv_good">优</string>
+    <string name="lv_moderate">良</string>
+    <string name="lv_usg">敏感人群不健康</string>
+    <string name="lv_unhealthy">不健康</string>
+    <string name="lv_very_unhealthy">非常不健康</string>
+    <string name="lv_hazardous">危险</string>
+    <string name="lv_cn_good">优</string>
+    <string name="lv_cn_moderate">良</string>
+    <string name="lv_cn_usg">轻度污染</string>
+    <string name="lv_cn_unhealthy">中度污染</string>
+    <string name="lv_cn_very_unhealthy">重度污染</string>
+    <string name="lv_cn_hazardous">严重污染</string>
+    <string name="std_short_us">美标 2024</string>
+    <string name="std_short_cn">国标</string>
+    <string name="src_short_om">Open-Meteo 本地</string>
+    <string name="src_short_waqi">WAQI 反算</string>
+    <string name="station_model_grid">Open-Meteo 模型网格</string>
+    <string name="diag_line">计算口径：%1$s · %2$s %3$s → AQI %4$d</string>
+    <string name="diag_window_hours">%1$d 小时平均</string>
+    <string name="diag_window_instant">1 小时瞬时</string>
+    <string name="diag_official">Open-Meteo 官方 %1$d</string>
+    <string name="diag_fallback">%1$d 项历史缺测，已回退瞬时值</string>
+    <string name="diag_waqi">反算口径：PM2.5 2012 分指数 %1$d → 逆推等效浓度 %2$s µg/m³ → 按美标 2024 重算 %3$d（不是实测浓度，误差约 ±2）；其余 5 项沿用站点原分指数；站点报告 AQI %4$d</string>
+    <string name="diag_waqi_high">站点报告 AQI 高于已返回分指数最大值，可能有未列出污染物，本行可能偏低</string>
+    <string name="diag_waqi_tail"> · 平均窗口未实测</string>
+
+    <!-- ══════════ v0.4.1 状态条与错误文案 ══════════ -->
+    <string name="sync_ok">更新成功 · %1$s · %2$s · %3$s</string>
+    <string name="sync_no_perm">未授予定位权限：请点下方「开启定位权限」，或改填手动坐标（可完全绕过定位）</string>
+    <string name="sync_no_loc">系统暂无缓存位置：请打开系统定位，再打开一次地图或天气 App 让系统记录位置；或改填手动坐标</string>
+    <string name="sync_no_token">主源已设为「WAQI 反算 2024」但未填令牌：请到 aqicn.org/data-platform/token 免费申请后填入；或把主源切回「Open-Meteo 本地 2024」（无需令牌）</string>
+    <string name="sync_manual_bad">手动坐标格式不对：应填「纬度,经度」，例如 39.9042,116.4074（纬度 -90~90，经度 -180~180）</string>
+    <string name="sync_up_to_date">数据已是最新（%1$s 更新，未到刷新间隔）</string>
+    <string name="err_source">数据源返回异常：%1$s</string>
+    <string name="err_http">接口返回 %1$s（网络被拦截，或服务暂不可用）</string>
+    <string name="err_no_aqi">该坐标附近站点暂无有效 AQI 读数：换个坐标或稍后再试</string>
+    <string name="err_recalc">WAQI 反算失败：%1$s。可把主源切回 Open-Meteo 本地 2024</string>
+    <string name="err_timeout">请求超时：请检查网络能否访问 %1$s</string>
+    <string name="err_dns">DNS 解析失败：请检查网络能否访问 %1$s</string>
+    <string name="err_io">网络异常：%1$s %2$s</string>
+    <string name="err_other">获取失败：%1$s %2$s</string>
+    <string name="err_waqi_key">WAQI 返回 Invalid key：令牌无效或已过期，请到 aqicn.org/data-platform/token 核对后重新粘贴；或把主源切回 Open-Meteo 本地 2024</string>
+    <string name="secondary_failed">获取失败：%1$s</string>
+    <string name="station_unknown">站点未知</string>
+    <string name="station_model_grid_short">模型网格</string>
+    <!-- v0.4.2 区域口径与圆周采样 -->
+    <string name="radius_seg_50">50 公里</string>
+    <string name="widget_area_worst">最差</string>
+    <string name="row_area_worst">取最差格点</string>
+    <string name="row_area_worst_desc">打开后区域值取 9 个点里的最大值：宁可高报，适合按防护口径看。默认取中位数，代表这一片的一般水平。</string>
+    <string name="grid_mode_med">中位数</string>
+    <string name="grid_mode_worst">最差格点</string>
+    <string name="area_min">最低</string>
+    <string name="area_median">中位</string>
+    <string name="area_max">最高</string>
+    <string name="detail_calc_area_worst">周边为半径 %1$d 公里圆周上的 %2$d 个模式点，取最差值 %3$d（区间 %4$d–%5$d）；中位数更低。</string>
+    <string name="detail_calc_res">模式分辨率约 45 公里（CAMS 全球），格与格之间的差别来自模式场的空间分布，不是街道级实测。</string>
+
+    <!-- v0.4.4 点位详情 -->
+    <string-array name="bearings">
+        <item>北</item>
+        <item>东北</item>
+        <item>东</item>
+        <item>东南</item>
+        <item>南</item>
+        <item>西南</item>
+        <item>西</item>
+        <item>西北</item>
+    </string-array>
+    <string name="dlg_center">中心（你）</string>
+    <string name="dlg_title">%1$s · %2$d 公里</string>
+    <string name="dlg_coord">坐标 %1$s, %2$s</string>
+    <string name="dlg_source">数据 CAMS 模式格点，约 45 公里</string>
+    <string name="dlg_time">数据时间 %1$s</string>
+    <string name="dlg_note">这不是监测站：Open-Meteo 只提供模式格点，没有站点名与站点编号。想要站点实测，把主源切到 WAQI 并填 Token。</string>
+    <string name="dlg_same_cell">与中心数值相同，大概率落在同一个模式格（约 45 公里）。9 个点常常只有两三个不同的值，这不是数据没刷新。</string>
+    <string name="dlg_missing">这个点没有返回数据</string>
+    <string name="dlg_close">知道了</string>
+    <string name="grid_hint">%1$s 更新 · 点格子看详情</string>
+    <string name="grid_hint_none">点格子看详情</string>
+    <string name="grid_hint_rank">中心最近 · 顺时针由近到远 · 点开看站名</string>
+    <string name="grid_note_station_failed">站点环取不到附近站点（%1$s），已退回模式格点</string>
+    <string name="grid_note_via_search">站点清单接口不可用，已按城市名检索附近站点</string>
+
+    <!-- ══════════ v0.4.5 周边九宫格 · 两种数据源 ══════════ -->
+    <string name="grid_title_station">最近的 %1$d 个站点</string>
+    <string name="row_area_source">周边数据源</string>
+    <string name="row_area_source_desc">默认跟随主源。Open-Meteo 给的是约 45 公里的模式格点，没有站名；WAQI 给的是真实监测站，有站名和距离，但每次刷新会多发 8 个请求。</string>
+    <string name="area_src_follow">跟随主源</string>
+    <string name="dlg_title_station">%1$s · %2$.1f 公里</string>
+    <string name="dlg_title_rank">%1$s · %2$.1f 公里 · 第 %3$d 近</string>
+    <string name="dlg_source_station">WAQI 地面监测站，按 2024 断点重算</string>
+    <string name="dlg_note_station">这是真实监测站，但数值不是站点自报值：本 App 用站点已发布的 2012 分指数逆推 PM2.5 等效浓度，再按美国 EPA 2024 断点重算。所以和 aqicn 页面上那个数会差几点，两边口径不同。</string>
+    <string name="dlg_note_rank">九宫格按距离排：中心是最近的站，其余从正上方开始顺时针依次是第 2 近到第 9 近。格子位置只表示远近，不表示方向。</string>
+    <string name="dlg_same_station">与中心那一站数值相同：相邻站点常常同处一个污染过程，差 1 以内会被四舍五入抹平。</string>
+    <string name="detail_calc_ring_station">周边为半径 %1$d 公里内的 %2$d 个监测站，取中位数 %3$d（区间 %4$d–%5$d）；每站均按 2024 断点重算。</string>
+    <string name="detail_calc_ring_station_worst">周边为半径 %1$d 公里内的 %2$d 个监测站，取最差值 %3$d（区间 %4$d–%5$d）；中位数更低，每站均按 2024 断点重算。</string>
+    <string name="detail_calc_res_station">站点为地面实测，受站点位置（路边 / 公园 / 楼顶）影响很大；相邻两站差 20 以上是常态，不代表其中一个是错的。</string>
+<string name="toast_area_need_token">周边用 WAQI 站点需要先填 Token，已保持原选择</string>
+    <!-- v0.4.9 息屏显示（AOD） -->
+
+    <!-- v0.5.0 系统息屏显示（Live Updates） -->
+    <string name="row_live">系统息屏显示</string>
+    <string name="live_state_unknown">检测中…</string>
+    <string name="live_state_unsupported">本机系统版本不支持（需 Android 16 及以上）</string>
+    <string name="live_state_denied">系统未允许本应用使用实时通知，点此去开启</string>
+    <string name="live_state_pending">已请求，但本机没有采纳 —— 部分 ROM 只放行地图、外卖这类</string>
+    <string name="live_state_ok">已被系统采纳 · 锁屏没显示就点这里，打开「实时更新」开关</string>
+    <string name="live_state_off">已关闭，通知恢复为普通常驻</string>
+    <string name="live_state_no_notif">当前没有常驻通知（「仅污染时」这一档，优/良不显示通知）</string>
+</resources>
