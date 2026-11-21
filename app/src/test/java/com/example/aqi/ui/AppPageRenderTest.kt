@@ -72,7 +72,6 @@ class AppPageRenderTest {
                 localAqi = value,
                 officialAqi = value,
             ),
-            //
             area = if (area == null) null else AreaStat.of(
                 grid, radius, useWorst,
                 grid.mapIndexed { i, v ->

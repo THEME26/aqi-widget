@@ -64,7 +64,6 @@ object WidgetRenderer {
     fun render(ctx: Context, kind: WidgetKind, s: AqiState): RemoteViews {
         val rv = RemoteViews(ctx.packageName, kind.layoutRes)
         val dark = isNight(ctx)
-        //
         val dim = s.hasValue && s.isStale
         val palette = if (dim) GaugePainter.mutedPalette(ctx) else GaugePainter.palette(ctx)
         val neutral = ContextCompat.getColor(ctx, R.color.text_secondary)
@@ -80,7 +79,6 @@ object WidgetRenderer {
         val botColor = if (dim) mutedSoft else GaugePainter.ringColor(s.level)
         rv.setImageViewBitmap(R.id.aqi_bg, BgPainter.strip(topColor, botColor, topA, botA))
 
-        //
         if (kind != WidgetKind.MINI_SQUARE) {
             if (area != null) {
                 rv.setViewVisibility(R.id.aqi_area_row, View.VISIBLE)
@@ -111,7 +109,6 @@ object WidgetRenderer {
             },
         )
         if (kind != WidgetKind.MAIN) {
-            //
             val (base, threeDigit) = when (kind) {
                 WidgetKind.MINI_SQUARE -> 32f to 23f
                 WidgetKind.MINI_TALL -> 36f to 26f

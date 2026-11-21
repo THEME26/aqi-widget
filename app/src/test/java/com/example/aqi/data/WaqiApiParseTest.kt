@@ -50,7 +50,7 @@ class WaqiApiParseTest {
         assertTrue("要署名机构", s.attribution.contains("World Air Quality Index Project"))
     }
 
-    // ───────── map/bounds（v0.4.7） ─────────
+    // ───────── map/bounds ─────────
 
     @Test
     fun parsesBoundsAccordingToSpec() {
