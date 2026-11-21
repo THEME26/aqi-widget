@@ -64,7 +64,7 @@ Both can be displayed side by side for comparison. Each line is labelled with it
 
 The token is free and issued directly by the World Air Quality Index Project. The procedure is the same everywhere — only the language of the form changes, so mainland China is not a special case:
 
-1. Open the request form: [English](https://aqicn.org/data-platform/token/) · [简体中文](https://aqicn.org/data-platform/token/cn/) · [繁體中文](https://aqicn.org/data-platform/token/hk/). Other languages are linked from the same page.
+1. Open the request form: [English](https://aqicn.org/data-platform/token/) · [简体中文](https://aqicn.org/data-platform/token/cn/) · [繁體中文](https://aqicn.org/data-platform/token/hk/) · [한국어](https://aqicn.org/data-platform/token/kr/) · [日本語](https://aqicn.org/data-platform/token/jp/). Other languages are linked from the same page.
 2. Tick the box confirming you accept the Terms of Service.
 3. Enter an email address and a name, then submit.
 4. The token arrives by email, normally within a few minutes. If nothing shows up, check the spam folder before requesting again — repeated requests create new tokens rather than resending the old one.
