@@ -80,8 +80,6 @@
     <string name="explain_toggle_more">설명과 산출 근거</string>
     <string name="explain_toggle_less">설명 접기</string>
 
-
-
     <string name="token_label">WAQI 토큰 (재계산 소스에 필요)</string>
     <string name="token_hint">토큰 붙여넣기</string>
     <string name="btn_refresh_now">지금 새로고침</string>
@@ -101,7 +99,6 @@
     <string name="toast_token_empty">토큰은 비울 수 없습니다</string>
     <string name="toast_settings_unavailable">이 시스템에는 해당 설정 화면이 없습니다</string>
 
-    <!-- ══════════ v0.4.0 App 三屏 ══════════ -->
     <string name="tab_today">오늘</string>
     <string name="tab_detail">상세</string>
     <string name="tab_settings">설정</string>
@@ -179,7 +176,6 @@
     <string name="std_full_us">미국 AQI · EPA 2024 (로컬 계산)</string>
     <string name="std_full_cn">중국 AQI · HJ 633-2012</string>
 
-    <!-- ══════════ v0.4.1 全语种文案（等级名 / 短标签 / 诊断行）══════════ -->
     <string name="lv_good">좋음</string>
     <string name="lv_moderate">보통</string>
     <string name="lv_usg">민감군에 나쁨</string>
@@ -206,7 +202,6 @@
     <string name="diag_waqi_high">측정소 보고 AQI가 반환된 부지수 최댓값보다 높아 미표시 오염물질이 있을 수 있습니다</string>
     <string name="diag_waqi_tail"> · 평균 구간 미검증</string>
 
-    <!-- ══════════ v0.4.1 状态条与错误文案 ══════════ -->
     <string name="sync_ok">업데이트됨 · %1$s · %2$s · %3$s</string>
     <string name="sync_no_perm">위치 권한이 없습니다. 아래 \'위치 권한 켜기\'를 누르거나 수동 좌표를 입력하세요(위치를 완전히 우회할 수 있습니다)</string>
     <string name="sync_no_loc">시스템에 저장된 위치가 없습니다. 위치를 켜고 지도나 날씨 앱을 한 번 열어 위치를 기록하게 하거나, 수동 좌표를 입력하세요</string>
@@ -225,7 +220,7 @@
     <string name="secondary_failed">가져오기 실패: %1$s</string>
     <string name="station_unknown">측정소 미상</string>
     <string name="station_model_grid_short">모델 격자</string>
-    <!-- v0.4.2 区域口径与圆周采样 -->
+
     <string name="radius_seg_50">50 km</string>
     <string name="widget_area_worst">최악</string>
     <string name="row_area_worst">최악 지점 사용</string>
@@ -238,7 +233,6 @@
     <string name="detail_calc_area_worst">주변 값은 반경 %1$d km 원주 위 %2$d개 지점의 최댓값(%3$d, 범위 %4$d–%5$d)입니다. 중앙값은 이보다 낮습니다.</string>
     <string name="detail_calc_res">모델 해상도는 약 45 km(CAMS 전구)라 칸 간 차이는 모델장 분포에서 오며 도로 단위 실측이 아닙니다.</string>
 
-    <!-- v0.4.4 点位详情 -->
     <string-array name="bearings">
         <item>북</item>
         <item>북동</item>

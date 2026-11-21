@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 底栏：与页面同色 + 一条 1dp 上边线。不做半透明模糊 —— minSdk 26 上 RenderEffect 不可用 -->
+
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape android:shape="rectangle">

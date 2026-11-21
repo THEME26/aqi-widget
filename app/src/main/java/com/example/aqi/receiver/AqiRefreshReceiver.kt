@@ -8,7 +8,6 @@ import com.example.aqi.data.AqiPrefs
 import com.example.aqi.render.RenderHub
 import com.example.aqi.worker.RefreshScheduler
 
-/** 小部件上的刷新按钮：立即入队一次 Worker，同时用缓存重绘给出即时反馈 */
 class AqiRefreshReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent?) {

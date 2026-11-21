@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- v0.4.4 · 点位详情弹层
-     为什么不是 Material BottomSheet：全 App 没有 Material 依赖，自绘控件已经
-     统一了圆角/描边/字重；引一个 BottomSheet 会连带换主题，小部件预览与屏保
-     都会跟着变。这里用最朴素的 Dialog + 一张卡片。 -->
+
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"

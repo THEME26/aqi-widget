@@ -80,8 +80,6 @@
     <string name="explain_toggle_more">詳細と算出根拠</string>
     <string name="explain_toggle_less">詳細を閉じる</string>
 
-
-
     <string name="token_label">WAQI トークン（再計算ソースに必要）</string>
     <string name="token_hint">トークンを貼り付け</string>
     <string name="btn_refresh_now">今すぐ更新</string>
@@ -101,7 +99,6 @@
     <string name="toast_token_empty">トークンは空にできません</string>
     <string name="toast_settings_unavailable">このシステムには該当する設定画面がありません</string>
 
-    <!-- ══════════ v0.4.0 App 三屏 ══════════ -->
     <string name="tab_today">今日</string>
     <string name="tab_detail">詳細</string>
     <string name="tab_settings">設定</string>
@@ -179,7 +176,6 @@
     <string name="std_full_us">米国 AQI · EPA 2024（ローカル計算）</string>
     <string name="std_full_cn">中国 AQI · HJ 633-2012</string>
 
-    <!-- ══════════ v0.4.1 全语种文案（等级名 / 短标签 / 诊断行）══════════ -->
     <string name="lv_good">良い</string>
     <string name="lv_moderate">普通</string>
     <string name="lv_usg">敏感な人は不健康</string>
@@ -206,7 +202,6 @@
     <string name="diag_waqi_high">観測所の報告 AQI が返却された副指数の最大値より高く、未掲載の汚染物質がある可能性があります</string>
     <string name="diag_waqi_tail">・平均時間は未検証</string>
 
-    <!-- ══════════ v0.4.1 状态条与错误文案 ══════════ -->
     <string name="sync_ok">更新しました · %1$s · %2$s · %3$s</string>
     <string name="sync_no_perm">位置情報の権限がありません。下の「位置情報を許可」を押すか、手動の座標を入力してください（位置情報を完全に回避できます）</string>
     <string name="sync_no_loc">システムに位置情報のキャッシュがありません。位置情報をオンにして地図か天気アプリを一度開くか、手動の座標を入力してください</string>
@@ -225,7 +220,7 @@
     <string name="secondary_failed">取得に失敗：%1$s</string>
     <string name="station_unknown">観測地点不明</string>
     <string name="station_model_grid_short">モデル格子</string>
-    <!-- v0.4.2 区域口径与圆周采样 -->
+
     <string name="radius_seg_50">50 km</string>
     <string name="widget_area_worst">最悪</string>
     <string name="row_area_worst">最も悪い地点を使う</string>
@@ -238,7 +233,6 @@
     <string name="detail_calc_area_worst">周辺は半径 %1$d km の円周上の %2$d 点の最大値（%3$d、範囲 %4$d–%5$d）。中央値はこれより低くなります。</string>
     <string name="detail_calc_res">モデル解像度は約45 km（CAMS 全球）で、マス間の差はモデル場の分布によるもので、街路レベルの実測ではありません。</string>
 
-    <!-- v0.4.4 点位详情 -->
     <string-array name="bearings">
         <item>北</item>
         <item>北東</item>
@@ -277,9 +271,7 @@
     <string name="detail_calc_ring_station_worst">周辺は %1$d km 以内の監視局 %2$d 局、最悪値 %3$d（範囲 %4$d〜%5$d）。中央値はより低く、各局は 2024 の区分で再計算しています。</string>
     <string name="detail_calc_res_station">局は地上で実測しており、設置場所（道路沿い・公園・屋上）の影響を強く受けます。隣接局で 20 以上違うのは普通のことで、どちらかが誤りというわけではありません。</string>
 <string name="toast_area_need_token">WAQI 局を使うにはトークンが必要です。選択は変更していません</string>
-    <!-- v0.4.9 常時表示 -->
 
-    <!-- v0.5.0 システム常時表示（Live Updates） -->
     <string name="row_live">システム常時表示</string>
     <string name="live_state_unknown">確認中…</string>
     <string name="live_state_unsupported">この Android バージョンでは未対応（16 以上が必要）</string>

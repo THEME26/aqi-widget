@@ -12,16 +12,6 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.example.aqi.R
 
-/**
- * 分段控件（设计稿 .seg）。
- *
- * 为什么不用 MaterialButtonToggleGroup：本项目没有引 Material 依赖，
- * 引了就得把主题换成 Material3，连带影响小部件预览主题。
- * 这里只需要「一排互斥选项 + 选中块浮起」，20 行代码就能做，且能精确控色。
- *
- * 选中态：滑块用 bg_seg_thumb（比槽亮一档）+ 主文字色 + 中等字重；
- * 未选中：透明 + text_dim。整个控件只有 2.5dp 内边距，滑块高度 = 控件高 - 5dp。
- */
 class SegmentedControl @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
@@ -46,7 +36,6 @@ class SegmentedControl @JvmOverloads constructor(
         rebuild()
     }
 
-    /** 程序化设置选中项，不触发 [onSelect]（否则会在初始化时连锁触发一次刷新）。 */
     fun select(index: Int) {
         if (index == selected || index !in labels.indices) {
             selected = index
@@ -89,7 +78,6 @@ class SegmentedControl @JvmOverloads constructor(
         (v * resources.displayMetrics.density + 0.5f).toInt()
 
     companion object {
-        /** 供运行时给滑块上色（例如把选中项染成强调色时用；当前保持中性）。 */
         fun thumb(color: Int): GradientDrawable = GradientDrawable().apply {
             cornerRadius = 9f
             setColor(Color.TRANSPARENT)

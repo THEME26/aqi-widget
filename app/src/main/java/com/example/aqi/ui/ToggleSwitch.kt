@@ -13,15 +13,6 @@ import android.view.animation.DecelerateInterpolator
 import androidx.core.content.ContextCompat
 import com.example.aqi.R
 
-/**
- * 设置页的开关（设计稿 .sw：44×26，滑块 21dp）。
- *
- * 为什么不用 [androidx.appcompat.widget.SwitchCompat]：
- * 它按主题里的 thumb/track drawable 计算尺寸与位置，实测在本页会**画到自身边界之外**
- * （右侧越出约 16dp，被卡片圆角切掉，见 v0.4.0 第一版截图）。
- * 这个控件只需要「圆角轨道 + 圆形滑块」，自绘 40 行就能精确控制，
- * 还能让开/关的颜色直接跟上 accent，不必为两套主题各配一套 drawable。
- */
 class ToggleSwitch @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
@@ -51,7 +42,6 @@ class ToggleSwitch @JvmOverloads constructor(
         }
     }
 
-    /** 程序化设置，不回调（避免初始化时连锁触发一次刷新）。 */
     fun setChecked(checked: Boolean, animate: Boolean = false) {
         if (checked == isChecked) return
         isChecked = checked
@@ -91,7 +81,6 @@ class ToggleSwitch @JvmOverloads constructor(
         canvas.drawCircle(cx, r, thumbR, paint)
     }
 
-    /** 起点色（关）→ 终点色（开），中间按 [fraction] 线性混合；关态用低透明度压暗。 */
     private fun blend(from: Int, to: Int, t: Float, fromAlpha: Float, toAlpha: Float): Int {
         val a = (fromAlpha + (toAlpha - fromAlpha) * t)
         val r = (Color.red(from) + (Color.red(to) - Color.red(from)) * t).toInt()

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 屏 2「详情」：回答「为什么是这个数」。
-     大环 + 六格尺（本站指针 / 区域指针）+ 六档含义 + 计算口径。
-     这一屏允许长文字，因为用户点进来就是要看依据。 -->
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -36,7 +34,6 @@
             android:textColor="@color/text_dim"
             android:textSize="11.5sp" />
 
-        <!-- 仪表卡 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -49,10 +46,6 @@
             android:paddingEnd="18dp"
             android:paddingBottom="18dp">
 
-            <!-- 环 + 环内读数（v0.4.7 补上数字）。
-                 v0.4.6 之前这里只有一个 ImageView：GaugePainter 只画弧、不画字，
-                 所以详情页那个大圈一直是个空圈 —— 今日页的小圈有字，是因为那里叠了
-                 hero_value。读数必须在环里，否则「环是量程」这件事没人看得懂。 -->
             <FrameLayout
                 android:layout_width="176dp"
                 android:layout_height="176dp">
@@ -167,7 +160,6 @@
             </LinearLayout>
         </LinearLayout>
 
-        <!-- 六档含义：由代码生成 6 行（避免 6 段重复 XML） -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -195,7 +187,6 @@
                 android:orientation="vertical" />
         </LinearLayout>
 
-        <!-- 计算口径 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -224,7 +215,6 @@
                 android:textColor="@color/text_secondary"
                 android:textSize="11.5sp" />
 
-            <!-- 诊断行：主导污染物 + 平均窗口 + 浓度 + 官方对照，来自 AqiState.diagnostic -->
             <TextView
                 android:id="@+id/detail_diag"
                 android:layout_width="match_parent"

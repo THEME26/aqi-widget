@@ -10,20 +10,11 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-    <!--
-      Android 16 的 Live Updates（promoted ongoing）。非运行时权限，声明即可；
-      用户仍可在系统设置里单独关闭。compileSdk 35 不认识它，故压掉 lint 的 UnknownPermission。
-    -->
+
     <uses-permission
         android:name="android.permission.POST_PROMOTED_NOTIFICATIONS"
         tools:ignore="UnknownPermission" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-
-    <!--
-      仍然不声明后台定位权限：本 App 不做持续定位。
-      v0.5.1 起不再有任何前台服务 / 唤醒锁 —— 息屏交给系统的 Live Updates，
-      自己不再画屏，也就没有必要常驻。
-    -->
 
     <application
         android:name=".AqiApp"
@@ -46,7 +37,6 @@
             </intent-filter>
         </activity>
 
-        <!-- 四档尺寸各自一个 provider，共用 BaseAqiWidgetProvider 逻辑 -->
         <receiver
             android:name=".widget.AqiWidgetMain"
             android:exported="true"
@@ -95,12 +85,10 @@
                 android:resource="@xml/widget_mini_square_info" />
         </receiver>
 
-        <!-- 小部件上的「刷新」按钮点击后走这里，避免让 AppWidgetProvider 承担网络请求 -->
         <receiver
             android:name=".receiver.AqiRefreshReceiver"
             android:exported="false" />
 
-        <!-- WorkManager 自身会在重启后恢复周期任务；这里只做加固（不启动 FGS） -->
         <receiver
             android:name=".receiver.BootReceiver"
             android:exported="true">

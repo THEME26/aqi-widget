@@ -23,13 +23,6 @@ import com.example.aqi.core.AreaStat
 import com.example.aqi.core.DiagInfo
 import com.example.aqi.core.Freshness
 
-/**
- * 把 v0.4.0 的三屏真的画一遍。
- *
- * 这一版 UI 的主要风险不是崩溃，而是「字被裁掉一格」「环和数字对不上」这类
- * 只有看到像素才知道的问题。Robolectric 的 NATIVE 图形模式跑真实 Skia，
- * inflate → bind → measure → draw 得到的就是真机上会显示的那张图。
- */
 @RunWith(RobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 @Config(sdk = [34], application = Application::class, qualifiers = "w411dp-h891dp-xxhdpi")
@@ -37,11 +30,6 @@ class AppPageRenderTest {
 
     private val out = File("build/render-check").apply { mkdirs() }
 
-    /**
-     * 只有 [pointSheet] 需要真的起 Activity，而 MainActivity.onCreate 会
-     * `RefreshScheduler.ensurePeriodic` → WorkManager。测试里用裸 Application，
-     * 所以在这里显式初始化一次；其余渲染用例不受影响。
-     */
     @org.junit.Before
     fun initWorkManager() {
         val ctx = RuntimeEnvironment.getApplication()
@@ -61,9 +49,6 @@ class AppPageRenderTest {
         modelGrid: Boolean = false,
         useWorst: Boolean = false,
     ): AqiState {
-        // 顺序 = [中心, 北, 东北, 东, 东南, 南, 西南, 西, 西北]，与 v0.4.2 的圆周采样一致。
-        // 用固定偏移生成，最差固定落在「西」(+18)、最低落在「南」(-12)，
-        // 截图里图例的最高/最低、环上的描边点必须和这两个方位对得上。
         val off = listOf(-4, 8, -1, 3, -12, -5, 18, 0)
         val grid = if (area == null) emptyList() else
             listOf(value) + off.map { area + it }
@@ -87,10 +72,7 @@ class AppPageRenderTest {
                 localAqi = value,
                 officialAqi = value,
             ),
-            // 走真实的中位数/最大值计算，而不是手填 value —— 否则测试会「验证」
-            // 一个跟数据层口径无关的数字。
             //
-            // v0.4.4：带上坐标与模式场时间，否则环上圆点不可点、详情弹层没有内容可显示。
             area = if (area == null) null else AreaStat.of(
                 grid, radius, useWorst,
                 grid.mapIndexed { i, v ->
@@ -106,11 +88,9 @@ class AppPageRenderTest {
         )
     }
 
-    /** 用真正的 Theme.AqiWidget 包一层，否则 ?attr/selectableItemBackgroundBorderless 找不到 */
     private fun inflateRoot(): View {
         val themed = ContextThemeWrapper(RuntimeEnvironment.getApplication(), R.style.Theme_AqiWidget)
         val root = android.view.LayoutInflater.from(themed).inflate(R.layout.activity_main, null, false)
-        // 手动触发一次 inset 布局：测试里没有 WindowInsets 分发，直接给状态栏高度的上边距
         root.findViewById<View>(R.id.page_host).setPadding(0, (24 * 3), 0, 0)
         return root
     }
@@ -137,7 +117,6 @@ class AppPageRenderTest {
         }
     }
 
-    /** v0.4.5：WAQI 站点九宫格。中心是最近站（有站名），外围按真实方位摆。 */
     @Test
     @Config(qualifiers = "zh-rCN-w411dp-h891dp-xxhdpi", sdk = [34], application = Application::class)
     fun todayScreenStationGrid() {
@@ -145,7 +124,7 @@ class AppPageRenderTest {
         val vals = listOf(168, 152, 175, 189, 203, 168, 158, 174, 181)
         val names = listOf("东四", "奥体中心", "农展馆", "天坛", "万寿西宫", "官园", "北部新区", "定陵", "顺义新城")
         val area = AreaStat.of(
-            vals, 0, false,          // 0 = 不限半径，站点模式没有半径这个概念
+            vals, 0, false,
             vals.mapIndexed { i, v ->
                 com.example.aqi.core.AreaPoint(
                     index = i, value = v,
@@ -164,7 +143,6 @@ class AppPageRenderTest {
         shot(root, "app_today_station_grid")
         assertTrue(File(out, "app_today_station_grid.png").length() > 10_000)
 
-        // 标题不带半径；说明行必须交代「位置 = 距离排名」，否则用户会当方位看
         val title = root.findViewById<android.widget.TextView>(R.id.grid_title).text.toString()
         assertEquals(root.context.getString(R.string.grid_title_station, 9), title)
         assertTrue("站点模式标题里不该再出现公里数，实际：$title", !title.contains("公里"))
@@ -172,13 +150,6 @@ class AppPageRenderTest {
         assertEquals(root.context.getString(R.string.grid_hint_rank), hint)
     }
 
-    /**
-     * 站点环取不到 → 退回模式格点（v0.4.6 真机故障的回归图）。
-     *
-     * 这一屏的意义：用户选的是 WAQI 站点，但 `map/bounds` 对免费 Token 直接报错，
-     * 于是退回格点。**必须有一行字说明这件事**，否则卡片写着「9 个格点」，
-     * 用户会以为站点环生效了 —— v0.4.5 的表现是整块周边直接消失。
-     */
     @Test
     @Config(qualifiers = "zh-rCN-w411dp-h891dp-xxhdpi", sdk = [34], application = Application::class)
     fun todayScreenStationFallback() {
@@ -235,7 +206,6 @@ class AppPageRenderTest {
         shot(root, "app_today_no_area")
     }
 
-    /** 无数据 / 无权限时也必须是一张完整的卡，而不是一堆空 TextView。 */
     @Test
     fun todayNoData() {
         val root = inflateRoot()
@@ -249,10 +219,6 @@ class AppPageRenderTest {
         shot(root, "app_today_nodata")
     }
 
-    /**
-     * 「取最差格点」开启：主数字 = 9 点最大值，右上角口径标签变「最差格点」，
-     * 图例三个数不变。这张图是判断「换了口径会不会让用户以为是别的东西」的依据。
-     */
     @Test
     fun todayScreenWorstPoint() {
         val root = inflateRoot()
@@ -265,13 +231,6 @@ class AppPageRenderTest {
         shot(root, "app_today_worst")
     }
 
-    /**
-     * 详情页：环里必须有读数。
-     *
-     * v0.4.6 的真机截图里那个 176dp 的大圈是空的 —— `GaugePainter.ring` 只画弧不画字，
-     * 详情页布局里又没有 `hero_value` 那样的叠层，于是「环是量程」这件事完全读不出来。
-     * 断言写在文本上，而不是「截图不为空」，否则空圈照样能过。
-     */
     @Test
     fun detailScreen() {
         val root = inflateRoot()
@@ -285,7 +244,6 @@ class AppPageRenderTest {
         val v = root.findViewById<android.widget.TextView>(R.id.detail_value)
         assertEquals("152", v.text.toString())
         assertEquals(View.VISIBLE, v.visibility)
-        // 读数必须在环里：上下沿夹住它，否则等于挂在环外
         val gauge = root.findViewById<android.view.View>(R.id.detail_gauge)
         val loc = IntArray(2)
         v.getLocationInWindow(loc)
@@ -296,7 +254,6 @@ class AppPageRenderTest {
         assertTrue("数字必须在环的下沿之上", top + v.height <= gTop + gauge.height)
     }
 
-    /** 详情页整页：诊断行在六档表下方，只有拉高才看得到。 */
     @Test
     fun detailFull() {
         val root = inflateRoot()
@@ -319,14 +276,6 @@ class AppPageRenderTest {
         c.select(on)
     }
 
-    /**
-     * 设置页上所有分段控件的文案，抽成一处。
-     *
-     * 原先的两个设置页用例各手抄一份 `seg(...)`，v0.4.5 新加的周边数据源分段
-     * 就只加进了 MainActivity、没加进测试 —— 于是截图里那一行静静地是空的，
-     * 而断言（文件 > 10 KB）照样通过。渲染测试的失效方式就是这样：
-     * 它证明「画出来了」，不证明「画全了」。所以这里改成一处定义，漏一个就一起漏。
-     */
     private fun settingsSegments(page: View, radius: Int = 0) {
         val c = page.context
         fun pick(id: Int, vararg res: Int) = seg(page, id, res.map { c.getString(it) }, 0)
@@ -334,8 +283,6 @@ class AppPageRenderTest {
         pick(R.id.seg_standard, R.string.standard_seg_us, R.string.standard_seg_cn)
         pick(R.id.seg_interval, R.string.interval_seg_30, R.string.interval_seg_60, R.string.interval_seg_120)
         pick(R.id.seg_policy, R.string.policy_seg_alert, R.string.policy_seg_always, R.string.policy_seg_never)
-        // v0.4.5：跟随主源 / Open-Meteo / WAQI。三项里第一项最长（德语 Hauptquelle folgen），
-        // 分段控件按内容撑宽、不换行也不省略，所以这一行是各语言里最容易被挤出屏幕的。
         pick(R.id.seg_area_source, R.string.area_src_follow, R.string.source_seg_om, R.string.source_seg_waqi)
         seg(
             page, R.id.seg_radius,
@@ -351,8 +298,6 @@ class AppPageRenderTest {
         settingsSegments(page, radius = 0)
         page.findViewById<ToggleSwitch>(R.id.sw_area).setChecked(true)
         page.findViewById<ToggleSwitch>(R.id.sw_lock_full).setChecked(true)
-        // 这两行只有 MainActivity 会填：截图里手动给一个「最坏情况」——
-        // 最长的状态文案（系统未采纳）+ 开关打开，用来检查会不会把行撑破
         page.findViewById<ToggleSwitch>(R.id.sw_live).setChecked(true)
         page.findViewById<android.widget.TextView>(R.id.tv_live_state).text =
             root.context.getString(R.string.live_state_pending)
@@ -360,7 +305,6 @@ class AppPageRenderTest {
             root.context.getString(R.string.widget_diag, 4)
         showTab(root, 2)
         shot(root, "app_settings_light")
-        // 整页高度：用来肉眼检查设置页下半部分（小部件 / 权限 / 关于）有没有错位
         root.measure(
             View.MeasureSpec.makeMeasureSpec(411 * 3, View.MeasureSpec.EXACTLY),
             View.MeasureSpec.makeMeasureSpec(1900 * 3, View.MeasureSpec.EXACTLY),
@@ -369,10 +313,6 @@ class AppPageRenderTest {
         shot(root, "app_settings_full", 411 * 3, 1900 * 3)
     }
 
-    /**
-     * 中文界面单独出一版：这个 App 文案量比控件多，
-     * 「中文里夹一句英文」这类问题只有把整屏画出来才看得见。
-     */
     @Test
     @Config(qualifiers = "zh-rCN-w411dp-h891dp-xxhdpi")
     fun chineseScreens() {
@@ -381,7 +321,6 @@ class AppPageRenderTest {
         showTab(root, 0)
         shot(root, "app_today_zh")
 
-        // 同一屏、只切口径：主数字 151 → 170，右上角「中位数」→「最差格点」。
         val rootW = inflateRoot()
         UiBinder(rootW.context).bindToday(
             rootW.findViewById(R.id.page_today),
@@ -410,25 +349,12 @@ class AppPageRenderTest {
         showTab(root3, 2)
         shot(root3, "app_settings_zh")
 
-        // v0.5.0：系统息屏那一段的措辞只有中文才看得出是否得体，
-        // 顺便用最长的「未采纳」文案压一下，确认四行说明不会把行撑破。
         page.findViewById<ToggleSwitch>(R.id.sw_live).setChecked(true)
         page.findViewById<android.widget.TextView>(R.id.tv_live_state).text =
             root3.context.getString(R.string.live_state_pending)
         shot(root3, "app_settings_zh_full", 411 * 3, 1900 * 3)
     }
 
-    /**
-     * 德语设置页（v0.4.5）：新增的「周边数据源」三项分段是本页最难过的一行。
-     *
-     * `item_seg` 是 wrap_content + maxLines=1，既省略号也不换行 —— 一行超宽只会
-     * 被父容器裁掉右边，也就是 WAQI 那一项凭空消失，且不产生任何布局报错。
-     * 德语 Hauptquelle folgen 是 7 种语言里最长的一项，它放得下其余就都放得下。
-     *
-     * 断言用 `paint.measureText` 量文本原宽，而不是比 `measuredWidth`：
-     * TextView 在 AT_MOST 约束下 measuredWidth 会被截断到父宽，那时它已经不告诉你
-     * 「本来需要多宽」了。
-     */
     @Test
     @Config(qualifiers = "de-rDE-w411dp-h891dp-xxhdpi")
     fun settingsGerman() {
@@ -467,18 +393,10 @@ class AppPageRenderTest {
         shot(root2, "app_detail_dark")
     }
 
-    /**
-     * 点位详情弹层（v0.4.4）：走真实 `Dialog`，不是把一个布局摆拍一遍。
-     *
-     * 之所以要经过 Activity：`AreaPointSheet.show()` 里有 window 背景、宽度、
-     * 点击关闭三件事，单独 inflate 布局验证不到。
-     */
     @Test
     @Config(qualifiers = "zh-rCN-w411dp-h891dp-xxhdpi", sdk = [34], application = Application::class)
     fun pointSheet() {
         val activity = org.robolectric.Robolectric.buildActivity(MainActivity::class.java).setup().get()
-        // 9 点里 8 个同值、1 个偏高 —— 正是用户看到的「只有 203 和 174 两个数」。
-        // 取索引 1（北，174，与中心相同）才会触发「大概率同格」那段解释。
         val vals = listOf(174, 174, 174, 203, 174, 174, 174, 174, 174)
         val area = AreaStat.of(
             vals, 25, false,
@@ -507,7 +425,6 @@ class AppPageRenderTest {
         val h = decor.measuredHeight
         val bmp = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888)
         val c = Canvas(bmp)
-        // 模拟 Dialog 的遮罩，否则透明 window 画出来是黑底
         c.drawColor(0xFF10141C.toInt())
         decor.draw(c)
         File(out, "app_point_sheet_zh.png").outputStream().use {

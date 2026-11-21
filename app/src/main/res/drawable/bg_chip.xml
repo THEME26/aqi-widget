@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 区域胶囊底：中性极淡色。档色只放在文字上 ——
-     RemoteViews 只能换整个 drawable 资源，改不了 shape 的 solid 颜色，
-     为 6 档 × 2 主题出 12 个胶囊底不值得。 -->
+
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
     <solid android:color="@color/chip_soft" />

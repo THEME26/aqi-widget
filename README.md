@@ -98,6 +98,16 @@ The unit tests execute the real drawing code under Robolectric and compare rende
 - Widget refresh depends on system background scheduling. Aggressive battery optimisation can delay it; the card turns grey when data is old, so a delay is visible rather than silent.
 - Live Update promotion is decided by the system and varies by manufacturer. The app can request it, not guarantee it.
 - Only debug-signed builds are published; there is no store listing.
+- The project is provided as-is and is not actively maintained. Issues and pull requests may go unanswered.
+
+## Acknowledgements
+
+The code, the resources and this document were produced with AI assistance:
+
+- **WorkBuddy** — agentic development environment in which the whole project was built and reviewed.
+- **DeepSeek** — model used for code generation and review.
+
+The tooling wrote it; the requirements and the judgement calls came from a human.
 
 ## Attribution
 

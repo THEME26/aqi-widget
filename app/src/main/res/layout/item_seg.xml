@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 分段控件的一项。用 XML 而不是 new TextView()：
-     真机上两者等价，但 XML 走 AppCompatViewInflater，字重/字距/tint 的行为与页面其它文字一致，
-     也便于以后给某一项单独加图标。 -->
+
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"

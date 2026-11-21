@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- updatePeriodMillis = 30 分钟（系统允许的最小值，写更小的值会被抬到这个数）。
-     它不是「定时刷新数据」，而是「定时让系统再问一次卡片要不要重画」：
-     数据新鲜时 onUpdate 只读缓存、零网络；陈旧时才补一次
-     （见 BaseAqiWidgetProvider.onUpdate 与 RefreshScheduler.selfHeal）。
-     v0.4.7 及以前这里是 0 —— 完全依赖 WorkManager 主动推送。后台被 ROM 掐掉后，
-     卡片会永久冻结在最后一次成功的彩色状态，连「陈旧」都不会画出来。 -->
+
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
     android:description="@string/widget_main_label"
     android:initialLayout="@layout/widget_main"

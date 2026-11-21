@@ -22,17 +22,6 @@ import org.robolectric.annotation.GraphicsMode
 import java.io.File
 import java.io.FileOutputStream
 
-/**
- * 整卡渲染：走**真实的** RemoteViews.apply 路径 —— inflate 布局、
- * 应用所有 setTextViewText / setImageViewBitmap / setViewVisibility，
- * 再 measure + layout + draw 成位图。
- *
- * 这比「用 PIL 复刻一遍布局」可信得多：复刻只能证明我写的 Python 对不对，
- * 这张图证明的是**发给桌面的那个 RemoteViews 长什么样**。
- *
- * 局限：Robolectric 的字体渲染与真机可能有基线/字重差异，
- * 颜色、几何、层级、裁切是可信的。
- */
 @RunWith(RobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 @Config(sdk = [34], qualifiers = "zh-rCN-xxhdpi", application = android.app.Application::class)
@@ -65,7 +54,6 @@ class WidgetCardRenderTest {
         },
     )
 
-    /** dp → px，和 widget 布局用的是同一个密度。 */
     private fun dp(v: Int): Int =
         (v * ctx.resources.displayMetrics.density).toInt()
 
@@ -81,7 +69,6 @@ class WidgetCardRenderTest {
         )
         view.layout(0, 0, w, h)
         val bmp = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888)
-        // 铺一层浅灰底：既能看到玻璃的通透度，也直接可用作 widget 选择器的预览图
         bmp.eraseColor(0xFFEDF0F5.toInt())
         view.draw(Canvas(bmp))
         FileOutputStream(File(outDir, "$name.png")).use {
@@ -97,7 +84,6 @@ class WidgetCardRenderTest {
         shot(WidgetKind.MAIN, state(45, 45), 288, 110, "card_main_good")
     }
 
-    /** 英文环境：小部件的「周边 / 站名 / 无站点」都走资源，必须确认没冒出中文。 */
     @Test
     @Config(qualifiers = "en-rUS-xxhdpi", sdk = [34], application = android.app.Application::class)
     fun renderEnglish() {
@@ -111,7 +97,6 @@ class WidgetCardRenderTest {
             state(268, 152).copy(stationName = "", modelGrid = true),
             288, 110, "card_main_en_grid",
         )
-        // 用户截图那一版：英文 + 最差口径 + 三位数，2×1 上曾经只显示「18」
         shot(WidgetKind.COMPACT, state(184, 264), 110, 60, "card_compact_en_min")
         shot(WidgetKind.MINI_TALL, state(184, 264), 74, 150, "card_tall_en_min")
     }
@@ -120,8 +105,6 @@ class WidgetCardRenderTest {
     fun renderCompactCard() {
         shot(WidgetKind.COMPACT, state(152, 198), 150, 74, "card_compact_same")
         shot(WidgetKind.COMPACT, state(68, 152), 150, 74, "card_compact_cross")
-        // v0.4.3 回归点：三位数主数字 + 三位数区域数字，在最窄的 2×1（110×60dp）上
-        // 必须都完整 —— 旧版把「周边 / Worst」写进胶囊，主数字只剩两位的宽度
         shot(WidgetKind.COMPACT, state(184, 264), 110, 60, "card_compact_3digit_min")
         shot(WidgetKind.COMPACT, state(184, 264), 150, 74, "card_compact_3digit")
     }
@@ -138,12 +121,10 @@ class WidgetCardRenderTest {
         shot(WidgetKind.MINI_SQUARE, state(320, 198), 74, 74, "card_square_haz")
     }
 
-    /** 深色模式：切 qualifiers 后重建 Context，验证 values-night 的 ink 与玻璃色是否生效。 */
     @Test
     fun renderDark() {
         RuntimeEnvironment.setQualifiers("+night")
         val darkCtx = RuntimeEnvironment.getApplication()
-        // 直接用 darkCtx 渲染，避免 @Config 的浅色资源缓存
         shotWith(darkCtx, WidgetKind.MAIN, state(152, 198), 288, 110, "card_main_dark")
         shotWith(darkCtx, WidgetKind.MAIN, state(68, 152), 288, 110, "card_main_dark_cross")
         shotWith(darkCtx, WidgetKind.COMPACT, state(184, 264), 110, 60, "card_compact_dark_min")
@@ -169,7 +150,6 @@ class WidgetCardRenderTest {
         )
         view.layout(0, 0, w, h)
         val bmp = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888)
-        // 深色卡配深色底，否则贴到浅色展示图上像一张「贴纸」
         bmp.eraseColor(0xFF20262F.toInt())
         view.draw(Canvas(bmp))
         FileOutputStream(File(outDir, "$name.png")).use {
@@ -177,7 +157,6 @@ class WidgetCardRenderTest {
         }
     }
 
-    /** RemoteViews 的反射调用是否真的把 clipToOutline 打开了 —— API 26~30 上的唯一保障。 */
     @Test
     fun clipToOutlineIsEnabledByRemoteViews() {
         val rv = WidgetRenderer.render(ctx, WidgetKind.MAIN, state(152, 198))

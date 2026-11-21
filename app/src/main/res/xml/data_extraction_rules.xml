@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- API ≥ 31 的备份 / 设备迁移规则：token 不参与云备份与设备间传输 -->
+
 <data-extraction-rules xmlns:android="http://schemas.android.com/apk/res/android">
     <cloud-backup>
         <exclude domain="sharedpref" path="aqi_prefs.xml" />

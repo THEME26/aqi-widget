@@ -80,8 +80,6 @@
     <string name="explain_toggle_more">Détails et méthode</string>
     <string name="explain_toggle_less">Masquer les détails</string>
 
-
-
     <string name="token_label">Jeton WAQI (requis pour la source recalculée)</string>
     <string name="token_hint">Collez votre jeton</string>
     <string name="btn_refresh_now">Actualiser maintenant</string>
@@ -101,7 +99,6 @@
     <string name="toast_token_empty">Le jeton ne peut pas être vide</string>
     <string name="toast_settings_unavailable">Cette page de paramètres n\'existe pas sur ce système</string>
 
-    <!-- ══════════ v0.4.0 App 三屏 ══════════ -->
     <string name="tab_today">Aujourd\'hui</string>
     <string name="tab_detail">Détails</string>
     <string name="tab_settings">Réglages</string>
@@ -179,7 +176,6 @@
     <string name="std_full_us">US AQI · EPA 2024 (calcul local)</string>
     <string name="std_full_cn">CN AQI · HJ 633-2012</string>
 
-    <!-- ══════════ v0.4.1 全语种文案（等级名 / 短标签 / 诊断行）══════════ -->
     <string name="lv_good">Bon</string>
     <string name="lv_moderate">Moyen</string>
     <string name="lv_usg">Mauvais pour les personnes sensibles</string>
@@ -206,7 +202,6 @@
     <string name="diag_waqi_high">L\'AQI déclaré dépasse le plus haut sous-indice renvoyé : des polluants non listés peuvent exister</string>
     <string name="diag_waqi_tail"> · fenêtre de moyenne non vérifiée</string>
 
-    <!-- ══════════ v0.4.1 状态条与错误文案 ══════════ -->
     <string name="sync_ok">Mis à jour · %1$s · %2$s · %3$s</string>
     <string name="sync_no_perm">Autorisation de localisation absente : appuyez sur « Activer la localisation » ci-dessous, ou saisissez des coordonnées manuelles (contourne totalement la localisation)</string>
     <string name="sync_no_loc">Aucune position en cache : activez la localisation et ouvrez une fois une app de cartes ou de météo, ou saisissez des coordonnées manuelles</string>
@@ -225,7 +220,7 @@
     <string name="secondary_failed">Échec : %1$s</string>
     <string name="station_unknown">Station inconnue</string>
     <string name="station_model_grid_short">Grille modèle</string>
-    <!-- v0.4.2 区域口径与圆周采样 -->
+
     <string name="radius_seg_50">50 km</string>
     <string name="widget_area_worst">Haut</string>
     <string name="row_area_worst">Prendre le point le plus haut</string>
@@ -238,7 +233,6 @@
     <string name="detail_calc_area_worst">Zone = maximum de %2$d points sur un cercle de rayon %1$d km (%3$d, plage %4$d–%5$d) ; la médiane est plus basse.</string>
     <string name="detail_calc_res">La résolution du modèle est d\'environ 45 km (CAMS global) : les écarts entre cases viennent du champ de modèle, pas d\'une mesure de rue.</string>
 
-    <!-- v0.4.4 点位详情 -->
     <string-array name="bearings">
         <item>Nord</item>
         <item>Nord-est</item>

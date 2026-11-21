@@ -20,18 +20,6 @@ import org.robolectric.RuntimeEnvironment
 import org.robolectric.annotation.Config
 import org.robolectric.annotation.GraphicsMode
 
-/**
- * 「数字有没有被切掉」这件事必须量，不能看。
- *
- * v0.4.2 的 2×1 卡把 17sp 的主数字改成了 36sp，同时又给胶囊写了「Worst」，
- * 结果 184 只剩「18」——截图上一眼能看出来，但代码里两个数字都不算错，
- * 错的是「宽度预算」和「字号」这两件事被写在了两个地方，没人负责对账。
- *
- * 这里直接把 RemoteViews apply 成真实 View，量三件事：
- *   1. 主数字的文本宽度 ≤ 控件可用宽度（否则会被裁掉最后一位）；
- *   2. 区域数字同样不能超宽；
- *   3. 两者在 2×1 最窄尺寸（110×60dp）下也不能互相挤。
- */
 @RunWith(RobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 @Config(sdk = [34], qualifiers = "zh-rCN-xxhdpi", application = android.app.Application::class)
@@ -76,7 +64,6 @@ class WidgetTextFitTest {
         return view
     }
 
-    /** 文本自然宽度 vs 控件能给到的宽度（含 padding 扣减）。 */
     private fun fits(tv: TextView): Boolean {
         val avail = tv.width - tv.totalPaddingLeft - tv.totalPaddingRight
         val need = tv.paint.measureText(tv.text.toString())
@@ -105,7 +92,6 @@ class WidgetTextFitTest {
 
     @Test
     fun compactValueFitsAtNarrowestSize() {
-        // 110×60dp ≈ 2×1 在 4 列桌面上的最窄尺寸；60 / 184 / 320 / 500 都过一遍
         listOf(60, 68, 184, 320, 500).forEach { assertValueFits(WidgetKind.COMPACT, it, 110, 60) }
         listOf(184, 500).forEach { assertValueFits(WidgetKind.COMPACT, it, 150, 74) }
     }
@@ -128,11 +114,9 @@ class WidgetTextFitTest {
     @Test
     fun mainValueFitsInsideGauge() {
         listOf(60, 184, 500).forEach { assertValueFits(WidgetKind.MAIN, it, 288, 110) }
-        // 4×2 的最小尺寸（部分桌面只给 250×100）
         listOf(184, 500).forEach { assertValueFits(WidgetKind.MAIN, it, 250, 100) }
     }
 
-    /** 胶囊 + 主数字必须同时放得下：2×1 最窄宽度是最容易翻车的地方。 */
     @Test
     fun compactChipAndValueCoexist() {
         val view = inflate(WidgetKind.COMPACT, state(184, 264), 110, 60)

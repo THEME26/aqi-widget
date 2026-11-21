@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- v0.1.8：改 DayNight，明暗两套语义色见 values / values-night 的 colors.xml -->
+
     <style name="Theme.AqiWidget" parent="Theme.AppCompat.DayNight.NoActionBar" tools:targetApi="q">
         <item name="android:windowBackground">@color/bg_app</item>
         <item name="android:statusBarColor">@color/bg_app</item>
@@ -13,15 +13,6 @@
         <item name="colorAccent">@color/accent</item>
     </style>
 
-    <!-- 大数字：紧字距 + 去掉字体上下留白，视觉上更接近现代数据卡 -->
-
-    <!-- 分区小标题：全大写 + 加宽字距，替代原来的一堆说明长文 -->
-
-    <!-- ===== v0.4.0 App 三屏排版 =====
-         只放「字」相关的属性。layout_width / margin 一律写在 XML 里 ——
-         放进 style 虽然也能生效，但读代码时看不出这个控件占多宽，改布局容易漏。 -->
-
-    <!-- 分组小标题（数据 / 提醒 / 权限…）：11sp 中黑，宽字距 -->
     <style name="AqiGroupHead">
         <item name="android:textSize">11sp</item>
         <item name="android:textStyle">bold</item>
@@ -30,7 +21,6 @@
         <item name="android:includeFontPadding">false</item>
     </style>
 
-    <!-- 设置行标题：14sp，正文色，字距略收 -->
     <style name="AqiRowTitle">
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/text_primary</item>
@@ -38,22 +28,17 @@
         <item name="android:includeFontPadding">false</item>
     </style>
 
-    <!-- 设置行说明：11sp 弱色，行距 +2dp 让两行说明不糊成一坨 -->
     <style name="AqiRowDesc">
         <item name="android:textSize">11sp</item>
         <item name="android:textColor">@color/text_dim</item>
         <item name="android:lineSpacingExtra">2dp</item>
     </style>
 
-    <!-- 行右侧的值（如「30 分钟 ›」） -->
     <style name="AqiRowValue">
         <item name="android:textSize">13sp</item>
         <item name="android:textColor">@color/text_dim</item>
     </style>
 
-    <!-- 卡片分组标题 -->
-
-    <!-- 行间分隔线：1dp，左右不缩进（整行贯穿，视觉上像一张表） -->
     <style name="AqiDivider">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1dp</item>

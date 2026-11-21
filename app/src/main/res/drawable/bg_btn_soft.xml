@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 弹层里的「知道了」：比卡片再深一档的表面色，不做主按钮 —— 这个弹层没有主操作。 -->
+
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
     <solid android:color="@color/surface_2" />
