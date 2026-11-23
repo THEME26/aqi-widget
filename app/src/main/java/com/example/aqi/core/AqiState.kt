@@ -156,3 +156,13 @@ data class AqiState(
             )
     }
 }
+
+object FreshnessRule {
+
+    const val WINDOW_MULTIPLIER = 2L
+
+    fun of(fetchedAtMillis: Long, nowMillis: Long, intervalMinutes: Int): Freshness {
+        val window = intervalMinutes.coerceAtLeast(1) * 60_000L * WINDOW_MULTIPLIER
+        return if (nowMillis - fetchedAtMillis > window) Freshness.STALE else Freshness.FRESH
+    }
+}

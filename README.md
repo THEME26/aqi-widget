@@ -114,7 +114,7 @@ The unit tests execute the real drawing code under Robolectric and compare rende
 ## Limitations
 
 - The reading is model or station data, not a measurement at your exact position. It is not medical advice.
-- Widget refresh depends on system background scheduling. Aggressive battery optimisation can delay it; the card turns grey when data is old, so a delay is visible rather than silent.
+- Widget refresh depends on system background scheduling. Aggressive battery optimisation can delay it; the card turns grey when data is old, so a delay is visible rather than silent. Grey is a statement about the age of the reading, not about whether the last request succeeded — a failed request on a reading that is still inside the window keeps its colour and its timestamp.
 - Live Update promotion is decided by the system and varies by manufacturer. The app can request it, not guarantee it.
 - Only debug-signed builds are published; there is no store listing.
 - The project is provided as-is and is not actively maintained. Issues and pull requests may go unanswered.

@@ -11,8 +11,8 @@ class BootReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent?) {
         if (intent?.action != Intent.ACTION_BOOT_COMPLETED) return
 
+        RefreshScheduler.ensureCurrentSpec(context)
         if (!AqiPrefs(context).notificationEnabled) return
-        RefreshScheduler.ensurePeriodic(context)
-        RefreshScheduler.refreshNow(context)
+        RefreshScheduler.refreshWhenOnline(context)
     }
 }

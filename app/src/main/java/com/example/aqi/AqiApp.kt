@@ -12,7 +12,7 @@ class AqiApp : Application() {
     override fun onCreate() {
         super.onCreate()
         createNotificationChannel()
-        RefreshScheduler.ensurePeriodic(this)
+        RefreshScheduler.ensureCurrentSpec(this)
     }
 
     private fun createNotificationChannel() {

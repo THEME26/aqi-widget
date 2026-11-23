@@ -8,6 +8,7 @@ import com.example.aqi.core.AqiStandard
 import com.example.aqi.core.AqiState
 import com.example.aqi.core.DiagInfo
 import com.example.aqi.core.Freshness
+import com.example.aqi.core.FreshnessRule
 import org.json.JSONObject
 
 class AqiCache(ctx: Context) {
@@ -65,8 +66,7 @@ class AqiCache(ctx: Context) {
             if (source.needsToken && tokenBlank) Freshness.NO_TOKEN else Freshness.FAILED,
             standard,
         )
-        val ageMs = System.currentTimeMillis() - c.fetchedAtMillis
-        val staleAfter = intervalMinutes * 60_000L * 2
+        val freshness = FreshnessRule.of(c.fetchedAtMillis, System.currentTimeMillis(), intervalMinutes)
         val wantKind = if (areaSource(standard) == AqiSource.WAQI_RECALC) {
             com.example.aqi.core.AreaKind.STATION
         } else {
@@ -78,7 +78,7 @@ class AqiCache(ctx: Context) {
             c.area.radiusKm == prefs.areaRadiusKm
         val areaValid = prefs.areaEnabled && radiusOk && c.area?.worst == prefs.areaWorst && kindOk
         return c.copy(
-            freshness = if (ageMs > staleAfter) Freshness.STALE else Freshness.FRESH,
+            freshness = freshness,
             area = if (areaValid) c.area else null,
         )
     }

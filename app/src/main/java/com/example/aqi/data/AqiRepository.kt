@@ -7,6 +7,7 @@ import com.example.aqi.core.AqiStandard
 import com.example.aqi.core.AqiState
 import com.example.aqi.core.AreaStat
 import com.example.aqi.core.Freshness
+import com.example.aqi.core.FreshnessRule
 import java.io.IOException
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
@@ -81,7 +82,11 @@ class AqiRepository(private val ctx: Context) {
                 ctx.getString(R.string.sync_up_to_date, hhmm(cached?.fetchedAtMillis ?: 0L)),
             )
             return cached?.copy(
-                freshness = if (ageMs > intervalMs * 2) Freshness.STALE else Freshness.FRESH
+                freshness = FreshnessRule.of(
+                    cached.fetchedAtMillis,
+                    System.currentTimeMillis(),
+                    prefs.intervalMinutes,
+                ),
             ) ?: fallback(Freshness.FAILED, standard)
         }
 
@@ -214,7 +219,16 @@ class AqiRepository(private val ctx: Context) {
             if (reason == Freshness.STALE) Freshness.FAILED else reason,
             standard,
         )
-        return cached.copy(freshness = reason)
+        val effective = if (reason == Freshness.STALE) {
+            FreshnessRule.of(
+                cached.fetchedAtMillis,
+                System.currentTimeMillis(),
+                prefs.intervalMinutes,
+            )
+        } else {
+            reason
+        }
+        return cached.copy(freshness = effective)
     }
 
     private fun describeError(e: Exception, standard: AqiStandard, primary: AqiSource): String {
