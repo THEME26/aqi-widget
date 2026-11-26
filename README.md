@@ -1,5 +1,8 @@
 # AQI Bar
 
+[![Release](https://img.shields.io/github/v/release/THEME26/aqi-widget)](../../releases/latest)
+[![Licence](https://img.shields.io/github/license/THEME26/aqi-widget)](LICENSE)
+
 Air quality at a glance: four home-screen widgets and one persistent notification, both driven by the same reading. Values are computed on-device from raw pollutant concentrations, so the app works without an API key.
 
 ## Download
@@ -7,6 +10,8 @@ Air quality at a glance: four home-screen widgets and one persistent notificatio
 Take the latest APK from [Releases](../../releases/latest). Android will ask you to allow installing from unknown sources. Android 8.0 (API 26) or newer.
 
 Versions before 1.1.0 used a different application id, so 1.1.0 installs alongside them rather than replacing them: uninstall the old copy once the new one shows a reading. From 1.1.0 onwards updates install in place.
+
+To be told about releases, point [Obtainium](https://github.com/ImranR98/Obtainium) at `https://github.com/THEME26/aqi-widget`.
 
 ## Features
 
