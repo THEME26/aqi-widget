@@ -11,3 +11,5 @@
 _removed/
 .kotlin/
 tools/
+/keystore.properties
+/release.keystore

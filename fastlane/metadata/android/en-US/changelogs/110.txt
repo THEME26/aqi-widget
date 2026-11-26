@@ -1,0 +1,7 @@
+New application id, so this version installs alongside 1.0.x. Remove the old app once the reading shows up again.
+
+- Cards no longer turn grey after a single failed request. Grey now describes only the age of the reading, as it was meant to.
+- Scheduled refreshes wait for a network connection instead of failing while the radio is still waking up.
+- A failed refresh retries with backoff instead of being reported as a success.
+- Release builds are signed with a dedicated key and are no longer debuggable.
+- Source released under the GNU GPL v3.

@@ -1,0 +1,34 @@
+AQI Bar keeps the current air quality where you can see it: four home-screen widgets in different sizes, and one quiet line in the status bar.
+
+WHAT YOU GET
+- Four widget sizes: 4x2 (value, level, gauge, station, dominant pollutant), 2x1 (gauge, value, action), 1x2 (vertical) and 1x1 (colour and number only).
+- All widgets read the same cached reading, so the number, the colour and the ring never disagree.
+- A silent, persistent notification. The icon is a face, not a number: the status bar only keeps a silhouette, and six levels of fill are indistinguishable at 24 dp.
+- On Android 16 and later the notification can become a system Live Update on the lock screen and the always-on display. The system draws it; the app runs no foreground service and never wakes the screen.
+
+TWO AQI SCALES, COMPUTED ON THE DEVICE
+- US AQI with the 2024 EPA breakpoints, from raw concentrations of PM2.5, PM10, ozone, nitrogen dioxide, sulphur dioxide and carbon monoxide.
+- China AQI (HJ 633-2012) from the same raw values.
+- Averaging windows follow the breakpoint tables, not the instantaneous peak.
+
+AREA CONTEXT
+One station is not the whole district. The app samples nine grid points around you at 10, 25 or 50 km and reports either the median or the worst cell.
+
+DATA SOURCES
+- Open-Meteo (default): global model data, no key, no registration.
+- WAQI: station-level readings, optional, needs a free token from the World Air Quality Index Project.
+Both can be shown side by side; a missing key shows a placeholder instead of quietly borrowing the other source's number.
+
+HONEST ABOUT STALE DATA
+When the last successful refresh is older than twice the refresh interval, the card turns neutral grey and keeps the number, because the number is still a real observation. Grey never means a request failed.
+
+PRIVACY
+- Location is used to get coordinates for the request. It is not stored and goes nowhere else.
+- A WAQI token stays in private app storage, excluded from cloud backup.
+- No analytics, no crash reporting, no advertising SDKs, no account.
+- The only network traffic is the request to the source you selected.
+
+LANGUAGES
+Chinese, English, Japanese, Korean, French, Spanish, German.
+
+Requires Android 8.0 or newer. Free software under the GNU GPL v3.

@@ -1,24 +1,44 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
 }
 
+// Release signing is optional: without keystore.properties the release build stays
+// unsigned, which is what a source-based build (F-Droid) expects.
+val keystoreProperties: Properties? = rootProject.file("keystore.properties").takeIf { it.exists() }
+    ?.let { file -> Properties().apply { file.inputStream().use { load(it) } } }
+
 android {
-    namespace = "com.example.aqi"
+    namespace = "io.github.theme26.aqibar"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.aqi"
+        applicationId = "io.github.theme26.aqibar"
         minSdk = 26
         targetSdk = 35
-        versionCode = 101
-        versionName = "1.0.1"
+        versionCode = 110
+        versionName = "1.1.0"
+    }
+
+    signingConfigs {
+        if (keystoreProperties != null) {
+            create("release") {
+                storeFile = rootProject.file(keystoreProperties.getProperty("storeFile"))
+                storePassword = keystoreProperties.getProperty("storePassword")
+                keyAlias = keystoreProperties.getProperty("keyAlias")
+                keyPassword = keystoreProperties.getProperty("keyPassword")
+            }
+        }
     }
 
     buildTypes {
         release {
             isMinifyEnabled = false
+            isDebuggable = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            signingConfig = signingConfigs.findByName("release")
         }
     }
 

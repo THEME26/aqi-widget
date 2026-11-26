@@ -4,7 +4,9 @@ Air quality at a glance: four home-screen widgets and one persistent notificatio
 
 ## Download
 
-Take the latest APK from [Releases](../../releases/latest). The build is **debug-signed**, so Android will ask you to allow installing from unknown sources. Android 8.0 (API 26) or newer.
+Take the latest APK from [Releases](../../releases/latest). Android will ask you to allow installing from unknown sources. Android 8.0 (API 26) or newer.
+
+Versions before 1.1.0 used a different application id, so 1.1.0 installs alongside them rather than replacing them: uninstall the old copy once the new one shows a reading. From 1.1.0 onwards updates install in place.
 
 ## Features
 
@@ -99,9 +101,21 @@ Requirements: JDK 17 and Android SDK Platform 35 with Build Tools 35. Gradle 8.7
 
 ```bash
 ./gradlew :app:assembleDebug          # APK in app/build/outputs/apk/debug/
+./gradlew :app:assembleRelease        # APK in app/build/outputs/apk/release/
 ./gradlew :app:testDebugUnitTest      # unit tests
 ./gradlew :app:lintDebug              # lint report
 ```
+
+The release build is signed only if a `keystore.properties` file is present at the repository root:
+
+```properties
+storeFile=release.keystore
+storePassword=…
+keyAlias=…
+keyPassword=…
+```
+
+Without that file the release build is left unsigned, which is what a source-based distribution needs — the distributor signs it. Do not commit either file.
 
 The unit tests execute the real drawing code under Robolectric and compare rendered pixels, so gauge geometry and palette changes are verified without a device.
 
@@ -116,8 +130,7 @@ The unit tests execute the real drawing code under Robolectric and compare rende
 - The reading is model or station data, not a measurement at your exact position. It is not medical advice.
 - Widget refresh depends on system background scheduling. Aggressive battery optimisation can delay it; the card turns grey when data is old, so a delay is visible rather than silent. Grey is a statement about the age of the reading, not about whether the last request succeeded — a failed request on a reading that is still inside the window keeps its colour and its timestamp.
 - Live Update promotion is decided by the system and varies by manufacturer. The app can request it, not guarantee it.
-- Only debug-signed builds are published; there is no store listing.
-- The project is provided as-is and is not actively maintained. Issues and pull requests may go unanswered.
+- Widgets need to be added again after installing 1.1.0, because the application id changed.
 
 ## Acknowledgements
 
@@ -127,6 +140,12 @@ The code, the resources and this document were produced with AI assistance:
 - **DeepSeek** — model used for code generation and review.
 
 The tooling wrote it; the requirements and the judgement calls came from a human.
+
+## Licence
+
+GNU General Public License, version 3 — see [LICENSE](LICENSE).
+
+A permissive licence would let anyone ship this code with an analytics SDK attached and call it the same app. The GPL keeps derivatives open and forces modifications to be visible, which is the whole point of an app whose only promise is that it does nothing behind your back.
 
 ## Attribution
 

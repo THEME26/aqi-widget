@@ -228,7 +228,7 @@
                             android:textSize="11sp"
                             android:textStyle="bold" />
 
-                        <com.example.aqi.ui.ValueBarView
+                        <io.github.theme26.aqibar.ui.ValueBarView
                             android:id="@+id/bar_area"
                             android:layout_width="0dp"
                             android:layout_height="7dp"
@@ -262,7 +262,7 @@
                             android:textSize="11sp"
                             android:textStyle="bold" />
 
-                        <com.example.aqi.ui.ValueBarView
+                        <io.github.theme26.aqibar.ui.ValueBarView
                             android:id="@+id/bar_site"
                             android:layout_width="0dp"
                             android:layout_height="7dp"
@@ -357,7 +357,7 @@
                 android:baselineAligned="false"
                 android:orientation="horizontal">
 
-                <com.example.aqi.ui.AreaGridView
+                <io.github.theme26.aqibar.ui.AreaGridView
                     android:id="@+id/area_grid"
                     android:layout_width="176dp"
                     android:layout_height="176dp" />

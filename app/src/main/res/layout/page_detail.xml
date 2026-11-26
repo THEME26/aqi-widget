@@ -102,7 +102,7 @@
                 android:textColor="@color/text_dim"
                 android:textSize="11sp" />
 
-            <com.example.aqi.ui.TierRulerView
+            <io.github.theme26.aqibar.ui.TierRulerView
                 android:id="@+id/detail_ruler"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
