@@ -44,6 +44,8 @@ On the lock screen the notification shows the number only. Station names are omi
 
 On Android 16 and later the notification can be promoted to a system Live Update, which places it on the lock screen and the always-on display. The system draws it — the app holds no foreground service and never wakes the screen. If the lock screen stays empty, the channel-level *Live Updates* toggle must be enabled in system settings; the app reports the current state and links to that page.
 
+Before Android 16 — or for anyone who prefers the plain form — **Settings → Lock-screen card** turns the promotion off and the notification goes back to being an ordinary ongoing one in the shade.
+
 ### Stale data is visible
 
 When the last successful refresh is more than twice the refresh interval ago, the whole card switches to a neutral palette and the ring keeps its last filled segments. The number stays, because it is still a real observation — the colour simply stops claiming that the air is like this *now*.

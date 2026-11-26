@@ -283,7 +283,7 @@
     <string name="detail_calc_res_station">站点为地面实测，受站点位置（路边 / 公园 / 楼顶）影响很大；相邻两站差 20 以上是常态，不代表其中一个是错的。</string>
 <string name="toast_area_need_token">周边用 WAQI 站点需要先填 Token，已保持原选择</string>
 
-    <string name="row_live">系统息屏显示</string>
+    <string name="row_live">锁屏卡片（Live Update）</string>
     <string name="live_state_unknown">检测中…</string>
     <string name="live_state_unsupported">本机系统版本不支持（需 Android 16 及以上）</string>
     <string name="live_state_denied">系统未允许本应用使用实时通知，点此去开启</string>

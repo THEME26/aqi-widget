@@ -272,7 +272,7 @@
     <string name="detail_calc_res_station">局は地上で実測しており、設置場所（道路沿い・公園・屋上）の影響を強く受けます。隣接局で 20 以上違うのは普通のことで、どちらかが誤りというわけではありません。</string>
 <string name="toast_area_need_token">WAQI 局を使うにはトークンが必要です。選択は変更していません</string>
 
-    <string name="row_live">システム常時表示</string>
+    <string name="row_live">ロック画面カード（Live Update）</string>
     <string name="live_state_unknown">確認中…</string>
     <string name="live_state_unsupported">この Android バージョンでは未対応（16 以上が必要）</string>
     <string name="live_state_denied">このアプリのリアルタイム通知が許可されていません。タップして有効化</string>

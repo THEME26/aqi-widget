@@ -274,7 +274,7 @@
     <!-- v0.4.9 Always-On-Display -->
 
     <!-- v0.5.0 systemweites Always-On-Display (Live Updates) -->
-    <string name="row_live">Systemweites Always-On-Display</string>
+    <string name="row_live">Karte auf dem Sperrbildschirm (Live Update)</string>
     <string name="live_state_unknown">Wird geprüft…</string>
     <string name="live_state_unsupported">Auf dieser Android-Version nicht unterstützt (ab 16)</string>
     <string name="live_state_denied">Das System erlaubt dieser App keine Live-Updates. Zum Aktivieren tippen</string>

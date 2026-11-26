@@ -274,7 +274,7 @@
     <!-- v0.4.9 affichage permanent -->
 
     <!-- v0.5.0 affichage permanent système (Live Updates) -->
-    <string name="row_live">Affichage permanent système</string>
+    <string name="row_live">Carte d\'écran verrouillé (Live Update)</string>
     <string name="live_state_unknown">Vérification…</string>
     <string name="live_state_unsupported">Non pris en charge sur cette version d’Android (16 ou plus requis)</string>
     <string name="live_state_denied">Le système n’autorise pas les mises à jour en direct pour cette app. Touchez pour activer</string>

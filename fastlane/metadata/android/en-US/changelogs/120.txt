@@ -1,0 +1,3 @@
+- The setting that decides between a Live Update and a plain ongoing notification was called "System always-on display", which described where the card appears rather than what the switch does. It is now "Lock-screen card (Live Update)", and its state line says what you get when it is off.
+- Turning it off takes effect immediately, from the cached reading, instead of waiting for the next successful refresh.
+- The row is hidden on Android versions that cannot promote notifications at all, rather than showing a switch that does nothing.

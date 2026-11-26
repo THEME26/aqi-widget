@@ -274,7 +274,7 @@
     <!-- v0.4.9 상시 표시 -->
 
     <!-- v0.5.0 시스템 상시 표시(Live Updates) -->
-    <string name="row_live">시스템 상시 표시</string>
+    <string name="row_live">잠금 화면 카드 (Live Update)</string>
     <string name="live_state_unknown">확인 중…</string>
     <string name="live_state_unsupported">이 Android 버전에서는 지원되지 않습니다(16 이상 필요)</string>
     <string name="live_state_denied">이 앱의 실시간 알림이 허용되지 않았습니다. 눌러서 켜기</string>

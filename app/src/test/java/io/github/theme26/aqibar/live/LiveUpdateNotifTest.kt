@@ -75,6 +75,17 @@ class LiveUpdateNotifTest {
     }
 
     @Test
+    fun switchingOffReplacesThePostedNotification() {
+        showWith(live = true)
+        assertTrue(postedNotification()!!.extras.getBoolean(LiveUpdate.EXTRA_REQUEST_PROMOTED, false))
+        showWith(live = false)
+        assertFalse(
+            "the same id must be reposted without the promotion request, or the switch does nothing",
+            postedNotification()!!.extras.getBoolean(LiveUpdate.EXTRA_REQUEST_PROMOTED, false),
+        )
+    }
+
+    @Test
     fun requestsEvenOnOlderSdk() {
         assertEquals("测试跑在 SDK 30，不应支持 Live Updates", false, LiveUpdate.supported)
         showWith(live = true)

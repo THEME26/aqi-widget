@@ -277,7 +277,7 @@
     <!-- v0.4.9 always-on display -->
 
     <!-- v0.5.0 system always-on display (Live Updates) -->
-    <string name="row_live">System always-on display</string>
+    <string name="row_live">Lock-screen card (Live Update)</string>
     <string name="live_state_unknown">Checking…</string>
     <string name="live_state_unsupported">Not supported on this Android version (needs 16+)</string>
     <string name="live_state_denied">The system does not allow live updates for this app. Tap to enable</string>

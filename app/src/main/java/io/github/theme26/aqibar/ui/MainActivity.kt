@@ -24,6 +24,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.graphics.Insets
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isVisible
 import io.github.theme26.aqibar.BuildConfig
 import io.github.theme26.aqibar.R
 import io.github.theme26.aqibar.core.AqiLevel
@@ -407,9 +408,11 @@ class MainActivity : AppCompatActivity() {
 
         swLive = pageSettings.findViewById(R.id.sw_live)
         tvLiveState = pageSettings.findViewById(R.id.tv_live_state)
+        pageSettings.findViewById<View>(R.id.row_live).isVisible = LiveUpdate.supported
         swLive.setChecked(prefs.liveUpdate)
         swLive.onCheckedChange = { checked ->
             prefs.liveUpdate = checked
+            repostNotification()
             RefreshScheduler.refreshNow(this)
             applyLiveState()
         }
@@ -530,6 +533,14 @@ class MainActivity : AppCompatActivity() {
     private fun markFetching() {
         prefs.recordSync(false, getString(R.string.sync_getting))
         renderFromCache()
+    }
+
+    private fun repostNotification() {
+        val s = AqiCache(this).loadForDisplay(prefs.intervalMinutes, prefs.standard, prefs.token.isBlank())
+        if (!s.hasValue) return
+        val notifier = AqiNotifier(this)
+        notifier.cancel()
+        notifier.show(s)
     }
 
     private fun renderFromCache() {

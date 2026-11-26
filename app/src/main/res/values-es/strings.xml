@@ -274,7 +274,7 @@
     <!-- v0.4.9 pantalla siempre activa -->
 
     <!-- v0.5.0 pantalla siempre activa del sistema (Live Updates) -->
-    <string name="row_live">Pantalla siempre activa del sistema</string>
+    <string name="row_live">Tarjeta de pantalla bloqueada (Live Update)</string>
     <string name="live_state_unknown">Comprobando…</string>
     <string name="live_state_unsupported">No compatible con esta versión de Android (requiere 16 o superior)</string>
     <string name="live_state_denied">El sistema no permite actualizaciones en vivo para esta app. Toca para activarlo</string>
