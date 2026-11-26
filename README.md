@@ -148,7 +148,7 @@ The tooling wrote it; the requirements and the judgement calls came from a human
 
 ## Licence
 
-GNU General Public License, version 3 — see [LICENSE](LICENSE).
+GNU General Public License, version 3 — see [LICENSE](LICENSE). Copyright (C) 2026 THEME26.
 
 A permissive licence would let anyone ship this code with an analytics SDK attached and call it the same app. The GPL keeps derivatives open and forces modifications to be visible, which is the whole point of an app whose only promise is that it does nothing behind your back.
 
