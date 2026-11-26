@@ -11,7 +11,7 @@ Take the latest APK from [Releases](../../releases/latest). Android will ask you
 
 Versions before 1.1.0 used a different application id, so 1.1.0 installs alongside them rather than replacing them: uninstall the old copy once the new one shows a reading. From 1.1.0 onwards updates install in place.
 
-To be told about releases, point [Obtainium](https://github.com/ImranR98/Obtainium) at `https://github.com/THEME26/aqi-widget`.
+To follow releases without a store, [add AQI Bar to Obtainium](https://apps.obtainium.imranr.dev/redirect?r=obtainium%3A%2F%2Fapp%2F%7B%22id%22%3A%22io.github.theme26.aqibar%22%2C%22url%22%3A%22https%3A%2F%2Fgithub.com%2FTHEME26%2Faqi-widget%22%2C%22author%22%3A%22THEME26%22%2C%22name%22%3A%22AQI%20Bar%22%7D) — one tap on a phone that already has it.
 
 ## Features
 
