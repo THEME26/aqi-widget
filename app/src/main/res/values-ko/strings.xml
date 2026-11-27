@@ -282,4 +282,10 @@
     <string name="live_state_ok">시스템이 채택함 · 잠금 화면에 안 보이면 여기를 눌러 실시간 업데이트를 켜세요</string>
     <string name="live_state_off">꺼짐. 일반 상시 알림으로 돌아갑니다</string>
     <string name="live_state_no_notif">현재 상시 알림이 없습니다 — 경고 시에만 모드에서는 좋음·보통일 때 알림이 표시되지 않습니다</string>
+    <string name="shortcut_refresh_short">새로 고침</string>
+    <string name="shortcut_refresh_long">대기질 새로 고침</string>
+    <string name="shortcut_settings_short">설정</string>
+    <string name="shortcut_settings_long">설정 열기</string>
+    <string name="shortcut_reading_short">AQI %1$d</string>
+    <string name="shortcut_reading_long">%1$d · %2$s</string>
 </resources>

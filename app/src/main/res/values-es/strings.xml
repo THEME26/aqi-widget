@@ -282,4 +282,10 @@
     <string name="live_state_ok">Promocionado por el sistema · si la pantalla de bloqueo sigue vacía, toca aquí para activar « Actualizaciones en directo »</string>
     <string name="live_state_off">Desactivado; la notificación sigue siendo permanente normal</string>
     <string name="live_state_no_notif">Ahora no hay notificación permanente (con «solo alertas», el aire bueno o moderado no muestra nada)</string>
+    <string name="shortcut_refresh_short">Actualizar</string>
+    <string name="shortcut_refresh_long">Actualizar la calidad del aire</string>
+    <string name="shortcut_settings_short">Ajustes</string>
+    <string name="shortcut_settings_long">Abrir ajustes</string>
+    <string name="shortcut_reading_short">AQI %1$d</string>
+    <string name="shortcut_reading_long">%1$d · %2$s</string>
 </resources>

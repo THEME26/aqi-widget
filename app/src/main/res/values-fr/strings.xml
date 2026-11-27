@@ -282,4 +282,10 @@
     <string name="live_state_ok">Promu par le système · si l’écran verrouillé reste vide, appuyez ici pour activer « Mises à jour en direct »</string>
     <string name="live_state_off">Désactivé ; la notification reste une notification permanente classique</string>
     <string name="live_state_no_notif">Aucune notification permanente pour l’instant (avec « alertes seulement », un air bon ou moyen n’affiche rien)</string>
+    <string name="shortcut_refresh_short">Actualiser</string>
+    <string name="shortcut_refresh_long">Actualiser la qualité de l\'air</string>
+    <string name="shortcut_settings_short">Réglages</string>
+    <string name="shortcut_settings_long">Ouvrir les réglages</string>
+    <string name="shortcut_reading_short">AQI %1$d</string>
+    <string name="shortcut_reading_long">%1$d · %2$s</string>
 </resources>

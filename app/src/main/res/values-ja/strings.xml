@@ -280,4 +280,10 @@
     <string name="live_state_ok">システムに採用済み · ロック画面に出ないときは、ここをタップして「リアルタイム更新」をオンに</string>
     <string name="live_state_off">オフ。通常の常駐通知に戻ります</string>
     <string name="live_state_no_notif">現在、常駐通知はありません（「警報時のみ」では優/良のとき表示されません）</string>
+    <string name="shortcut_refresh_short">更新</string>
+    <string name="shortcut_refresh_long">大気質を今すぐ更新</string>
+    <string name="shortcut_settings_short">設定</string>
+    <string name="shortcut_settings_long">設定を開く</string>
+    <string name="shortcut_reading_short">AQI %1$d</string>
+    <string name="shortcut_reading_long">%1$d · %2$s</string>
 </resources>

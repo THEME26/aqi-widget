@@ -1,0 +1,5 @@
+Some lock screens list app shortcuts rather than widgets — ColorOS 16 works that way, which is why WeChat's pay and scan entries show up there. An app with no shortcut declared is missing from that list entirely, at every widget size.
+
+AQI Bar now publishes three: Refresh, Settings, and one whose label is the current reading (AQI 42), so the number can sit on the lock screen as a tappable icon.
+
+All four widget sizes remain on offer for lock screens that take real widgets. If the app still does not appear after updating, restart the phone once — the widget and shortcut lists are cached across an in-place upgrade.

@@ -108,6 +108,24 @@ class MainActivity : AppCompatActivity() {
         wireControls()
         selectTab(if (savedInstanceState == null) 0 else savedInstanceState.getInt(KEY_TAB, 0))
         RefreshScheduler.ensurePeriodic(this)
+        handleShortcutAction(intent)
+    }
+
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        setIntent(intent)
+        handleShortcutAction(intent)
+    }
+
+    /** 快捷方式带进来的动作：直接刷新，或直接落到设置页。 */
+    private fun handleShortcutAction(intent: Intent?) {
+        when (intent?.action) {
+            Shortcuts.ACTION_REFRESH -> {
+                selectTab(0)
+                RefreshScheduler.refreshNow(this)
+            }
+            Shortcuts.ACTION_SETTINGS -> selectTab(2)
+        }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {

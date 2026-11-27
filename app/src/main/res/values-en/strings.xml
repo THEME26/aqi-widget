@@ -285,4 +285,10 @@
     <string name="live_state_ok">Promoted by the system · if the lock screen shows nothing, tap here to turn on “Live Updates”</string>
     <string name="live_state_off">Off; the notification stays a normal ongoing one</string>
     <string name="live_state_no_notif">No ongoing notification right now (with “alerts only”, good or moderate air shows no notification)</string>
+    <string name="shortcut_refresh_short">Refresh</string>
+    <string name="shortcut_refresh_long">Refresh air quality now</string>
+    <string name="shortcut_settings_short">Settings</string>
+    <string name="shortcut_settings_long">Open settings</string>
+    <string name="shortcut_reading_short">AQI %1$d</string>
+    <string name="shortcut_reading_long">%1$d · %2$s</string>
 </resources>

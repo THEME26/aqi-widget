@@ -291,4 +291,10 @@
     <string name="live_state_ok">已被系统采纳 · 锁屏没显示就点这里，打开「实时更新」开关</string>
     <string name="live_state_off">已关闭，通知恢复为普通常驻</string>
     <string name="live_state_no_notif">当前没有常驻通知（「仅污染时」这一档，优/良不显示通知）</string>
+    <string name="shortcut_refresh_short">刷新</string>
+    <string name="shortcut_refresh_long">立即刷新空气质量</string>
+    <string name="shortcut_settings_short">设置</string>
+    <string name="shortcut_settings_long">打开设置</string>
+    <string name="shortcut_reading_short">AQI %1$d</string>
+    <string name="shortcut_reading_long">%1$d · %2$s</string>
 </resources>

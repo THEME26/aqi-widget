@@ -282,4 +282,10 @@
     <string name="live_state_ok">Vom System übernommen · bleibt der Sperrbildschirm leer, hier tippen und „Live-Updates“ aktivieren</string>
     <string name="live_state_off">Aus; die Benachrichtigung bleibt eine normale dauerhafte</string>
     <string name="live_state_no_notif">Derzeit keine dauerhafte Benachrichtigung (bei „nur Warnungen“ erscheint bei guter oder mäßiger Luft nichts)</string>
+    <string name="shortcut_refresh_short">Aktualisieren</string>
+    <string name="shortcut_refresh_long">Luftqualität jetzt aktualisieren</string>
+    <string name="shortcut_settings_short">Einstellungen</string>
+    <string name="shortcut_settings_long">Einstellungen öffnen</string>
+    <string name="shortcut_reading_short">AQI %1$d</string>
+    <string name="shortcut_reading_long">%1$d · %2$s</string>
 </resources>

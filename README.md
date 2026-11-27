@@ -50,6 +50,8 @@ Before Android 16 — or for anyone who prefers the plain form — **Settings �
 
 All four sizes can be placed on the lock screen. Which of them a given lock screen offers is decided by its slots, not by the app: a theme that reserves a row of 1×1 boxes takes the 1×1 widget and nothing larger, while the AOSP lock-screen page added in Android 16 QPR1 is about 4×3 and takes the 4×2.
 
+Some lock screens fill that list with **app shortcuts** rather than widgets — ColorOS 16 is one. The entries you see under WeChat there (*pay*, *ride code*, *scan*) are shortcuts, not providers, so an app with no shortcut declared cannot appear at all. AQI Bar therefore publishes three: **Refresh**, **Settings**, and a live one whose label is the current reading (*AQI 42*). On those lock screens the app shows up as a tappable icon carrying the number; it cannot draw a card, because that surface does not accept `RemoteViews`.
+
 Where to look:
 
 - **ColorOS 16 (OPPO / OnePlus):** *Settings → Home screen, Lock screen & style → All Flux themes* → pick a theme → edit → **Add widget** on the lock-screen page.
