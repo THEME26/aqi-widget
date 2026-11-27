@@ -54,6 +54,8 @@ Whether that page exists is decided by the device, not by the app. The feature s
 
 The lock-screen slot is roughly four cells wide by three tall, one cell taller than the widget was drawn for, so the reading centres in a slightly taller card. Tapping it asks for the PIN before opening the app — the system default, and the right one for a screen anyone can pick up.
 
+One caveat worth knowing before you go looking: some manufacturers ship their own lock-screen widgets that look similar but are a different mechanism. ColorOS, for instance, puts **Quick App** cards on the lock screen through Flux themes — a separate runtime with its own markup and its own publishing process. It never reads `AppWidgetProvider`, so declaring the category has no effect there. The paragraph above describes the AOSP surface only.
+
 ### Stale data is visible
 
 When the last successful refresh is more than twice the refresh interval ago, the whole card switches to a neutral palette and the ring keeps its last filled segments. The number stays, because it is still a real observation — the colour simply stops claiming that the air is like this *now*.
