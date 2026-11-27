@@ -46,6 +46,14 @@ On Android 16 and later the notification can be promoted to a system Live Update
 
 Before Android 16 — or for anyone who prefers the plain form — **Settings → Lock-screen card** turns the promotion off and the notification goes back to being an ordinary ongoing one in the shade.
 
+### Lock screen widgets (Android 16 QPR1+)
+
+The 4×2 widget can also sit on the lock screen, in the separate widget page the system added in Android 16 QPR1. On Pixel: *Settings → Wallpaper & style → More lock screen settings → Widgets on lock screen*, then swipe left from the lock screen and add it.
+
+Whether that page exists is decided by the device, not by the app. The feature ships on Pixel first, is in AOSP for other manufacturers to adopt, and is off until the user turns it on. The app declares the widget as eligible for both surfaces; nothing else is needed.
+
+The lock-screen slot is roughly four cells wide by three tall, one cell taller than the widget was drawn for, so the reading centres in a slightly taller card. Tapping it asks for the PIN before opening the app — the system default, and the right one for a screen anyone can pick up.
+
 ### Stale data is visible
 
 When the last successful refresh is more than twice the refresh interval ago, the whole card switches to a neutral palette and the ring keeps its last filled segments. The number stays, because it is still a real observation — the colour simply stops claiming that the air is like this *now*.

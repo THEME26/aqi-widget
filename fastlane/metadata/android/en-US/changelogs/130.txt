@@ -1,0 +1,10 @@
+Lock screen widgets arrived with Android 16 QPR1: the lock screen gained a second page that holds ordinary app widgets. There is no separate widget type to build — the same provider is what the system places there, so the 4×2 widget now declares itself eligible for the lock screen as well as the home screen.
+
+Two things are worth knowing before you look for it:
+
+- The page is off by default and the switch is in system settings, not in this app. On Pixel it is *Wallpaper & style → More lock screen settings → Widgets on lock screen*; after that, swipe left from the lock screen and add AQI Bar. Availability is a device decision — the feature started on Pixel and other manufacturers adopt it on their own schedule.
+- The lock-screen slot is about 4×3, one cell taller than the widget was drawn for, so the reading sits centred in a slightly taller card rather than filling it.
+
+Tapping the widget asks for the PIN first, which is the system's default for launching an app from the lock screen and the correct behaviour for a screen anyone can pick up.
+
+The 1×1 and 1×2 widgets stay home-screen only: at that size they are a colour and a number, and in a 4×3 slot they would look like something went wrong.
