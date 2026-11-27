@@ -50,7 +50,7 @@ Before Android 16 — or for anyone who prefers the plain form — **Settings �
 
 All four sizes can be placed on the lock screen. Which of them a given lock screen offers is decided by its slots, not by the app: a theme that reserves a row of 1×1 boxes takes the 1×1 widget and nothing larger, while the AOSP lock-screen page added in Android 16 QPR1 is about 4×3 and takes the 4×2.
 
-Some lock screens fill that list with **app shortcuts** rather than widgets — ColorOS 16 is one. The entries you see under WeChat there (*pay*, *ride code*, *scan*) are shortcuts, not providers, so an app with no shortcut declared cannot appear at all. AQI Bar therefore publishes three: **Refresh**, **Settings**, and a live one whose label is the current reading (*AQI 42*). On those lock screens the app shows up as a tappable icon carrying the number; it cannot draw a card, because that surface does not accept `RemoteViews`.
+Some lock screens fill that list with **app shortcuts** rather than widgets — the entries under WeChat in ColorOS 16 (*pay*, *ride code*, *scan*) are the same items that appear when you long-press its icon. AQI Bar declares three of its own: **Refresh**, **Settings**, and one relabelled on every render with the current reading. They show up on a launcher's long-press menu regardless, and are what a lock screen would read if it chose to.
 
 Where to look:
 
@@ -58,6 +58,8 @@ Where to look:
 - **Android 16 QPR1 (Pixel):** *Settings → Wallpaper & style → More lock screen settings → Widgets on lock screen*, then swipe left from the lock screen.
 
 On the AOSP page the slot is roughly four cells wide by three tall, one cell taller than the 4×2 was drawn for, so the reading centres in a slightly taller card. Tapping any of them asks for the PIN before opening the app — the system default, and the right one for a screen anyone can pick up.
+
+Note on manufacturer lock screens: some of them do not list third-party widgets at all, whatever size is offered. ColorOS 16 was tested with all four sizes declared, and with `Refresh` and `Settings` shortcuts declared, and the app still did not appear in *Add widget*; the same list does show WeChat's pay and scan entries, so the filter is not simply "first-party only". No documented condition has been found that would let a third-party app in. On such a device the lock screen is not a reachable surface, and the notification is the way to see a reading without unlocking.
 
 ### Stale data is visible
 
