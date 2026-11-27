@@ -1,0 +1,10 @@
+1.3.0 only offered the 4×2 widget to the lock screen, on the assumption that the slot is a wide 4×3 card. On ColorOS 16 that is not how it works: a Flux theme decides its own slots, and a theme built around 1×1 boxes simply cannot take a 4×2 — so the app did not appear in **Add widget** at all, at any size.
+
+All four sizes are now offered, and the lock screen picks whichever fits: 1×1 for a single box, 2×1 for a short row, 1×2 for a tall one, 4×2 for the AOSP page on Pixel.
+
+Where to add it:
+
+- **ColorOS 16:** *Settings → Home screen, Lock screen & style → All Flux themes* → pick a theme → edit → **Add widget**.
+- **Android 16 QPR1 (Pixel):** *Settings → Wallpaper & style → More lock screen settings → Widgets on lock screen*, then swipe left from the lock screen.
+
+The 1×1 shows only the colour and the number, which is what a single box can carry. Tapping any size asks for the PIN first.

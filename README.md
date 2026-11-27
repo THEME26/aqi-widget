@@ -48,13 +48,14 @@ Before Android 16 — or for anyone who prefers the plain form — **Settings �
 
 ### Lock screen widgets (Android 16 QPR1+)
 
-The 4×2 widget can also sit on the lock screen, in the separate widget page the system added in Android 16 QPR1. On Pixel: *Settings → Wallpaper & style → More lock screen settings → Widgets on lock screen*, then swipe left from the lock screen and add it.
+All four sizes can be placed on the lock screen. Which of them a given lock screen offers is decided by its slots, not by the app: a theme that reserves a row of 1×1 boxes takes the 1×1 widget and nothing larger, while the AOSP lock-screen page added in Android 16 QPR1 is about 4×3 and takes the 4×2.
 
-Whether that page exists is decided by the device, not by the app. The feature ships on Pixel first, is in AOSP for other manufacturers to adopt, and is off until the user turns it on. The app declares the widget as eligible for both surfaces; nothing else is needed.
+Where to look:
 
-The lock-screen slot is roughly four cells wide by three tall, one cell taller than the widget was drawn for, so the reading centres in a slightly taller card. Tapping it asks for the PIN before opening the app — the system default, and the right one for a screen anyone can pick up.
+- **ColorOS 16 (OPPO / OnePlus):** *Settings → Home screen, Lock screen & style → All Flux themes* → pick a theme → edit → **Add widget** on the lock-screen page.
+- **Android 16 QPR1 (Pixel):** *Settings → Wallpaper & style → More lock screen settings → Widgets on lock screen*, then swipe left from the lock screen.
 
-One caveat worth knowing before you go looking: some manufacturers ship their own lock-screen widgets that look similar but are a different mechanism. ColorOS, for instance, puts **Quick App** cards on the lock screen through Flux themes — a separate runtime with its own markup and its own publishing process. It never reads `AppWidgetProvider`, so declaring the category has no effect there. The paragraph above describes the AOSP surface only.
+On the AOSP page the slot is roughly four cells wide by three tall, one cell taller than the 4×2 was drawn for, so the reading centres in a slightly taller card. Tapping any of them asks for the PIN before opening the app — the system default, and the right one for a screen anyone can pick up.
 
 ### Stale data is visible
 
